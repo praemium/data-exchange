@@ -1,0 +1,1297 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src https:"> 
+    <title>Public API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="products products_mm_au" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <a href="../index.html">
+        <img src="https://branding.onpraemium.com/image/gid_257/sidebar" class="logo" alt="Sidebar" />
+      </a>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#model-manager-australia" class="toc-h1 toc-link" data-title="Model Manager - Australia">Model Manager - Australia</a>
+          </li>
+          <li>
+            <a href="#authorisation" class="toc-h1 toc-link" data-title="Authorisation">Authorisation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-access-token" class="toc-h2 toc-link" data-title="POST Access Token"><span class="post">POST</span> Access Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#model-manager" class="toc-h1 toc-link" data-title="Model Manager">Model Manager</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-models" class="toc-h2 toc-link" data-title="GET Models"><span class="get">GET</span> Models</a>
+                  </li>
+                  <li>
+                    <a href="#get-model-approximate-fum" class="toc-h2 toc-link" data-title="GET Model Approximate FUM"><span class="get">GET</span> Model Approximate FUM</a>
+                  </li>
+                  <li>
+                    <a href="#get-model-performance" class="toc-h2 toc-link" data-title="GET Model Performance"><span class="get">GET</span> Model Performance</a>
+                  </li>
+                  <li>
+                    <a href="#get-model-holdings" class="toc-h2 toc-link" data-title="GET Model Holdings"><span class="get">GET</span> Model Holdings</a>
+                  </li>
+                  <li>
+                    <a href="#get-model-weight-adjustment" class="toc-h2 toc-link" data-title="GET Model Weight Adjustment"><span class="get">GET</span> Model Weight Adjustment</a>
+                  </li>
+                  <li>
+                    <a href="#put-model-weight-adjustment" class="toc-h2 toc-link" data-title="PUT Model Weight Adjustment"><span class="put">PUT</span> Model Weight Adjustment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#investments" class="toc-h1 toc-link" data-title="Investments">Investments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-securities" class="toc-h2 toc-link" data-title="GET Securities"><span class="get">GET</span> Securities</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='../openapifiles/mm.au.json'>OpenAPI File</a></li>
+            <li><a href="https://dev.onpraemium.com/">Back to developer portal</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='model-manager-australia'>Model Manager - Australia</h1>
+<p>This product allows access to models and securities.</p>
+<h1 id='authorisation'>Authorisation</h1><h3 id='post-access-token'><span class="post">POST</span> Access Token</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/token</p>
+</blockquote>
+
+<p>This endpoint returns access token that can be used to access public API endpoints.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Content-Type</span><span class="pi">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre></div><h5 id='header-parameters'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type<span class="required">required</span></td>
+<td>string</td>
+<td>Must be <strong>application/x-www-form-urlencoded</strong></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="s">client_id=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&amp;client_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+</code></pre></div><h5 id='request-parameter-body'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client_id<span class="required">required</span></td>
+<td>string</td>
+<td>OAuth 2.0 client ID provided by Praemium.</td>
+</tr>
+<tr>
+<td>Client_secret<span class="required">required</span></td>
+<td>string</td>
+<td>OAuth 2.0 client secret provided by Praemium.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3599</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ext_expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3599</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGc..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token_type</td>
+<td>string</td>
+<td>Token type is always Bearer.</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>integer</td>
+<td>After how many seconds an access token will expire.</td>
+</tr>
+<tr>
+<td>ext_expires_in</td>
+<td>integer</td>
+<td>Extended lifetime of access token if value of this field is greater than value of expires_in.</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string</td>
+<td>Access token that can be used to access public API endpoints.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h1 id='model-manager'>Model Manager</h1><h3 id='get-models'><span class="get">GET</span> Models</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/models</p>
+</blockquote>
+
+<p>This endpoint returns models for the model provider.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-2'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU529"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TE0001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Diversified Income"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FactSheetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.praemium.com.au/factsheet/TE0001.pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestProvider"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-14T11:33:16.937+11:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-30T00:00:00+10:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU530"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TE0002"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvestSMART Conservative"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FactSheetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.praemium.com.au/factsheet/TE0002.pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestProvider"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"UpdatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-19T15:46:48.55+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-30T00:00:00+10:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-2'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Praemium unique model Identifier.</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>A description of the model.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>enum</td>
+<td>Open = 0, Closing = 1, Closed = 2.</td>
+</tr>
+<tr>
+<td>FactSheetUrl</td>
+<td>string</td>
+<td>Fact sheet URL.</td>
+</tr>
+<tr>
+<td>ProviderName</td>
+<td>string</td>
+<td>Model provider name.</td>
+</tr>
+<tr>
+<td>UpdatedDate</td>
+<td>date-time</td>
+<td>Model status update. Note that this date refers to an update of the model description, not the model weights.</td>
+</tr>
+<tr>
+<td>LastTransactionDate</td>
+<td>date-time</td>
+<td>Model weights update date.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='get-model-approximate-fum'><span class="get">GET</span> Model Approximate FUM</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/modelapproximatefum</p>
+</blockquote>
+
+<p>This endpoint returns approximate FUM for the model.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-3'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">ModelId</span><span class="pi">:</span> <span class="s">AU1234</span>
+<span class="na">ValuationDate</span><span class="pi">:</span> <span class="s">2021-02-23T00:00:00Z</span>
+</code></pre></div><h5 id='request-parameter-query'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelId<span class="required">required</span></td>
+<td>string</td>
+<td>The model ID as returned by the model endpoint.</td>
+</tr>
+<tr>
+<td>ValuationDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>Date used to display the data.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"NumberOfAccountsLinked"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TotalTargetFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">63569.37</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TotalApproximateFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">62957.98</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ApproximateFumForAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU316168"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">230996.36</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelWeight"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.87</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TargetFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">43600.29</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ApproximateFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">43200.27</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU328554"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">20144.78</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelWeight"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.13</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TargetFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">19969.08</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ApproximateFum"</span><span class="p">:</span><span class="w"> </span><span class="mf">19757.71</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-3'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NumberOfAccountsLinked</td>
+<td>integer</td>
+<td>Number of accounts linked to the model.</td>
+</tr>
+<tr>
+<td>TotalTargetFum</td>
+<td>double</td>
+<td>Target FUM for all accounts. (AUD)</td>
+</tr>
+<tr>
+<td>TotalApproximateFum</td>
+<td>double</td>
+<td>Approximate FUM for all accounts. (AUD)</td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts.AccountId</td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts.TotalValue</td>
+<td>double</td>
+<td>Total market value of the account. (AUD)</td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts.ModelWeight</td>
+<td>double</td>
+<td>Account weight in the requested model.</td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts.TargetFum</td>
+<td>double</td>
+<td>Target FUM of the account. (AUD)</td>
+</tr>
+<tr>
+<td>ApproximateFumForAccounts.ApproximateFum</td>
+<td>double</td>
+<td>Approximate FUM of the account. (AUD)</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='get-model-performance'><span class="get">GET</span> Model Performance</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/modelperformance</p>
+</blockquote>
+
+<p>This endpoint returns performance for the model.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-4'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">ModelId</span><span class="pi">:</span> <span class="s">AU1234</span>
+<span class="na">FromDate</span><span class="pi">:</span> <span class="s">2021-01-23T00:00:00Z</span>
+<span class="na">ToDate</span><span class="pi">:</span> <span class="s">2021-02-23T00:00:00Z</span>
+</code></pre></div><h5 id='request-parameter-query-2'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelId<span class="required">required</span></td>
+<td>string</td>
+<td>The model ID as returned by the model endpoint.</td>
+</tr>
+<tr>
+<td>FromDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>The from date used when calculating data for the request.</td>
+</tr>
+<tr>
+<td>ToDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>The to date used when calculating data for the request.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"DailyPercentageReturns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-01T00:00:00+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0581</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CumulativePercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0581</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-02T00:00:00+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5749</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CumulativePercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5749</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-03T00:00:00+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5085</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CumulativePercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5085</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"PercentageReturns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PeriodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 mth"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.0963</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NetPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Annualised"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PeriodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 mths"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.8790</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NetPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Annualised"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PeriodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 yr"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.5027</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NetPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Annualised"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"PeriodDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Since 01/02/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.1234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NetPercentageReturn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Annualised"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-4'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DailyPercentageReturns</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>DailyPercentageReturns.Date</td>
+<td>date-time</td>
+<td>The date used to calculate performance data.</td>
+</tr>
+<tr>
+<td>DailyPercentageReturns.PercentageReturn</td>
+<td>double</td>
+<td>The performance percentage return.</td>
+</tr>
+<tr>
+<td>DailyPercentageReturns.CumulativePercentageReturn</td>
+<td>double</td>
+<td>Cumulative percentage return from the FromDate to Date.</td>
+</tr>
+<tr>
+<td>PercentageReturns</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>PercentageReturns.PeriodDescription</td>
+<td>string</td>
+<td>A description of the period the returns are calculated for.</td>
+</tr>
+<tr>
+<td>PercentageReturns.GrossPercentageReturn</td>
+<td>double</td>
+<td>The performance percentage return excluding expenses.</td>
+</tr>
+<tr>
+<td>PercentageReturns.NetPercentageReturn</td>
+<td>double</td>
+<td>The performance percentage return including expenses.</td>
+</tr>
+<tr>
+<td>PercentageReturns.Annualised</td>
+<td>boolean</td>
+<td>Whether the return is annualised.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='get-model-holdings'><span class="get">GET</span> Model Holdings</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/modelholdings</p>
+</blockquote>
+
+<p>This endpoint returns holdings for the model.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-5'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">ModelId</span><span class="pi">:</span> <span class="s">AU1234</span>
+<span class="na">ValuationDate</span><span class="pi">:</span> <span class="s">2021-02-23T00:00:00Z</span>
+</code></pre></div><h5 id='request-parameter-query-3'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelId<span class="required">required</span></td>
+<td>string</td>
+<td>The model ID as returned by the model endpoint.</td>
+</tr>
+<tr>
+<td>ValuationDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>Date used to display the data.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"TargetValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.5806</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ActualValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">55.5300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EstimatedYield"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.84</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VGS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"TargetValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.8733</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ActualValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.5500</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EstimatedYield"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.37</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUDCASH"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"TargetValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.5461</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ActualValuePercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.9200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EstimatedYield"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.77</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-5'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Security</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Security.Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>Security.Exchange</td>
+<td>string</td>
+<td>Security exchange.</td>
+</tr>
+<tr>
+<td>TargetValuePercentage</td>
+<td>double</td>
+<td>Target value in the model for the security.</td>
+</tr>
+<tr>
+<td>ActualValuePercentage</td>
+<td>double</td>
+<td>Percentage that was implemented allowing for market movements and minimum cash. This is record in the model shadow account for the model.</td>
+</tr>
+<tr>
+<td>EstimatedYield</td>
+<td>double</td>
+<td>Estimated yield of the security.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='get-model-weight-adjustment'><span class="get">GET</span> Model Weight Adjustment</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/modelweightadjustment</p>
+</blockquote>
+
+<p>This endpoint returns weight adjustment for the model.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-6'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">ModelId</span><span class="pi">:</span> <span class="s">AU1234</span>
+</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelId<span class="required">required</span></td>
+<td>string</td>
+<td>The model ID as returned by the model endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Isin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUDCASH"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Target"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9760</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Isin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0000005902"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INIF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Target"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.0240</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-6'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Security</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Security.Isin</td>
+<td>string</td>
+<td>International securities identification number of the security.</td>
+</tr>
+<tr>
+<td>Security.Code</td>
+<td>string</td>
+<td>Security code of the security.</td>
+</tr>
+<tr>
+<td>Security.Exchange</td>
+<td>string</td>
+<td>Exchange code of the security.</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>double</td>
+<td>The current percentage weight of the security in the model.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='put-model-weight-adjustment'><span class="put">PUT</span> Model Weight Adjustment</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/modelweightadjustment</p>
+</blockquote>
+
+<p>This endpoint can schedule weight adjustment for the model.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-7'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ModelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU646"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ModelWeightAdjustments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU111"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Target"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-2'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelId<span class="required">required</span></td>
+<td>string</td>
+<td>The model ID as returned by the model endpoint.</td>
+</tr>
+<tr>
+<td>ModelWeightAdjustments<span class="required">required</span></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>ModelWeightAdjustments.SecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>ModelWeightAdjustments.Target</td>
+<td>double</td>
+<td>The target percentage weight of the security in the model.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Accepted</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h1 id='investments'>Investments</h1><h3 id='get-securities'><span class="get">GET</span> Securities</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/securities</p>
+</blockquote>
+
+<p>This endpoint returns the security details for the service. If using search term, only top 10 results will be returned.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-8'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="c1"># Search by string</span>
+<span class="na">Search</span><span class="pi">:</span> <span class="s">BHP</span>
+<span class="na">PdsId</span><span class="pi">:</span> <span class="s">AU123</span>
+
+<span class="c1"># Search by security IDs</span>
+<span class="na">SecurityIds</span><span class="pi">:</span> <span class="s">AU1</span>
+<span class="na">SecurityIds</span><span class="pi">:</span> <span class="s">AU2</span>
+<span class="na">SecurityIds</span><span class="pi">:</span> <span class="s">AU3</span>
+
+<span class="c1"># Search by security codes</span>
+<span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">BHP.ASX</span>
+<span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">PPS.ASX</span>
+</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Search</td>
+<td>string</td>
+<td>Search term based on security code or security description. If Search is provided, SecurityIds and SecurityCodes will be ignored.</td>
+</tr>
+<tr>
+<td>PdsId</td>
+<td>string</td>
+<td>PDS ID.</td>
+</tr>
+<tr>
+<td>SecurityIds</td>
+<td>array</td>
+<td>A list of security IDs to search. If SecurityIds are provided, Search and SecurityCodes will be ignored.</td>
+</tr>
+<tr>
+<td>SecurityCodes</td>
+<td>array</td>
+<td>A list of security codes to search. If SecurityCodes are provided, Search and SecurityIds will be ignored.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BHP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BHP GROUP LIMITED FPO"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Isin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU000000BHP4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-7'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>Description.</td>
+</tr>
+<tr>
+<td>Isin</td>
+<td>string</td>
+<td>ISIN of security.</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>string</td>
+<td>Exchange of security.</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>string</td>
+<td>Currency of security.</td>
+</tr>
+<tr>
+<td>IsAllowedByApl</td>
+<td>boolean</td>
+<td>Is the security allowed by the approved product list. (Only returned when PdsId is supplied)</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

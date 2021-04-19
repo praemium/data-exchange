@@ -208,20 +208,20 @@
   color: #f92672;
 }
     </style>
-    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="../javascripts/all.js"></script>
+    <link href="../../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../../javascripts/all.js"></script>
   </head>
 
-  <body class="documentation documentation_version_2020_01_31" data-languages="[]">
+  <body class="documentation documentation_version_2019_11_21" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" alt="Navbar" />
+        <img src="../../../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <a href="../index.html">
+      <a href="../../../index.html">
         <img src="https://branding.onpraemium.com//image/gid_257/sidebar" class="logo" alt="Sidebar" />
       </a>
         <div class="search">
@@ -518,16 +518,11 @@
               </ul>
           </li>
           <li>
-            <a href="#user-management" class="toc-h1 toc-link" data-title="User Management">User Management</a>
+            <a href="#sso-and-user-management" class="toc-h1 toc-link" data-title="SSO and User Management">SSO and User Management</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#post-users" class="toc-h2 toc-link" data-title="POST Users"><span class="post">POST</span> Users</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#sso" class="toc-h1 toc-link" data-title="SSO">SSO</a>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#post-ssologin" class="toc-h2 toc-link" data-title="POST SSOLogin"><span class="post">POST</span> SSOLogin</a>
                   </li>
@@ -566,7 +561,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='../openapifiles/openapi_2020_01_31.json'>OpenAPI File</a></li>
+            <li><a href='../openapifiles/openapi_2019_11_21.json'>OpenAPI File</a></li>
             <li><a href='../previous_versions.html'>Previous Versions</a></li>
         </ul>
     </div>
@@ -580,7 +575,7 @@
 
 <p>If you are interested in using our API please contact our product team at <a href="mailto:applyforapi@praemium.com">applyforapi@praemium.com</a>. They can answer any queries you may have and ensure all our compliance and contractual requirements are met.</p>
 
-<p>After the Product team has approved your use of our API, and you&#39;re ready to start developing, please contact our Client Services team at <a href="mailto:support@praemium.com.au">support@praemium.com.au</a> to obtain a token is issued that allows access to our test environment. The test environment tokens are valid for 3* months and can be reissued upon request.</p>
+<p>After the Product team has approved your use of our API, and you&#39;re ready to start developing, please contact our Client Services team at support@praemium.com.au to obtain a token is issued that allows access to our test environment. The test environment tokens are valid for 3* months and can be reissued upon request.</p>
 
 <p>Once your application is fully developed, you can request a token for the Production environment.
 We have a number of different endpoints available. To check what you have access to please consult the data feeds team at Praemium. Below is a summary of the endpoint availability for your token:</p>
@@ -588,123 +583,132 @@ We have a number of different endpoints available. To check what you have access
 <table><thead>
 <tr>
 <th></th>
-<th>Standard</th>
-<th>SMA/Robo</th>
-<th>Enterprise</th>
-<th>Model Manager</th>
+<th style="text-align: center">Standard</th>
+<th style="text-align: center">SMA/Robo</th>
+<th style="text-align: center">Enterprise</th>
+<th style="text-align: center">Model Manager</th>
+<th style="text-align: center">SSO/User Management</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Portfolio Account</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Performance</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Tax</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Trading Activity</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Income</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Expenses</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Reports and Files</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
-</tr>
-<tr>
-<td>SSO</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Account Creation</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Applicant Creation</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>PDS Get</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Linking Users</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Bulk</td>
-<td></td>
-<td></td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Create Applications via AP</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
-</tr>
-<tr>
-<td>User Management</td>
-<td></td>
-<td>✔</td>
-<td>✔</td>
-<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
 </tr>
 <tr>
 <td>Models</td>
-<td></td>
-<td></td>
-<td></td>
-<td>✔</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td>SSO and User Management</td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">✔</td>
 </tr>
 </tbody></table>
 
@@ -732,11 +736,9 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <h1 id='versioning'>Versioning</h1><h2 id='specifying-a-version'>Specifying a Version</h2>
 <p>The API is versioned so that we can continually release new features and improvements without affecting existing implementations.</p>
 
-<p>To specify the API version, simply add the HTTP header <strong>x-pps-api-version</strong> to each request as shown below:</p>
+<p>To specify the API version, simply add the HTTP header x-pps-api-version header to each request.</p>
 
-<p><code>x-pps-api-version: 2020.01.31</code></p>
-
-<p>Documentation related to previous versions can be found <a href='../previous_versions.html'>here</a>.</p>
+<p><code>x-api-version: 2019.11.21</code></p>
 <h1 id='portfolio-details'>Portfolio Details</h1><h3 id='get-portfolios'><span class="get">GET</span> Portfolios</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.praemium.biz/public/api/portfolios</p>
@@ -747,7 +749,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters'>Header Parameters</h5>
 <table><thead>
@@ -1009,7 +1011,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-2'>Header Parameters</h5>
 <table><thead>
@@ -1251,7 +1253,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-3'>Header Parameters</h5>
 <table><thead>
@@ -1399,7 +1401,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-4'>Header Parameters</h5>
 <table><thead>
@@ -1454,7 +1456,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-5'>Header Parameters</h5>
 <table><thead>
@@ -1955,7 +1957,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-6'>Header Parameters</h5>
 <table><thead>
@@ -2253,7 +2255,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-7'>Header Parameters</h5>
 <table><thead>
@@ -2279,7 +2281,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <p><strong>Query Parameter Examples</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">InternalIDs</span><span class="pi">:</span> <span class="s">12345, 54321, </span><span class="m">00000</span>
-<span class="na">AccountType</span><span class="pi">:</span> <span class="m">3</span>
+<span class="na">AccountType</span><span class="pi">:</span> <span class="s">3,</span>
 <span class="na">ValuationDate</span><span class="pi">:</span> <span class="s">1950-01-01</span>
 </code></pre></div><h5 id='query-parameters-6'>Query Parameters</h5>
 <table><thead>
@@ -2313,11 +2315,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <td>LastRecordId</td>
 <td>integer</td>
 <td>Provide to only return data subsequent to this record id.</td>
-</tr>
-<tr>
-<td>ClassificationType</td>
-<td>integer</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -2965,7 +2962,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-8'>Header Parameters</h5>
 <table><thead>
@@ -3219,7 +3216,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-9'>Header Parameters</h5>
 <table><thead>
@@ -3546,7 +3543,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-10'>Header Parameters</h5>
 <table><thead>
@@ -4015,7 +4012,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-11'>Header Parameters</h5>
 <table><thead>
@@ -4317,7 +4314,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-12'>Header Parameters</h5>
 <table><thead>
@@ -4439,7 +4436,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-13'>Header Parameters</h5>
 <table><thead>
@@ -4619,7 +4616,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-14'>Header Parameters</h5>
 <table><thead>
@@ -4784,7 +4781,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-15'>Header Parameters</h5>
 <table><thead>
@@ -4970,7 +4967,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-16'>Header Parameters</h5>
 <table><thead>
@@ -5331,7 +5328,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
 <table><thead>
@@ -5560,7 +5557,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
 <table><thead>
@@ -5856,7 +5853,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
 <table><thead>
@@ -6053,7 +6050,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-20'>Header Parameters</h5>
 <table><thead>
@@ -6154,7 +6151,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
     </span><span class="nl">"ToDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-14T00:00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286521</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBA"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AssetDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMMONWEALTH BANK OF AUSTRALIA. FPO"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ExchangeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="p">,</span><span class="w">
@@ -6182,7 +6178,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
         </span><span class="nl">"DeemedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286522</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TWE"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AssetDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TREASURY WINE ESTATES LIMITED FPO"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ExchangeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="p">,</span><span class="w">
@@ -6210,7 +6205,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
         </span><span class="nl">"DeemedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286523</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WTC"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AssetDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WISETECH GLOBAL LIMITED FPO"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ExchangeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="p">,</span><span class="w">
@@ -6317,11 +6311,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <td>ResponseData.Transactions</td>
 <td>array</td>
 <td></td>
-</tr>
-<tr>
-<td>ResponseData.Transactions.TransactionId</td>
-<td>integer</td>
-<td>The unique identifier of the transaction. (<strong>Value might change subject to database table reseeding</strong>)</td>
 </tr>
 <tr>
 <td>ResponseData.Transactions.Asset</td>
@@ -6431,7 +6420,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <tr>
 <td>ResponseData.Transactions.SettlementCurrencyAmount</td>
 <td>double</td>
-<td>Displays the amount settled in an international currency.</td>
+<td>Displays the amount traded in an international currency.</td>
 </tr>
 <tr>
 <td>ResponseData.Transactions.SettlementCurrencyAveragePrice</td>
@@ -6461,7 +6450,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-21'>Header Parameters</h5>
 <table><thead>
@@ -6555,7 +6544,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286521</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opening Balance"</span><span class="p">,</span><span class="w">
@@ -6567,7 +6555,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
             </span><span class="nl">"GLCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286522</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interest Receipt"</span><span class="p">,</span><span class="w">
@@ -6579,7 +6566,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
             </span><span class="nl">"GLCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286523</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-11T00:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stock Purchase"</span><span class="p">,</span><span class="w">
@@ -6591,7 +6577,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
             </span><span class="nl">"GLCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286524</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-11T00:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stock Purchase"</span><span class="p">,</span><span class="w">
@@ -6603,7 +6588,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
             </span><span class="nl">"GLCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">137654286525</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-11T00:00:00Z"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stock Purchase"</span><span class="p">,</span><span class="w">
@@ -6733,11 +6717,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <td></td>
 </tr>
 <tr>
-<td>ResponseData.CashBooks.Transactions.TransactionId</td>
-<td>integer</td>
-<td>The unique identifier of the transaction. (<strong>Value might change subject to database table reseeding</strong>)</td>
-</tr>
-<tr>
 <td>ResponseData.CashBooks.Transactions.TransactionDate</td>
 <td>date-time</td>
 <td>The date on which the transaction occurred.</td>
@@ -6795,7 +6774,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-22'>Header Parameters</h5>
 <table><thead>
@@ -7082,7 +7061,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-23'>Header Parameters</h5>
 <table><thead>
@@ -7224,7 +7203,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-24'>Header Parameters</h5>
 <table><thead>
@@ -7425,7 +7404,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-25'>Header Parameters</h5>
 <table><thead>
@@ -7663,7 +7642,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-26'>Header Parameters</h5>
 <table><thead>
@@ -7845,7 +7824,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-27'>Header Parameters</h5>
 <table><thead>
@@ -7926,7 +7905,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-28'>Header Parameters</h5>
 <table><thead>
@@ -8078,7 +8057,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-29'>Header Parameters</h5>
 <table><thead>
@@ -8134,7 +8113,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-30'>Header Parameters</h5>
 <table><thead>
@@ -8670,7 +8649,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-31'>Header Parameters</h5>
 <table><thead>
@@ -8749,7 +8728,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-32'>Header Parameters</h5>
 <table><thead>
@@ -9081,7 +9060,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
 <table><thead>
@@ -9353,7 +9332,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
 <table><thead>
@@ -9547,7 +9526,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-35'>Header Parameters</h5>
 <table><thead>
@@ -9621,7 +9600,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-36'>Header Parameters</h5>
 <table><thead>
@@ -9756,7 +9735,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-37'>Header Parameters</h5>
 <table><thead>
@@ -9827,12 +9806,12 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <p><strong>Definition:</strong> https://api.praemium.biz/public/api/applications/draft</p>
 </blockquote>
 
-<p>This endpoint allows draft applications to be created via Application Portal.</p>
+<p>This endpoint allows draft applications to be created via Adviser Portal.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-38'>Header Parameters</h5>
 <table><thead>
@@ -9858,124 +9837,73 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <p><strong>Body Parameter Examples</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Adviser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adviser@praemium.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Applicants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"adviser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adviser@praemium.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"applicants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corporate"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CorporateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith &amp; Smith"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"BusinessAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+      </span><span class="nl">"applicantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corporate"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"corporateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith &amp; Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"businessAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Signatories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="nl">"signatories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Director"</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Director"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TFN"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TFN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Individual"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IndividualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"BirthCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"applicantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Individual"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"individualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"birthCountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"HomeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+          </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"MailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+          </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TFN"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TFN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NIN"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"MissingReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nl">"MissingReasonText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"Accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"RegisteredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Individual"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ApplicantIndexes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="mi">1</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN0001"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"BankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"AccountBsb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12012"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6555555567"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Usages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"Income"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CashContribution"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"Exclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0002"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"InitialInvestment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">132.12</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Shares"</span><span class="p">:</span><span class="w"> </span><span class="mf">321.32</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -10446,7 +10374,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <tr>
 <td>Accounts.Fees.Id</td>
 <td>string</td>
-<td>Fee ID of account returned by PDS endpoint.</td>
+<td>Fee ID of account.</td>
 </tr>
 <tr>
 <td>Accounts.Fees.Rate</td>
@@ -10456,7 +10384,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <tr>
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
-<td>Fee unit of account. (<strong>Dollar</strong> or <strong>Percent</strong>)</td>
+<td>Fee unit of account.</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -10545,7 +10473,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 </blockquote>
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
+  </span><span class="nl">"applicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h5 id='response-parameters-35'>Response Parameters</h5>
 <table><thead>
@@ -10573,7 +10501,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-39'>Header Parameters</h5>
 <table><thead>
@@ -10619,12 +10547,12 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 </blockquote>
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83225a21-1e9e-9ty1-b35a-6f1091c7a434"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Submitted"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"AccountsStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"applicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83225a21-1e9e-9ty1-b35a-6f1091c7a434"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Submitted"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountsStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMA00400000"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClosureRequested"</span><span class="w">
+      </span><span class="nl">"accountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMA00400000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClosureRequested"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -10674,7 +10602,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-40'>Header Parameters</h5>
 <table><thead>
@@ -10793,7 +10721,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-41'>Header Parameters</h5>
 <table><thead>
@@ -10883,7 +10811,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-42'>Header Parameters</h5>
 <table><thead>
@@ -11002,7 +10930,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-43'>Header Parameters</h5>
 <table><thead>
@@ -11090,7 +11018,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-44'>Header Parameters</h5>
 <table><thead>
@@ -11178,7 +11106,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-45'>Header Parameters</h5>
 <table><thead>
@@ -11247,7 +11175,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-46'>Header Parameters</h5>
 <table><thead>
@@ -11338,7 +11266,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-47'>Header Parameters</h5>
 <table><thead>
@@ -11416,7 +11344,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-48'>Header Parameters</h5>
 <table><thead>
@@ -11448,7 +11376,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
     </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample PDS"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"IsSuperSma"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BpayBillerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"347112"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"AccountTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="mi">1</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -11630,11 +11557,6 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <td>BpayBillerCode</td>
 <td>string</td>
 <td>BPay biller code for accounts within the PDS to use.</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>string</td>
-<td>Either “Active” or ”Closing”.</td>
 </tr>
 <tr>
 <td>AccountTypes</td>
@@ -11819,7 +11741,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-49'>Header Parameters</h5>
 <table><thead>
@@ -11898,7 +11820,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-50'>Header Parameters</h5>
 <table><thead>
@@ -12007,7 +11929,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-51'>Header Parameters</h5>
 <table><thead>
@@ -12157,7 +12079,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-52'>Header Parameters</h5>
 <table><thead>
@@ -12368,7 +12290,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-53'>Header Parameters</h5>
 <table><thead>
@@ -12513,7 +12435,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-54'>Header Parameters</h5>
 <table><thead>
@@ -12627,7 +12549,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-55'>Header Parameters</h5>
 <table><thead>
@@ -12722,7 +12644,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 </tbody></table>
 
 <p><br/></p>
-<h1 id='user-management'>User Management</h1><h3 id='post-users'><span class="post">POST</span> Users</h3>
+<h1 id='sso-and-user-management'>SSO and User Management</h1><h3 id='post-users'><span class="post">POST</span> Users</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://userapi.onpraemium.com/Users</p>
 </blockquote>
@@ -12732,7 +12654,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-56'>Header Parameters</h5>
 <table><thead>
@@ -12823,12 +12745,13 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0400000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"PhoneAlt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0498765432"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ServiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ServiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Team"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Developer"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"GenerateGetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nl">"GenerateGetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"GetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h5 id='body-parameters-13'>Body Parameters</h5>
 <table><thead>
@@ -12973,201 +12896,10 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <td>string</td>
 <td>The adviser ID for this user&#39;s adviser.</td>
 </tr>
-<tr>
-<td>GenerateGetStartedToken</td>
-<td>boolean</td>
-<td>Whether to generate an SSO token for this user to get started.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Parameter Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9108602</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"First"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Investor"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"UserLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"MothersMaidenName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jo"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test Street"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SuburbCounty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TownCityState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0400000000"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"PhoneAlt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0498765432"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ServiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1000"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Team"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Developer"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9110556</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"GetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.onpraemium.com/useraccount/changepassword?token=9108602-ED6205A469E04029B724EA9A11BDE37F-637141711208895228"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-47'>Response Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Id</td>
-<td>string</td>
-<td>The ID that the user will type when logging in.</td>
-</tr>
-<tr>
-<td>Name</td>
-<td>object</td>
-<td>Contains the name of the person we are creating a user for.</td>
-</tr>
-<tr>
-<td>Name.Title</td>
-<td>string</td>
-<td>Title of the user.</td>
-</tr>
-<tr>
-<td>Name.First</td>
-<td>string</td>
-<td>The user&#39;s first name.</td>
-</tr>
-<tr>
-<td>Name.Last</td>
-<td>string</td>
-<td>The user&#39;s last name.</td>
-</tr>
-<tr>
-<td>Gender</td>
-<td>string</td>
-<td>Male, Female, or null.</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>integer</td>
-<td>1 = investor</td>
-</tr>
-<tr>
-<td>UserLevel</td>
-<td>integer</td>
-<td>1 = standard investor user</td>
-</tr>
-<tr>
-<td>Email</td>
-<td>string</td>
-<td>The user&#39;s email address.</td>
-</tr>
-<tr>
-<td>DateOfBirth</td>
-<td>date-time</td>
-<td>For security purposes if we need to identify the user over the phone.</td>
-</tr>
-<tr>
-<td>MothersMaidenName</td>
-<td>string</td>
-<td>For security purposes if we need to identify the user over the phone.</td>
-</tr>
-<tr>
-<td>Addresses</td>
-<td>array</td>
-<td>Contains details of the user&#39;s address.</td>
-</tr>
-<tr>
-<td>Addresses.Type</td>
-<td>integer</td>
-<td>0 = street address</td>
-</tr>
-<tr>
-<td>Addresses.AddressLine1</td>
-<td>string</td>
-<td>Address details - Line 1.</td>
-</tr>
-<tr>
-<td>Addresses.AddressLine2</td>
-<td>string</td>
-<td>Address details - Line 2 (if applicable).</td>
-</tr>
-<tr>
-<td>Addresses.AddressLine3</td>
-<td>string</td>
-<td>Address details - Line 3 (if applicable).</td>
-</tr>
-<tr>
-<td>Addresses.SuburbCounty</td>
-<td>string</td>
-<td>Suburb or county details.</td>
-</tr>
-<tr>
-<td>Addresses.TownCityState</td>
-<td>string</td>
-<td>State or town or city details.</td>
-</tr>
-<tr>
-<td>Addresses.Postcode</td>
-<td>string</td>
-<td>Postcode.</td>
-</tr>
-<tr>
-<td>Addresses.Country</td>
-<td>string</td>
-<td>AUS = Australia.</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>string</td>
-<td>The user&#39;s phone number.</td>
-</tr>
-<tr>
-<td>PhoneAlt</td>
-<td>string</td>
-<td>An alternative phone number for the investor.</td>
-</tr>
-<tr>
-<td>ServiceId</td>
-<td>string</td>
-<td>The ID for the service that the user will log in to.</td>
-</tr>
-<tr>
-<td>Location</td>
-<td>string</td>
-<td>Location of the user.</td>
-</tr>
-<tr>
-<td>Team</td>
-<td>string</td>
-<td>Team that user is part of.</td>
-</tr>
-<tr>
-<td>JobTitle</td>
-<td>string</td>
-<td>The users Job Title.</td>
-</tr>
-<tr>
-<td>AdviserID</td>
-<td>string</td>
-<td>The adviser ID for this user&#39;s adviser.</td>
-</tr>
-<tr>
-<td>GetStartedToken</td>
-<td>string</td>
-<td>An SSO token to get started. (The first visit would usually ask for changing password.)</td>
-</tr>
 </tbody></table>
 
 <p><br/></p>
-<h1 id='sso'>SSO</h1><h3 id='post-ssologin'><span class="post">POST</span> SSOLogin</h3>
+<h3 id='post-ssologin'><span class="post">POST</span> SSOLogin</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.praemium.biz/public/api/ssologin</p>
 </blockquote>
@@ -13177,7 +12909,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Header Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">2020.01.31</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">x-api-version</span><span class="pi">:</span> <span class="s">2019.11.21</span>
 <span class="na">x-pps-token</span><span class="pi">:</span> <span class="s">XXXX-XXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXX</span>
 </code></pre></div><h5 id='header-parameters-57'>Header Parameters</h5>
 <table><thead>
@@ -13202,11 +12934,9 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <blockquote>
 <p><strong>Body Parameter Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Application"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platform"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='body-parameters-14'>Body Parameters</h5>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">UserId</span><span class="pi">:</span> <span class="s">1234,</span>
+<span class="na">Application</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Platform"</span> 
+</code></pre></div><h5 id='body-parameters-14'>Body Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -13217,7 +12947,7 @@ DO NOT deploy software with this token outside of a trusted environment or pass 
 <tr>
 <td>Application</td>
 <td>string</td>
-<td>The ID of the application the user will be sent to once logged in. Platform=V-Wrap, Investor=Investor Portal, Adviser=Adviser Portal, Applications=Application Portal.</td>
+<td>The ID of the application the user will be sent to once logged in. Platform=V-Wrap, Investor=Investor Portal, Adviser=Adviser Portal.</td>
 </tr>
 <tr>
 <td>Parameters</td>

@@ -1,0 +1,616 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src https:"> 
+    <title>Public API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="products products_s_uk" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <a href="../index.html">
+        <img src="https://branding.onpraemium.com/image/gid_257/sidebar" class="logo" alt="Sidebar" />
+      </a>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#single-sign-on-international" class="toc-h1 toc-link" data-title="Single Sign-On - International">Single Sign-On - International</a>
+          </li>
+          <li>
+            <a href="#authorisation" class="toc-h1 toc-link" data-title="Authorisation">Authorisation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-access-token" class="toc-h2 toc-link" data-title="POST Access Token"><span class="post">POST</span> Access Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#saml" class="toc-h1 toc-link" data-title="SAML">SAML</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#set-up-identity-provider" class="toc-h2 toc-link" data-title="Set up Identity Provider">Set up Identity Provider</a>
+                  </li>
+                  <li>
+                    <a href="#destination-applications" class="toc-h2 toc-link" data-title="Destination applications">Destination applications</a>
+                  </li>
+                  <li>
+                    <a href="#post-saml-login" class="toc-h2 toc-link" data-title="POST SAML Login"><span class="post">POST</span> SAML Login</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sso" class="toc-h1 toc-link" data-title="SSO">SSO</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-sso-login" class="toc-h2 toc-link" data-title="POST SSO Login"><span class="post">POST</span> SSO Login</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user" class="toc-h2 toc-link" data-title="GET User"><span class="get">GET</span> User</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='../openapifiles/s.uk.json'>OpenAPI File</a></li>
+            <li><a href="https://dev.onpraemium.com/">Back to developer portal</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='single-sign-on-international'>Single Sign-On - International</h1>
+<p>This product allows access to users, SAML and SSO.</p>
+<h1 id='authorisation'>Authorisation</h1><h3 id='post-access-token'><span class="post">POST</span> Access Token</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/token</p>
+</blockquote>
+
+<p>This endpoint returns access token that can be used to access public API endpoints.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Content-Type</span><span class="pi">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre></div><h5 id='header-parameters'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type<span class="required">required</span></td>
+<td>string</td>
+<td>Must be <strong>application/x-www-form-urlencoded</strong></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="s">client_id=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&amp;client_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+</code></pre></div><h5 id='request-parameter-body'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Client_id<span class="required">required</span></td>
+<td>string</td>
+<td>OAuth 2.0 client ID provided by Praemium.</td>
+</tr>
+<tr>
+<td>Client_secret<span class="required">required</span></td>
+<td>string</td>
+<td>OAuth 2.0 client secret provided by Praemium.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3599</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ext_expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3599</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGc..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token_type</td>
+<td>string</td>
+<td>Token type is always Bearer.</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>integer</td>
+<td>After how many seconds an access token will expire.</td>
+</tr>
+<tr>
+<td>ext_expires_in</td>
+<td>integer</td>
+<td>Extended lifetime of access token if value of this field is greater than value of expires_in.</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string</td>
+<td>Access token that can be used to access public API endpoints.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h1 id='saml'>SAML</h1><h3 id='set-up-identity-provider'>Set up Identity Provider</h3>
+<p>Identity Provider (IdP) has to be set up before you can use the SAML SSO. To set up IdP, you will need to provide the following:</p>
+
+<ul>
+<li>X509 Certificate</li>
+<li>Issuer of SAML token</li>
+</ul>
+<h3 id='destination-applications'>Destination applications</h3>
+<p>To determine a destination application that users will be landing, you will need to add &quot;Application&quot; attribute/value into your SAML Assertion/Token. The followings are the supported values:</p>
+
+<ul>
+<li>Platform (Platform &amp; Reporting)</li>
+<li>Adviser (Adviser Portal)</li>
+<li>Investor (Investor Portal)</li>
+</ul>
+
+<p>If no &quot;Application&quot; attribute/value is provided, users will SSO into Platform &amp; Reporting by default.</p>
+<h3 id='post-saml-login'><span class="post">POST</span> SAML Login</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://saml.onpraemium.com/login</p>
+</blockquote>
+
+<p>This endpoint returns a SAML token for login to Praemium platform.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Content-Type</span><span class="pi">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre></div><h5 id='header-parameters-2'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type<span class="required">required</span></td>
+<td>string</td>
+<td>Content type needs to be <strong>application/x-www-form-urlencoded</strong>.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Body Parameter Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="s">SAMLResponse={base64 encoded string of your SAML token}</span>
+</code></pre></div><h5 id='body-parameters'>Body Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SAMLResponse</td>
+<td>string</td>
+<td>The value of the SAMLResponse parameter is the base64 encoding of an SAML token.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="c1"># 302 - Redirect</span>
+<span class="s2">"</span><span class="s">https://login.onpraemium.com/useraccount/sso?token=******"</span>
+</code></pre></div><h1 id='sso'>SSO</h1><h3 id='post-sso-login'><span class="post">POST</span> SSO Login</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/ssologin</p>
+</blockquote>
+
+<p>This endpoint is to authenticate a user&#39;s access to the Praemium API. It returns a URL that contains a one-time security token. By accessing this URL, an authenticated user will be logged in without having to specify the user&#39;s credentials again.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-3'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Application"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-2'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Application<span class="required">required</span></td>
+<td>enum</td>
+<td>The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.</td>
+</tr>
+<tr>
+<td>UserId<span class="required">required</span></td>
+<td>integer</td>
+<td>ID of the user to log in. Either UserId or Username is required.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"SsoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.onpraemium.com/useraccount/sso?token=XXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-2'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SsoUrl</td>
+<td>string</td>
+<td>SSO URL.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h1 id='users'>Users</h1><h3 id='get-user'><span class="get">GET</span> User</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/user/{username}</p>
+</blockquote>
+
+<p>This endpoint returns the user links for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-4'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameters - Path Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">UserName</span><span class="pi">:</span> <span class="s">john_smith</span>
+</code></pre></div><h5 id='request-parameters-path'>Request Parameters - Path</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserName<span class="required">required</span></td>
+<td>string</td>
+<td>Username.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-3'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>integer</td>
+<td>User ID.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
