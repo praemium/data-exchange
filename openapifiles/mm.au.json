@@ -1,5 +1,289 @@
 {
   "paths": {
+    "/api/unsettledtransactions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Unsettled transactions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UnsettledTransaction"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUUnsettledTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Page",
+            "in": "query",
+            "required": false,
+            "description": "Page number to return. Default to 1. Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Size",
+            "in": "query",
+            "required": false,
+            "description": "Page size to return. Default to 100.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/dividendreinvestmentdetails": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Dividend reinvestment details",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DividendReinvestmentDetail"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUDividendReinvestmentDetails",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "User",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "operationId": "GetUser",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "description": "User Name.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/user": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "User",
+            "schema": {
+              "$ref": "#/definitions/UserCreationResponse"
+            }
+          }
+        },
+        "operationId": "CreateUser",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostUserRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/useraccounts": {
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "LinkUserAccounts",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PatchUserAccountRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/account/Sma": {
       "post": {
         "responses": {
@@ -243,7 +527,7 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1.",
+            "description": "Page number to return. Default to 1. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -251,7 +535,7 @@
             "name": "size",
             "in": "query",
             "required": false,
-            "description": "Page size to return. Default to 100 accounts per page.",
+            "description": "Page size to return. Default to 100.",
             "format": "int32",
             "type": "integer"
           },
@@ -862,7 +1146,7 @@
             "description": "Success"
           }
         },
-        "operationId": "DowwnloadAUFile",
+        "operationId": "DownloadAUFile",
         "parameters": [
           {
             "name": "fileId",
@@ -1547,6 +1831,60 @@
         ]
       }
     },
+    "/api/bpay": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "BPAY",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BpayInfo"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUBpay",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountIds",
+            "in": "query",
+            "required": true,
+            "description": "An array of account IDs.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/assetclassperformance": {
       "get": {
         "responses": {
@@ -1596,48 +1934,6 @@
             "type": "string"
           },
           {
-            "name": "IncludeCash",
-            "in": "query",
-            "required": false,
-            "description": "Whether cash should be included.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeLoans",
-            "in": "query",
-            "required": false,
-            "description": "Whether loans should be included.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeTaxCredits",
-            "in": "query",
-            "required": false,
-            "description": "Whether or not to include tax credits.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeForeignTaxPaid",
-            "in": "query",
-            "required": false,
-            "description": "Whether or not to include foreign tax paid.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeExcludedSecurities",
-            "in": "query",
-            "required": false,
-            "description": "Whether or not to include any security that has been excluded from performance.",
-            "type": "boolean"
-          },
-          {
-            "name": "CalculationMethod",
-            "in": "query",
-            "required": false,
-            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1.",
-            "type": "enum"
-          },
-          {
             "name": "FromDate",
             "in": "query",
             "required": true,
@@ -1652,6 +1948,48 @@
             "description": "The to date used when calculating data for the request.",
             "format": "date-time",
             "type": "string"
+          },
+          {
+            "name": "IncludeCash",
+            "in": "query",
+            "required": false,
+            "description": "Whether cash should be included. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeLoans",
+            "in": "query",
+            "required": false,
+            "description": "Whether loans should be included. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeTaxCredits",
+            "in": "query",
+            "required": false,
+            "description": "Whether or not to include tax credits. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeForeignTaxPaid",
+            "in": "query",
+            "required": false,
+            "description": "Whether or not to include foreign tax paid. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeExcludedSecurities",
+            "in": "query",
+            "required": false,
+            "description": "Whether or not to include any security that has been excluded from performance. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "CalculationMethod",
+            "in": "query",
+            "required": false,
+            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
+            "type": "enum"
           }
         ]
       }
@@ -1721,42 +2059,42 @@
             "name": "IncludeCash",
             "in": "query",
             "required": false,
-            "description": "Whether cash should be included.",
+            "description": "Whether cash should be included. Default to false.",
             "type": "boolean"
           },
           {
             "name": "IncludeLoans",
             "in": "query",
             "required": false,
-            "description": "Whether loans should be included.",
+            "description": "Whether loans should be included. Default to false.",
             "type": "boolean"
           },
           {
             "name": "IncludeExcludedSecurities",
             "in": "query",
             "required": false,
-            "description": "Whether or not to include any security that has been excluded from performance.",
+            "description": "Whether or not to include any security that has been excluded from performance. Default to false.",
             "type": "boolean"
           },
           {
             "name": "IncludeTaxCredits",
             "in": "query",
             "required": false,
-            "description": "Whether or not to include tax credits.",
+            "description": "Whether or not to include tax credits. Default to false.",
             "type": "boolean"
           },
           {
             "name": "DisplayReturns",
             "in": "query",
             "required": false,
-            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2.",
+            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.",
             "type": "enum"
           },
           {
             "name": "MultiplePeriods",
             "in": "query",
             "required": false,
-            "description": "<br><ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul>",
+            "description": "The periods to return. Default to -1. <ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul>",
             "format": "int32",
             "type": "integer"
           },
@@ -1764,7 +2102,7 @@
             "name": "CalculationMethod",
             "in": "query",
             "required": false,
-            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1.",
+            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
             "type": "enum"
           }
         ]
@@ -1835,14 +2173,14 @@
             "name": "IncludeTaxCredits",
             "in": "query",
             "required": false,
-            "description": "Whether or not to include tax credits.",
+            "description": "Whether or not to include tax credits. Default to false.",
             "type": "boolean"
           },
           {
             "name": "CalculationMethod",
             "in": "query",
             "required": false,
-            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1.",
+            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
             "type": "enum"
           }
         ]
@@ -1916,35 +2254,35 @@
             "name": "IncludeCash",
             "in": "query",
             "required": false,
-            "description": "Whether cash should be included.",
+            "description": "Whether cash should be included. Default to false.",
             "type": "boolean"
           },
           {
             "name": "IncludeExcludedSecurities",
             "in": "query",
             "required": false,
-            "description": "Whether or not to include any security that has been excluded from performance.",
+            "description": "Whether or not to include any security that has been excluded from performance. Default to false.",
             "type": "boolean"
           },
           {
             "name": "IncludeTaxCredits",
             "in": "query",
             "required": false,
-            "description": "Whether or not to include tax credits.",
+            "description": "Whether or not to include tax credits. Default to false.",
             "type": "boolean"
           },
           {
             "name": "DisplayReturns",
             "in": "query",
             "required": false,
-            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2.",
+            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.",
             "type": "enum"
           },
           {
             "name": "CalculationMethod",
             "in": "query",
             "required": false,
-            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1.",
+            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
             "type": "enum"
           }
         ]
@@ -2025,7 +2363,7 @@
             "name": "MultiplePeriods",
             "in": "query",
             "required": false,
-            "description": "<br><ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul>",
+            "description": "The periods to return. Default to -1. <ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul>",
             "format": "int32",
             "type": "integer"
           },
@@ -2359,7 +2697,7 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1.",
+            "description": "Page number to return. Default to 1. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -2367,7 +2705,7 @@
             "name": "size",
             "in": "query",
             "required": false,
-            "description": "Page size to return.",
+            "description": "Page size to return. Default to 100.",
             "format": "int32",
             "type": "integer"
           },
@@ -2512,7 +2850,7 @@
             "in": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/SecurityExclusionRequest"
+              "$ref": "#/definitions/PutSecurityExclusionRequest"
             }
           },
           {
@@ -2557,7 +2895,7 @@
             "in": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/SecurityExclusionRequest"
+              "$ref": "#/definitions/PostSecurityExclusionRequest"
             }
           },
           {
@@ -2698,7 +3036,7 @@
             "in": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/SecuritySubstitutionRequest"
+              "$ref": "#/definitions/PutSecuritySubstitutionRequest"
             }
           },
           {
@@ -2743,7 +3081,7 @@
             "in": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/SecuritySubstitutionRequest"
+              "$ref": "#/definitions/PostSecuritySubstitutionRequest"
             }
           },
           {
@@ -2918,6 +3256,236 @@
         ]
       }
     },
+    "/api/allesgcategories": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "ESG categories",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EsgCategory"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUAllEsgCategories",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/esgcategories": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "ESG category IDs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUAccountEsgCategories",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "AddAUAccountEsgCategories",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostEsgCategoryRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "ReplaceAUAccountEsgCategories",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PutEsgCategoryRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "DeleteAUAccountEsgCategories",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": false,
+            "description": "The category ID as returned by the all ESG categories endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/transactions": {
       "get": {
         "responses": {
@@ -2983,21 +3551,21 @@
             "name": "BuysAndSellsOnly",
             "in": "query",
             "required": false,
-            "description": "Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close.",
+            "description": "Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close. Default to false.",
             "type": "boolean"
           },
           {
             "name": "ShowUnconfirmed",
             "in": "query",
             "required": false,
-            "description": "Whether to show unconfirmed transactions.",
+            "description": "Whether to show unconfirmed transactions. Default to false.",
             "type": "boolean"
           },
           {
             "name": "Page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1.",
+            "description": "Page number to return. Default to 1. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -3005,7 +3573,7 @@
             "name": "Size",
             "in": "query",
             "required": false,
-            "description": "Page size to return.",
+            "description": "Page size to return. Default to 100.",
             "format": "int32",
             "type": "integer"
           },
@@ -3013,14 +3581,14 @@
             "name": "OrderBy",
             "in": "query",
             "required": false,
-            "description": "TransactionDate = 0, Security = 1.",
+            "description": "TransactionDate = 0, Security = 1. Default to 0.",
             "type": "enum"
           },
           {
             "name": "Order",
             "in": "query",
             "required": false,
-            "description": "Asc = 0, Desc = 1.",
+            "description": "Asc = 0, Desc = 1. Default to 1.",
             "type": "enum"
           }
         ]
@@ -3047,14 +3615,14 @@
             "name": "IncludePendingUnsettled",
             "in": "query",
             "required": false,
-            "description": "Whether to include pending unsettled cash transactions.",
+            "description": "Whether to include pending unsettled cash transactions. Default to false.",
             "type": "boolean"
           },
           {
             "name": "Page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1.",
+            "description": "Page number to return. Default to 1. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -3062,7 +3630,7 @@
             "name": "Size",
             "in": "query",
             "required": false,
-            "description": "Page size to return.",
+            "description": "Page size to return. Default to 100.",
             "format": "int32",
             "type": "integer"
           },
@@ -3087,185 +3655,6 @@
             "required": true,
             "description": "The to date used when calculating data for the request.",
             "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
-    "/api/unsettledtransactions": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Unsettled transactions",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UnsettledTransaction"
-              }
-            }
-          }
-        },
-        "operationId": "GetAUUnsettledTransactions",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "Page",
-            "in": "query",
-            "required": false,
-            "description": "Page number to return. Default to 1.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "Size",
-            "in": "query",
-            "required": false,
-            "description": "Page size to return.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "AccountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
-            "type": "string"
-          },
-          {
-            "name": "FromDate",
-            "in": "query",
-            "required": true,
-            "description": "The from date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "ToDate",
-            "in": "query",
-            "required": true,
-            "description": "The to date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
-    "/api/dividendreinvestmentdetails": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Dividend reinvestment details",
-            "schema": {
-              "$ref": "#/definitions/DividendReinvestmentDetailIEnumerablePagedResponse"
-            }
-          }
-        },
-        "operationId": "GetAUDividendReinvestmentDetails",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "accountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
-    "/api/user/{username}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "User",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        },
-        "operationId": "GetUser",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "userName",
-            "in": "path",
-            "required": true,
-            "description": "User Name.",
             "type": "string"
           },
           {
@@ -3329,6 +3718,388 @@
     }
   },
   "definitions": {
+    "Security": {
+      "properties": {
+        "Code": {
+          "description": "Security code.",
+          "type": "string"
+        },
+        "Exchange": {
+          "description": "Security exchange.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UnsettledTransaction": {
+      "properties": {
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/Security"
+        },
+        "TransactionDate": {
+          "description": "The date on which the transaction occurred.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "Transaction type description.",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "The number of units or shares disposed.",
+          "format": "double",
+          "type": "number"
+        },
+        "NetAmount": {
+          "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "AveragePrice": {
+          "description": "Net amount divided by quantity. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "Brokerage": {
+          "description": "Total of any brokerage for the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "Gst": {
+          "description": "GST amount of any brokerage for the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "DisposalMethod": {
+          "description": "Tax method used on the security disposal.",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "Displays any notes that have added to the transaction.",
+          "type": "string"
+        },
+        "TradedCurrency": {
+          "description": "For International Investments. Displays the currency in which the asset was traded.",
+          "type": "string"
+        },
+        "AmountInTradedCurrency": {
+          "description": "Displays the amount traded in an international currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "AveragePriceInTradedCurrency": {
+          "description": "TradedCurrencyAmount divided by quantity.",
+          "format": "double",
+          "type": "number"
+        },
+        "SettlementDate": {
+          "description": "The date on which the transaction settled.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ContractNoteReference": {
+          "description": "Unique contract note reference number.",
+          "type": "string"
+        },
+        "OtherCharges": {
+          "description": "Total of any other charges (eg. international transaction processing fees) for the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "OtherChargesGst": {
+          "description": "GST amount of any other charges for the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "DrpType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "DividendReinvestmentDetail": {
+      "properties": {
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/Security"
+        },
+        "DrpType": {
+          "description": "Either DRP (Dividend Reinvestment Plan) or BSP (Bonus Share Plan).",
+          "$ref": "#/definitions/DrpType"
+        },
+        "FromDate": {
+          "description": "The date that the DRP is active from.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ToDate": {
+          "description": "The date that the DRP is active to.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "MaxSharesParticipating": {
+          "description": "The number of shares held that are requested to participate in the reinvestment plan.",
+          "format": "double",
+          "type": "number"
+        },
+        "PercentSharesParticipating": {
+          "description": "The percentage of the DRP to take as shares. Note that this cannot be used in conjunction with MaxSharesParticipating.",
+          "format": "double",
+          "type": "number"
+        },
+        "ExcludeFromDrp": {
+          "description": "Whether the security is excluded from the account-wide reinvestment plan.",
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "User": {
+      "properties": {
+        "UserId": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Title": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "IndividualName": {
+      "properties": {
+        "Title": {
+          "description": "The user's title. Miss = 0, Mr = 1, Mrs = 2, Ms = 3, Dr = 4, Prof = 5, or null.",
+          "$ref": "#/definitions/Title"
+        },
+        "FirstName": {
+          "description": "The user's first name.",
+          "type": "string"
+        },
+        "LastName": {
+          "description": "The user's last name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FirstName",
+        "LastName"
+      ],
+      "type": "object"
+    },
+    "UserGender": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "AddressType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "Address": {
+      "properties": {
+        "Type": {
+          "description": "Home = 0, Office = 1, Mailing = 2.",
+          "$ref": "#/definitions/AddressType"
+        },
+        "Line1": {
+          "description": "Address detail line 1.",
+          "type": "string"
+        },
+        "Line2": {
+          "description": "Address detail line 2 (if applicable).",
+          "type": "string"
+        },
+        "Line3": {
+          "description": "Address detail line 3 (if applicable).",
+          "type": "string"
+        },
+        "SuburbOrCounty": {
+          "description": "Suburb or county details.",
+          "type": "string"
+        },
+        "TownOrCityOrState": {
+          "description": "State or town or city details.",
+          "type": "string"
+        },
+        "Postcode": {
+          "description": "Postcode.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "Country code. For example, AUS = Australia.",
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "Country",
+        "Line1",
+        "Postcode",
+        "SuburbOrCounty",
+        "TownOrCityOrState",
+        "Type"
+      ],
+      "type": "object"
+    },
+    "PostUserRequest": {
+      "properties": {
+        "Name": {
+          "description": "The user's name.",
+          "$ref": "#/definitions/IndividualName"
+        },
+        "Gender": {
+          "description": "Male = 1, Female = 2, or null.",
+          "$ref": "#/definitions/UserGender"
+        },
+        "Email": {
+          "description": "The user's email address.",
+          "type": "string"
+        },
+        "DateOfBirth": {
+          "description": "For security purposes if we need to identify the user over the phone.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "MothersMaidenName": {
+          "description": "For security purposes if we need to identify the user over the phone.",
+          "type": "string"
+        },
+        "Addresses": {
+          "description": "Contains details of the user's address.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/Address"
+          },
+          "type": "array"
+        },
+        "Phone": {
+          "description": "The user's phone number.",
+          "type": "string"
+        },
+        "PhoneOther": {
+          "description": "An alternative phone number for the investor.",
+          "type": "string"
+        },
+        "JobTitle": {
+          "description": "The user's job title.",
+          "type": "string"
+        },
+        "AdviserId": {
+          "description": "The adviser ID for this user's adviser.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "GenerateGetStartedToken": {
+          "description": "Whether to generate an SSO token for this user to get started.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "Addresses",
+        "AdviserId",
+        "Email",
+        "GenerateGetStartedToken",
+        "Name",
+        "Phone"
+      ],
+      "type": "object"
+    },
+    "UserCreationResponse": {
+      "properties": {
+        "Id": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "GetStartedToken": {
+          "description": "An SSO token for this user to get started.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "LinkType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "LinkAccess": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "PatchUserAccountRequest": {
+      "properties": {
+        "UserId": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountIds": {
+          "description": "An array of account IDs.",
+          "minLength": 1,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "UserRole": {
+          "description": "Accountant = 0, Custodian = 1, FinancialPlanner = 2, InvestmentAdviser = 3, Other = 4, Owner = 5. Default to 4.",
+          "$ref": "#/definitions/LinkType"
+        },
+        "Access": {
+          "description": "Full = 0, Read = 1, Update = 2. Default to 1.",
+          "$ref": "#/definitions/LinkAccess"
+        }
+      },
+      "required": [
+        "AccountIds",
+        "UserId"
+      ],
+      "type": "object"
+    },
     "HoldingType": {
       "format": "int32",
       "type": "integer",
@@ -5906,20 +6677,6 @@
       "required": [],
       "type": "object"
     },
-    "Security": {
-      "properties": {
-        "Code": {
-          "description": "Security code.",
-          "type": "string"
-        },
-        "Exchange": {
-          "description": "Security exchange.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "HoldingValuePerModel": {
       "properties": {
         "Security": {
@@ -6691,6 +7448,20 @@
       ],
       "type": "object"
     },
+    "BpayInfo": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "ReferenceNumber": {
+          "description": "BPAY reference number.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
     "AssetClassInvestment": {
       "properties": {
         "AssetClassDescription": {
@@ -6985,8 +7756,7 @@
         },
         "IncludedInPerformance": {
           "description": "Whether the security is included in performance calculations.",
-          "format": "int32",
-          "type": "integer"
+          "type": "boolean"
         },
         "Security": {
           "description": "",
@@ -7704,7 +8474,7 @@
       ],
       "type": "object"
     },
-    "SecurityExclusionRequest": {
+    "PutSecurityExclusionRequest": {
       "properties": {
         "AccountId": {
           "description": "Account ID.",
@@ -7720,6 +8490,27 @@
       },
       "required": [
         "AccountId"
+      ],
+      "type": "object"
+    },
+    "PostSecurityExclusionRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "SecurityExclusions": {
+          "description": "Security exclusion.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/SecurityExclusion"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "SecurityExclusions"
       ],
       "type": "object"
     },
@@ -7759,7 +8550,7 @@
       ],
       "type": "object"
     },
-    "SecuritySubstitutionRequest": {
+    "PutSecuritySubstitutionRequest": {
       "properties": {
         "AccountId": {
           "description": "Account ID.",
@@ -7775,6 +8566,27 @@
       },
       "required": [
         "AccountId"
+      ],
+      "type": "object"
+    },
+    "PostSecuritySubstitutionRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "SecuritySubstitutions": {
+          "description": "Security substitution.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/SecuritySubstitution"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "SecuritySubstitutions"
       ],
       "type": "object"
     },
@@ -7826,6 +8638,60 @@
         "Amount",
         "Percentage",
         "Units"
+      ],
+      "type": "object"
+    },
+    "EsgCategory": {
+      "properties": {
+        "Id": {
+          "description": "ESG category ID.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "ESG category name.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "PostEsgCategoryRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "CategoryIds": {
+          "description": "An array of ESG category IDs.",
+          "minLength": 1,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "CategoryIds"
+      ],
+      "type": "object"
+    },
+    "PutEsgCategoryRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "CategoryIds": {
+          "description": "An array of ESG category IDs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId"
       ],
       "type": "object"
     },
@@ -8085,165 +8951,6 @@
       "required": [],
       "type": "object"
     },
-    "UnsettledTransaction": {
-      "properties": {
-        "Security": {
-          "description": "",
-          "$ref": "#/definitions/Security"
-        },
-        "TransactionDate": {
-          "description": "The date on which the transaction occurred.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "TransactionTypeDescription": {
-          "description": "Transaction type description.",
-          "type": "string"
-        },
-        "Quantity": {
-          "description": "The number of units or shares disposed.",
-          "format": "double",
-          "type": "number"
-        },
-        "NetAmount": {
-          "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "AveragePrice": {
-          "description": "Net amount divided by quantity. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "Brokerage": {
-          "description": "Total of any brokerage for the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "Gst": {
-          "description": "GST amount of any brokerage for the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "DisposalMethod": {
-          "description": "Tax method used on the security disposal.",
-          "type": "string"
-        },
-        "Narration": {
-          "description": "Displays any notes that have added to the transaction.",
-          "type": "string"
-        },
-        "TradedCurrency": {
-          "description": "For International Investments. Displays the currency in which the asset was traded.",
-          "type": "string"
-        },
-        "AmountInTradedCurrency": {
-          "description": "Displays the amount traded in an international currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "AveragePriceInTradedCurrency": {
-          "description": "TradedCurrencyAmount divided by quantity.",
-          "format": "double",
-          "type": "number"
-        },
-        "SettlementDate": {
-          "description": "The date on which the transaction settled.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "ContractNoteReference": {
-          "description": "Unique contract note reference number.",
-          "type": "string"
-        },
-        "OtherCharges": {
-          "description": "Total of any other charges (eg. international transaction processing fees) for the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "OtherChargesGst": {
-          "description": "GST amount of any other charges for the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "DrpType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "DividendReinvestmentDetail": {
-      "properties": {
-        "Security": {
-          "description": "",
-          "$ref": "#/definitions/Security"
-        },
-        "DrpType": {
-          "description": "Either DRP (Dividend Reinvestment Plan) or BSP (Bonus Share Plan).",
-          "$ref": "#/definitions/DrpType"
-        },
-        "FromDate": {
-          "description": "The date that the DRP is active from.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "ToDate": {
-          "description": "The date that the DRP is active to.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "MaxSharesParticipating": {
-          "description": "The number of shares held that are requested to participate in the reinvestment plan.",
-          "format": "double",
-          "type": "number"
-        },
-        "PercentSharesParticipating": {
-          "description": "The percentage of the DRP to take as shares. Note that this cannot be used in conjunction with MaxSharesParticipating.",
-          "format": "double",
-          "type": "number"
-        },
-        "ExcludeFromDrp": {
-          "description": "Whether the security is excluded from the account-wide reinvestment plan.",
-          "type": "boolean"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "DividendReinvestmentDetailIEnumerablePagedResponse": {
-      "properties": {
-        "Data": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/DividendReinvestmentDetail"
-          },
-          "type": "array"
-        },
-        "Metadata": {
-          "description": "Metadata including pagination.",
-          "$ref": "#/definitions/Metadata"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "User": {
-      "properties": {
-        "UserId": {
-          "description": "User ID",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -8270,7 +8977,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.04.20",
+    "version": "2021.05.05",
     "title": "Public API"
   }
 }

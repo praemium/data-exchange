@@ -1,5 +1,155 @@
 {
   "paths": {
+    "/api/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "User",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "operationId": "GetUser",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "description": "Username.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/user": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "User",
+            "schema": {
+              "$ref": "#/definitions/UserCreationResponse"
+            }
+          }
+        },
+        "operationId": "CreateUser",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostUserRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/useraccounts": {
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "LinkUserAccounts",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PatchUserAccountRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/appform": {
       "get": {
         "responses": {
@@ -482,54 +632,6 @@
         ]
       }
     },
-    "/api/user/{username}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "User",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        },
-        "operationId": "GetUser",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "userName",
-            "in": "path",
-            "required": true,
-            "description": "Username.",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
     "/api/token": {
       "post": {
         "responses": {
@@ -567,6 +669,256 @@
     }
   },
   "definitions": {
+    "Security": {
+      "properties": {
+        "Code": {
+          "description": "",
+          "type": "string"
+        },
+        "Exchange": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "properties": {
+        "UserId": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Title": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "IndividualName": {
+      "properties": {
+        "Title": {
+          "description": "The user's title. Miss = 0, Mr = 1, Mrs = 2, Ms = 3, Dr = 4, Prof = 5, or null.",
+          "$ref": "#/definitions/Title"
+        },
+        "FirstName": {
+          "description": "The user's first name.",
+          "type": "string"
+        },
+        "LastName": {
+          "description": "The user's last name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FirstName",
+        "LastName"
+      ],
+      "type": "object"
+    },
+    "UserGender": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "AddressType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "Address": {
+      "properties": {
+        "Type": {
+          "description": "Home = 0, Office = 1, Mailing = 2.",
+          "$ref": "#/definitions/AddressType"
+        },
+        "Line1": {
+          "description": "Address detail line 1.",
+          "type": "string"
+        },
+        "Line2": {
+          "description": "Address detail line 2 (if applicable).",
+          "type": "string"
+        },
+        "Line3": {
+          "description": "Address detail line 3 (if applicable).",
+          "type": "string"
+        },
+        "SuburbOrCounty": {
+          "description": "Suburb or county details.",
+          "type": "string"
+        },
+        "TownOrCityOrState": {
+          "description": "State or town or city details.",
+          "type": "string"
+        },
+        "Postcode": {
+          "description": "Postcode.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "Country code. For example, AUS = Australia.",
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "Country",
+        "Line1",
+        "Postcode",
+        "SuburbOrCounty",
+        "TownOrCityOrState",
+        "Type"
+      ],
+      "type": "object"
+    },
+    "PostUserRequest": {
+      "properties": {
+        "Name": {
+          "description": "The user's name.",
+          "$ref": "#/definitions/IndividualName"
+        },
+        "Gender": {
+          "description": "Male = 1, Female = 2, or null.",
+          "$ref": "#/definitions/UserGender"
+        },
+        "Email": {
+          "description": "The user's email address.",
+          "type": "string"
+        },
+        "DateOfBirth": {
+          "description": "For security purposes if we need to identify the user over the phone.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "MothersMaidenName": {
+          "description": "For security purposes if we need to identify the user over the phone.",
+          "type": "string"
+        },
+        "Addresses": {
+          "description": "Contains details of the user's address.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/Address"
+          },
+          "type": "array"
+        },
+        "Phone": {
+          "description": "The user's phone number.",
+          "type": "string"
+        },
+        "PhoneOther": {
+          "description": "An alternative phone number for the investor.",
+          "type": "string"
+        },
+        "JobTitle": {
+          "description": "The user's job title.",
+          "type": "string"
+        },
+        "AdviserId": {
+          "description": "The adviser ID for this user's adviser.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "GenerateGetStartedToken": {
+          "description": "Whether to generate an SSO token for this user to get started.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "Addresses",
+        "AdviserId",
+        "Email",
+        "GenerateGetStartedToken",
+        "Name",
+        "Phone"
+      ],
+      "type": "object"
+    },
+    "UserCreationResponse": {
+      "properties": {
+        "Id": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "GetStartedToken": {
+          "description": "An SSO token for this user to get started.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "LinkType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "LinkAccess": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "PatchUserAccountRequest": {
+      "properties": {
+        "UserId": {
+          "description": "User ID.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountIds": {
+          "description": "An array of account IDs.",
+          "minLength": 1,
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "UserRole": {
+          "description": "Accountant = 0, Custodian = 1, FinancialPlanner = 2, InvestmentAdviser = 3, Other = 4, Owner = 5. Default to 4.",
+          "$ref": "#/definitions/LinkType"
+        },
+        "Access": {
+          "description": "Full = 0, Read = 1, Update = 2. Default to 1.",
+          "$ref": "#/definitions/LinkAccess"
+        }
+      },
+      "required": [
+        "AccountIds",
+        "UserId"
+      ],
+      "type": "object"
+    },
     "FeeType": {
       "format": "int32",
       "type": "integer",
@@ -922,6 +1274,14 @@
         "FeeOverride": {
           "description": "Fee override.",
           "$ref": "#/definitions/FeeOverride"
+        },
+        "SingleAssetModelIsin": {
+          "description": "ISIN of security. (Single asset model only)",
+          "type": "string"
+        },
+        "SingleAssetModelCurrencyCode": {
+          "description": "Currency code of security. (Single asset model only)",
+          "type": "string"
         },
         "Id": {
           "description": "ModelId as returned by the Models endpoint.",
@@ -2361,19 +2721,6 @@
       "required": [],
       "type": "object"
     },
-    "Security": {
-      "properties": {
-        "Code": {
-          "description": "",
-          "type": "string"
-        },
-        "Exchange": {
-          "description": "",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "HoldingSecurity": {
       "properties": {
         "AssetClassDescription": {
@@ -2730,17 +3077,6 @@
       "required": [],
       "type": "object"
     },
-    "User": {
-      "properties": {
-        "UserId": {
-          "description": "User ID.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -2767,7 +3103,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.04.20",
+    "version": "2021.05.05",
     "title": "Public API"
   }
 }

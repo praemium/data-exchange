@@ -1746,12 +1746,12 @@
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Page number to return. Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Page size to return. Default to 100 accounts per page.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 </tbody></table>
 
@@ -2995,32 +2995,32 @@
 <tr>
 <td>BuysAndSellsOnly</td>
 <td>boolean</td>
-<td>Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close.</td>
+<td>Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close. Default to false.</td>
 </tr>
 <tr>
 <td>ShowUnconfirmed</td>
 <td>boolean</td>
-<td>Whether to show unconfirmed transactions.</td>
+<td>Whether to show unconfirmed transactions. Default to false.</td>
 </tr>
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Page number to return. Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Page size to return.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 <tr>
 <td>OrderBy</td>
 <td>enum</td>
-<td>TransactionDate = 0, Security = 1.</td>
+<td>TransactionDate = 0, Security = 1. Default to 0.</td>
 </tr>
 <tr>
 <td>Order</td>
 <td>enum</td>
-<td>Asc = 0, Desc = 1.</td>
+<td>Asc = 0, Desc = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -3313,17 +3313,17 @@
 <tr>
 <td>IncludePendingUnsettled</td>
 <td>boolean</td>
-<td>Whether to include pending unsettled cash transactions.</td>
+<td>Whether to include pending unsettled cash transactions. Default to false.</td>
 </tr>
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Page number to return. Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Page size to return.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 <tr>
 <td>AccountId<span class="required">required</span></td>
@@ -3598,12 +3598,12 @@
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Page number to return. Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Page size to return.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 <tr>
 <td>AccountId<span class="required">required</span></td>
@@ -4306,69 +4306,49 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Data</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>Data.Security</td>
+<td>Security</td>
 <td>object</td>
 <td></td>
 </tr>
 <tr>
-<td>Data.Security.Code</td>
+<td>Security.Code</td>
 <td>string</td>
 <td>Security code.</td>
 </tr>
 <tr>
-<td>Data.Security.Exchange</td>
+<td>Security.Exchange</td>
 <td>string</td>
 <td>Security exchange.</td>
 </tr>
 <tr>
-<td>Data.DrpType</td>
+<td>DrpType</td>
 <td>enum</td>
 <td>Either DRP (Dividend Reinvestment Plan) or BSP (Bonus Share Plan).</td>
 </tr>
 <tr>
-<td>Data.FromDate</td>
+<td>FromDate</td>
 <td>date-time</td>
 <td>The date that the DRP is active from.</td>
 </tr>
 <tr>
-<td>Data.ToDate</td>
+<td>ToDate</td>
 <td>date-time</td>
 <td>The date that the DRP is active to.</td>
 </tr>
 <tr>
-<td>Data.MaxSharesParticipating</td>
+<td>MaxSharesParticipating</td>
 <td>double</td>
 <td>The number of shares held that are requested to participate in the reinvestment plan.</td>
 </tr>
 <tr>
-<td>Data.PercentSharesParticipating</td>
+<td>PercentSharesParticipating</td>
 <td>double</td>
 <td>The percentage of the DRP to take as shares. Note that this cannot be used in conjunction with MaxSharesParticipating.</td>
 </tr>
 <tr>
-<td>Data.ExcludeFromDrp</td>
+<td>ExcludeFromDrp</td>
 <td>boolean</td>
 <td>Whether the security is excluded from the account-wide reinvestment plan.</td>
-</tr>
-<tr>
-<td>Metadata</td>
-<td>object</td>
-<td>Metadata including pagination.</td>
-</tr>
-<tr>
-<td>Metadata.TotalCount</td>
-<td>integer</td>
-<td>Total number of results found.</td>
-</tr>
-<tr>
-<td>Metadata.TotalPages</td>
-<td>integer</td>
-<td>Total pages of results.</td>
 </tr>
 </tbody></table>
 
@@ -5291,12 +5271,12 @@
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Page number to return. Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Page size to return.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 </tbody></table>
 
@@ -5563,37 +5543,37 @@
 <tr>
 <td>IncludeCash</td>
 <td>boolean</td>
-<td>Whether cash should be included.</td>
+<td>Whether cash should be included. Default to false.</td>
 </tr>
 <tr>
 <td>IncludeLoans</td>
 <td>boolean</td>
-<td>Whether loans should be included.</td>
+<td>Whether loans should be included. Default to false.</td>
 </tr>
 <tr>
 <td>IncludeExcludedSecurities</td>
 <td>boolean</td>
-<td>Whether or not to include any security that has been excluded from performance.</td>
+<td>Whether or not to include any security that has been excluded from performance. Default to false.</td>
 </tr>
 <tr>
 <td>IncludeTaxCredits</td>
 <td>boolean</td>
-<td>Whether or not to include tax credits.</td>
+<td>Whether or not to include tax credits. Default to false.</td>
 </tr>
 <tr>
 <td>DisplayReturns</td>
 <td>enum</td>
-<td>BeforeExpenses = 0, AfterExpenses = 1, Both = 2.</td>
+<td>BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.</td>
 </tr>
 <tr>
 <td>MultiplePeriods</td>
 <td>integer</td>
-<td><br><ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul></td>
+<td>The periods to return. Default to -1. <ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul></td>
 </tr>
 <tr>
 <td>CalculationMethod</td>
 <td>enum</td>
-<td>ApproximateReturns = 0, TimeWeightedReturn = 1.</td>
+<td>ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -5819,12 +5799,12 @@
 <tr>
 <td>IncludeTaxCredits</td>
 <td>boolean</td>
-<td>Whether or not to include tax credits.</td>
+<td>Whether or not to include tax credits. Default to false.</td>
 </tr>
 <tr>
 <td>CalculationMethod</td>
 <td>enum</td>
-<td>ApproximateReturns = 0, TimeWeightedReturn = 1.</td>
+<td>ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -6083,7 +6063,7 @@
 </tr>
 <tr>
 <td>CashAndEquivalents.IncludedInPerformance</td>
-<td>integer</td>
+<td>boolean</td>
 <td>Whether the security is included in performance calculations.</td>
 </tr>
 <tr>
@@ -6189,27 +6169,27 @@
 <tr>
 <td>IncludeCash</td>
 <td>boolean</td>
-<td>Whether cash should be included.</td>
+<td>Whether cash should be included. Default to false.</td>
 </tr>
 <tr>
 <td>IncludeExcludedSecurities</td>
 <td>boolean</td>
-<td>Whether or not to include any security that has been excluded from performance.</td>
+<td>Whether or not to include any security that has been excluded from performance. Default to false.</td>
 </tr>
 <tr>
 <td>IncludeTaxCredits</td>
 <td>boolean</td>
-<td>Whether or not to include tax credits.</td>
+<td>Whether or not to include tax credits. Default to false.</td>
 </tr>
 <tr>
 <td>DisplayReturns</td>
 <td>enum</td>
-<td>BeforeExpenses = 0, AfterExpenses = 1, Both = 2.</td>
+<td>BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.</td>
 </tr>
 <tr>
 <td>CalculationMethod</td>
 <td>enum</td>
-<td>ApproximateReturns = 0, TimeWeightedReturn = 1.</td>
+<td>ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -6375,36 +6355,6 @@
 <td>Account ID.</td>
 </tr>
 <tr>
-<td>IncludeCash</td>
-<td>boolean</td>
-<td>Whether cash should be included.</td>
-</tr>
-<tr>
-<td>IncludeLoans</td>
-<td>boolean</td>
-<td>Whether loans should be included.</td>
-</tr>
-<tr>
-<td>IncludeTaxCredits</td>
-<td>boolean</td>
-<td>Whether or not to include tax credits.</td>
-</tr>
-<tr>
-<td>IncludeForeignTaxPaid</td>
-<td>boolean</td>
-<td>Whether or not to include foreign tax paid.</td>
-</tr>
-<tr>
-<td>IncludeExcludedSecurities</td>
-<td>boolean</td>
-<td>Whether or not to include any security that has been excluded from performance.</td>
-</tr>
-<tr>
-<td>CalculationMethod</td>
-<td>enum</td>
-<td>ApproximateReturns = 0, TimeWeightedReturn = 1.</td>
-</tr>
-<tr>
 <td>FromDate<span class="required">required</span></td>
 <td>date-time</td>
 <td>The from date used when calculating data for the request.</td>
@@ -6413,6 +6363,36 @@
 <td>ToDate<span class="required">required</span></td>
 <td>date-time</td>
 <td>The to date used when calculating data for the request.</td>
+</tr>
+<tr>
+<td>IncludeCash</td>
+<td>boolean</td>
+<td>Whether cash should be included. Default to false.</td>
+</tr>
+<tr>
+<td>IncludeLoans</td>
+<td>boolean</td>
+<td>Whether loans should be included. Default to false.</td>
+</tr>
+<tr>
+<td>IncludeTaxCredits</td>
+<td>boolean</td>
+<td>Whether or not to include tax credits. Default to false.</td>
+</tr>
+<tr>
+<td>IncludeForeignTaxPaid</td>
+<td>boolean</td>
+<td>Whether or not to include foreign tax paid. Default to false.</td>
+</tr>
+<tr>
+<td>IncludeExcludedSecurities</td>
+<td>boolean</td>
+<td>Whether or not to include any security that has been excluded from performance. Default to false.</td>
+</tr>
+<tr>
+<td>CalculationMethod</td>
+<td>enum</td>
+<td>ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -6637,7 +6617,7 @@
 <tr>
 <td>MultiplePeriods</td>
 <td>integer</td>
-<td><br><ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul></td>
+<td>The periods to return. Default to -1. <ul><li>0 - For the period only</li><li>4 - 1 mth, 3 mths, the period</li><li>9 - 1 mth, 3 mths, 6 mths, 1 yr, Since inception</li><li>11 - 1 mth, 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs, Since inception</li><li>16 - 1 mth, 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs, 10 yrs, Since inception</li><li>1 - 1 mth, 3 mths, 1 yr, the period</li><li>24 - 1 mth, 3 mths, 1 yr, 3 yrs, 5 yrs, the period</li><li>15 - 3 mths, 6 mths, 1 yr, 2 yrs, 3 yrs</li><li>17 - 3 mths, 6 mths, 1 yr, 3 yrs, 5 yrs</li><li>14 - 3 mths, 6 mths, 1 yr, 2 yrs, Since inception</li><li>13 - 3 mths, 1 yr, 2 yrs, 5 yrs, Since Inception</li><li>21 - 3 mths, 1 yr, 2 yrs, 3 yrs, Since inception</li><li>22 - 3 mths, 1 yr, 2 yr, 3 yrs, 5 yrs</li><li>18 - 3 mths, 1 yr, 3 yrs, 5 yrs, 7 yrs</li><li>2 - 3 mths, 1 yr, 3 yrs, the period</li><li>8 - 3 mths, 1 yr, 3 yrs, 5 yrs, Since inception</li><li>10 - 1 yr, 2 yrs, 3 yrs, 4 yrs, 5 yrs</li><li>19 - 1 yr, 3 yrs, 5 yrs, 7 yrs, 10 yrs</li><li>3 - 1 yr, 3 yrs, 5 yrs, the period</li><li>23 - 1 yr, 5 yrs, 10 yrs, Since inception</li><li>7 - Qtr to date, Fin yr to date, 1 yr,  Since inception</li><li>5 - Qtr to date, Fin yr to date, 3 yrs, 5 yrs</li><li>6 - Qtr to date, Fin yr to date, 3 yrs, Since inception</li><li>20 - The period, Qtr to date, Fin yr to date, Since inception</li><li>-1 - Account default</li></ul></td>
 </tr>
 <tr>
 <td>FromDate<span class="required">required</span></td>

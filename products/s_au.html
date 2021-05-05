@@ -529,7 +529,7 @@
 <p><br/></p>
 <h1 id='users'>Users</h1><h3 id='get-user'><span class="get">GET</span> User</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/user/{username}</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/users</p>
 </blockquote>
 
 <p>This endpoint returns user ID by username.</p>
@@ -566,10 +566,10 @@
 </tbody></table>
 
 <blockquote>
-<p><strong>Request Parameters - Path Examples</strong></p>
+<p><strong>Request Parameter - Query Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">UserName</span><span class="pi">:</span> <span class="s">john_smith</span>
-</code></pre></div><h5 id='request-parameters-path'>Request Parameters - Path</h5>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Username</span><span class="pi">:</span> <span class="s">john_smith</span>
+</code></pre></div><h5 id='request-parameter-query'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -578,7 +578,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>UserName<span class="required">required</span></td>
+<td>Username<span class="required">required</span></td>
 <td>string</td>
 <td>User Name.</td>
 </tr>
@@ -602,7 +602,7 @@
 <tr>
 <td>UserId</td>
 <td>integer</td>
-<td>User ID</td>
+<td>User ID.</td>
 </tr>
 </tbody></table>
 

@@ -306,6 +306,12 @@
                   <li>
                     <a href="#get-user" class="toc-h2 toc-link" data-title="GET User"><span class="get">GET</span> User</a>
                   </li>
+                  <li>
+                    <a href="#post-user" class="toc-h2 toc-link" data-title="POST User"><span class="post">POST</span> User</a>
+                  </li>
+                  <li>
+                    <a href="#patch-user-accounts" class="toc-h2 toc-link" data-title="PATCH User Accounts"><span class="patch">PATCH</span> User Accounts</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -636,7 +642,7 @@
 </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK87"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Westminster - US GBP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adviser Firm A"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MaxNoOfBankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"IsSuperSma"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ServiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1000000112"</span><span class="p">,</span><span class="w">
@@ -645,14 +651,27 @@
     </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1000001282"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGT Vestra US Ethical"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test US Ethical"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAM"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGT Vestra Ethical"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Ethical"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ManagerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Model Manager Firm 5192"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"FeeOverride"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"IsTiered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1000002828"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Equity Income Fund A USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E3AG6S7"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ManagerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MNG"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FeeOverride"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"IsTiered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"SingleAssetModelIsin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IE10G3QG6S78"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SingleAssetModelCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -718,7 +737,7 @@
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"IsSingleBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProductProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Talbot &amp; Muir"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProductProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TM SIPP"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"TaxWrapperId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AvailableModelCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -814,6 +833,16 @@
 <td>Models.FeeOverride.Tiers.Percentage</td>
 <td>double</td>
 <td>Fee percentage.</td>
+</tr>
+<tr>
+<td>Models.SingleAssetModelIsin</td>
+<td>string</td>
+<td>ISIN of security. (Single asset model only)</td>
+</tr>
+<tr>
+<td>Models.SingleAssetModelCurrencyCode</td>
+<td>string</td>
+<td>Currency code of security. (Single asset model only)</td>
 </tr>
 <tr>
 <td>Models.Id</td>
@@ -6581,7 +6610,7 @@
 <p><br/></p>
 <h1 id='users'>Users</h1><h3 id='get-user'><span class="get">GET</span> User</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/user/{username}</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/users</p>
 </blockquote>
 
 <p>This endpoint returns the user links for the account.</p>
@@ -6618,10 +6647,10 @@
 </tbody></table>
 
 <blockquote>
-<p><strong>Request Parameters - Path Examples</strong></p>
+<p><strong>Request Parameter - Query Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">UserName</span><span class="pi">:</span> <span class="s">john_smith</span>
-</code></pre></div><h5 id='request-parameters-path-2'>Request Parameters - Path</h5>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Username</span><span class="pi">:</span> <span class="s">john_smith</span>
+</code></pre></div><h5 id='request-parameter-query-3'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6630,7 +6659,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>UserName<span class="required">required</span></td>
+<td>Username<span class="required">required</span></td>
 <td>string</td>
 <td>Username.</td>
 </tr>
@@ -6659,12 +6688,12 @@
 </tbody></table>
 
 <p><br/></p>
-<h1 id='trading-sma'>Trading SMA</h1><h3 id='get-account-model-weightings'><span class="get">GET</span> Account Model Weightings</h3>
+<h3 id='post-user'><span class="post">POST</span> User</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/user</p>
 </blockquote>
 
-<p>This endpoint returns the account model weightings for the account.</p>
+<p>This endpoint allows creating investor.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -6698,10 +6727,38 @@
 </tbody></table>
 
 <blockquote>
-<p><strong>Request Parameter - Query Examples</strong></p>
+<p><strong>Request Parameter - Body Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
-</code></pre></div><h5 id='request-parameter-query-3'>Request Parameter - Query</h5>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stephen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test Street"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Line3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SuburbOrCounty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TownOrCityOrState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">76681</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1980-11-01T00:00:00.0000000+10:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aefdsg@praemium.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"GenerateGetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Developer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0400000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0498765432"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Team"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Team AB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-8'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6710,9 +6767,114 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>AccountId<span class="required">required</span></td>
+<td>Name<span class="required">required</span></td>
+<td>object</td>
+<td>The user&#39;s name.</td>
+</tr>
+<tr>
+<td>Name.Title</td>
+<td>enum</td>
+<td>The user&#39;s title. Miss = 0, Mr = 1, Mrs = 2, Ms = 3, Dr = 4, Prof = 5, or null.</td>
+</tr>
+<tr>
+<td>Name.FirstName<span class="required">required</span></td>
 <td>string</td>
-<td>Account ID.</td>
+<td>The user&#39;s first name.</td>
+</tr>
+<tr>
+<td>Name.LastName<span class="required">required</span></td>
+<td>string</td>
+<td>The user&#39;s last name.</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>enum</td>
+<td>Male = 1, Female = 2, or null.</td>
+</tr>
+<tr>
+<td>Email<span class="required">required</span></td>
+<td>string</td>
+<td>The user&#39;s email address.</td>
+</tr>
+<tr>
+<td>DateOfBirth</td>
+<td>date-time</td>
+<td>For security purposes if we need to identify the user over the phone.</td>
+</tr>
+<tr>
+<td>MothersMaidenName</td>
+<td>string</td>
+<td>For security purposes if we need to identify the user over the phone.</td>
+</tr>
+<tr>
+<td>Addresses<span class="required">required</span></td>
+<td>array</td>
+<td>Contains details of the user&#39;s address.</td>
+</tr>
+<tr>
+<td>Addresses.Type<span class="required">required</span></td>
+<td>enum</td>
+<td>Home = 0, Office = 1, Mailing = 2.</td>
+</tr>
+<tr>
+<td>Addresses.Line1<span class="required">required</span></td>
+<td>string</td>
+<td>Address detail line 1.</td>
+</tr>
+<tr>
+<td>Addresses.Line2</td>
+<td>string</td>
+<td>Address detail line 2 (if applicable).</td>
+</tr>
+<tr>
+<td>Addresses.Line3</td>
+<td>string</td>
+<td>Address detail line 3 (if applicable).</td>
+</tr>
+<tr>
+<td>Addresses.SuburbOrCounty<span class="required">required</span></td>
+<td>string</td>
+<td>Suburb or county details.</td>
+</tr>
+<tr>
+<td>Addresses.TownOrCityOrState<span class="required">required</span></td>
+<td>string</td>
+<td>State or town or city details.</td>
+</tr>
+<tr>
+<td>Addresses.Postcode<span class="required">required</span></td>
+<td>string</td>
+<td>Postcode.</td>
+</tr>
+<tr>
+<td>Addresses.Country<span class="required">required</span></td>
+<td>string</td>
+<td>Country code. For example, AUS = Australia.</td>
+</tr>
+<tr>
+<td>Phone<span class="required">required</span></td>
+<td>string</td>
+<td>The user&#39;s phone number.</td>
+</tr>
+<tr>
+<td>PhoneOther</td>
+<td>string</td>
+<td>An alternative phone number for the investor.</td>
+</tr>
+<tr>
+<td>JobTitle</td>
+<td>string</td>
+<td>The user&#39;s job title.</td>
+</tr>
+<tr>
+<td>AdviserId<span class="required">required</span></td>
+<td>integer</td>
+<td>The adviser ID for this user&#39;s adviser.</td>
+</tr>
+<tr>
+<td>GenerateGetStartedToken<span class="required">required</span></td>
+<td>boolean</td>
+<td>Whether to generate an SSO token for this user to get started.</td>
 </tr>
 </tbody></table>
 
@@ -6720,12 +6882,10 @@
 <p><strong>Response Examples</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
-</span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROC"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9108602</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"GetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.onpraemium.com/useraccount/changepassword?token=9108602-ED6205A469E04029B724EA9A11BDE37F-637141711208895228"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h5 id='response-parameters-12'>Response Parameters</h5>
 <table><thead>
 <tr>
@@ -6735,24 +6895,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>ModelCode</td>
-<td>string</td>
-<td>Model code.</td>
+<td>Id</td>
+<td>integer</td>
+<td>User ID.</td>
 </tr>
 <tr>
-<td>Percentage</td>
-<td>double</td>
-<td>Percentage of model.</td>
+<td>GetStartedToken</td>
+<td>string</td>
+<td>An SSO token for this user to get started.</td>
 </tr>
 </tbody></table>
 
 <p><br/></p>
-<h3 id='put-account-model-weightings'><span class="put">PUT</span> Account Model Weightings</h3>
+<h3 id='patch-user-accounts'><span class="patch">PATCH</span> User Accounts</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/useraccounts</p>
 </blockquote>
 
-<p>This endpoint allows you to modify the account model weightings for the account.</p>
+<p>This endpoint allows linking user to accounts.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -6789,6 +6949,177 @@
 <p><strong>Request Parameter - Body Examples</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9091234</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AU400001"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"UserRole"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Access"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-9'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId<span class="required">required</span></td>
+<td>integer</td>
+<td>User ID.</td>
+</tr>
+<tr>
+<td>AccountIds<span class="required">required</span></td>
+<td>array</td>
+<td>An array of account IDs.</td>
+</tr>
+<tr>
+<td>UserRole</td>
+<td>enum</td>
+<td>Accountant = 0, Custodian = 1, FinancialPlanner = 2, InvestmentAdviser = 3, Other = 4, Owner = 5. Default to 4.</td>
+</tr>
+<tr>
+<td>Access</td>
+<td>enum</td>
+<td>Full = 0, Read = 1, Update = 2. Default to 1.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h1 id='trading-sma'>Trading SMA</h1><h3 id='get-account-model-weightings'><span class="get">GET</span> Account Model Weightings</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+</blockquote>
+
+<p>This endpoint returns the account model weightings for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-16'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
+</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ModelCode</td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>Percentage</td>
+<td>double</td>
+<td>Percentage of model.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='put-account-model-weightings'><span class="put">PUT</span> Account Model Weightings</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+</blockquote>
+
+<p>This endpoint allows you to modify the account model weightings for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1000000112"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"AccountModelWeightings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -6797,7 +7128,7 @@
     </span><span class="p">}</span><span class="w">    
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-8'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-10'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6846,7 +7177,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-16'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6885,7 +7216,7 @@
 <span class="c1"># Search by security codes</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">BHP.LSE</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">ROC.LON</span>
-</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6925,7 +7256,7 @@
     </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
