@@ -2800,6 +2800,16 @@
           "format": "double",
           "type": "number"
         },
+        "MarketValueGainOrLoss": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "ExchangeRateGainOrLoss": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
         "PercentTotalGainOrLoss": {
           "description": "",
           "format": "double",
@@ -2926,6 +2936,99 @@
           "description": "",
           "format": "date-time",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CashflowInstructionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        16,
+        17
+      ]
+    },
+    "FrequencyType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "CashflowInstructionDetail": {
+      "properties": {
+        "ModelCode": {
+          "description": "",
+          "type": "string"
+        },
+        "Sequence": {
+          "description": "",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Percentage": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "ModelCode"
+      ],
+      "type": "object"
+    },
+    "CashflowInstruction": {
+      "properties": {
+        "Id": {
+          "description": "",
+          "type": "string"
+        },
+        "CashflowInstructionType": {
+          "description": "",
+          "$ref": "#/definitions/CashflowInstructionType"
+        },
+        "FrequencyType": {
+          "description": "",
+          "$ref": "#/definitions/FrequencyType"
+        },
+        "StartDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Value": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Allocations": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashflowInstructionDetail"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -3103,7 +3206,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.05.05",
+    "version": "2021.06.02",
     "title": "Public API"
   }
 }

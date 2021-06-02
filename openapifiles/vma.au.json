@@ -1,5 +1,200 @@
 {
   "paths": {
+    "/api/transactions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Transactions",
+            "schema": {
+              "$ref": "#/definitions/TransactionIEnumerablePagedResponse"
+            }
+          }
+        },
+        "operationId": "GetAUTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "BuysAndSellsOnly",
+            "in": "query",
+            "required": false,
+            "description": "Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "ShowUnconfirmed",
+            "in": "query",
+            "required": false,
+            "description": "Whether to show unconfirmed transactions. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "required": false,
+            "description": "Page number to return. Default to 1. Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Size",
+            "in": "query",
+            "required": false,
+            "description": "Page size to return. Default to 100.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "OrderBy",
+            "in": "query",
+            "required": false,
+            "description": "TransactionDate = 0, Security = 1. Default to 0.",
+            "type": "enum"
+          },
+          {
+            "name": "Order",
+            "in": "query",
+            "required": false,
+            "description": "Asc = 0, Desc = 1. Default to 1.",
+            "type": "enum"
+          }
+        ]
+      }
+    },
+    "/api/cashtransactions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Cash transactions",
+            "schema": {
+              "$ref": "#/definitions/CashBookIEnumerablePagedResponse"
+            }
+          }
+        },
+        "operationId": "GetAUCashTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "IncludePendingUnsettled",
+            "in": "query",
+            "required": false,
+            "description": "Whether to include pending unsettled cash transactions. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "required": false,
+            "description": "Page number to return. Default to 1. Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Size",
+            "in": "query",
+            "required": false,
+            "description": "Page size to return. Default to 100.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/unsettledtransactions": {
       "get": {
         "responses": {
@@ -1885,6 +2080,246 @@
         ]
       }
     },
+    "/api/cashflowinstructions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Cashflow instructions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CashflowInstruction"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUCashflowInstructions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/cashflowinstructions/oneoff": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "AddAUOneOffCashflowInstructions",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostOneOffCashflowInstructionRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "DeleteAUOneOffCashflowInstructions",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "cashflowInstructionId",
+            "in": "query",
+            "required": true,
+            "description": "Cashflow instruction ID returned by GET cashflow instructions endpoint",
+            "type": "string"
+          },
+          {
+            "name": "cashflowInstructionType",
+            "in": "query",
+            "required": true,
+            "description": "OneOffDirectDebit = 3."
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/cashflowinstructions/regular": {
+      "put": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "UpdateAURegularCashflowInstructions",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PutRegularCashflowInstructionRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "DeleteAURegularCashflowInstructions",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "cashflowInstructionType",
+            "in": "query",
+            "required": true,
+            "description": "RegularContribution = 1, RegularWithdrawal = 2."
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/assetclassperformance": {
       "get": {
         "responses": {
@@ -3486,201 +3921,6 @@
         ]
       }
     },
-    "/api/transactions": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Transactions",
-            "schema": {
-              "$ref": "#/definitions/TransactionIEnumerablePagedResponse"
-            }
-          }
-        },
-        "operationId": "GetAUTransactions",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          },
-          {
-            "name": "AccountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
-            "type": "string"
-          },
-          {
-            "name": "FromDate",
-            "in": "query",
-            "required": true,
-            "description": "The from date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "ToDate",
-            "in": "query",
-            "required": true,
-            "description": "The to date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "BuysAndSellsOnly",
-            "in": "query",
-            "required": false,
-            "description": "Whether to includes only Buy, Close position, Sell, Short Sell, Write Opt. to Open, Write Opt. to Close, Buy Opt. to open, Buy Opt. to close. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "ShowUnconfirmed",
-            "in": "query",
-            "required": false,
-            "description": "Whether to show unconfirmed transactions. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "Page",
-            "in": "query",
-            "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "Size",
-            "in": "query",
-            "required": false,
-            "description": "Page size to return. Default to 100.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "OrderBy",
-            "in": "query",
-            "required": false,
-            "description": "TransactionDate = 0, Security = 1. Default to 0.",
-            "type": "enum"
-          },
-          {
-            "name": "Order",
-            "in": "query",
-            "required": false,
-            "description": "Asc = 0, Desc = 1. Default to 1.",
-            "type": "enum"
-          }
-        ]
-      }
-    },
-    "/api/cashtransactions": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Cash transactions",
-            "schema": {
-              "$ref": "#/definitions/CashBookIEnumerablePagedResponse"
-            }
-          }
-        },
-        "operationId": "GetAUCashTransactions",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "IncludePendingUnsettled",
-            "in": "query",
-            "required": false,
-            "description": "Whether to include pending unsettled cash transactions. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "Page",
-            "in": "query",
-            "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "Size",
-            "in": "query",
-            "required": false,
-            "description": "Page size to return. Default to 100.",
-            "format": "int32",
-            "type": "integer"
-          },
-          {
-            "name": "AccountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
-            "type": "string"
-          },
-          {
-            "name": "FromDate",
-            "in": "query",
-            "required": true,
-            "description": "The from date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "ToDate",
-            "in": "query",
-            "required": true,
-            "description": "The to date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
     "/api/token": {
       "post": {
         "responses": {
@@ -3727,6 +3967,282 @@
         "Exchange": {
           "description": "Security exchange.",
           "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Transaction": {
+      "properties": {
+        "ContractNoteReference": {
+          "description": "Unique contract note reference number.",
+          "type": "string"
+        },
+        "DeemedAmount": {
+          "description": "The buyback capital value applied for CGT purposes. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "CostBaseUnknown": {
+          "description": "Whether cost base is unknown.",
+          "type": "boolean"
+        },
+        "BuyBack": {
+          "description": "If the transaction is classified as a buyback.",
+          "type": "boolean"
+        },
+        "AveragePriceInTradedCurrency": {
+          "description": "TradedCurrencyAmount divided by quantity.",
+          "format": "double",
+          "type": "number"
+        },
+        "AmountInTradedCurrency": {
+          "description": "Displays the amount traded in an international currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "TradedCurrency": {
+          "description": "For International Investments. Displays the currency in which the asset was traded.",
+          "type": "string"
+        },
+        "SettlementDate": {
+          "description": "The date on which the transaction settled.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "AveragePriceInSettlementCurrency": {
+          "description": "AmountInSettlementCurrency divided by quantity.",
+          "format": "double",
+          "type": "number"
+        },
+        "AmountInSettlementCurrency": {
+          "description": "Displays the amount settled in an international currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "SettlementCurrency": {
+          "description": "Displays the currency in which the trade was settled.",
+          "type": "string"
+        },
+        "Broker": {
+          "description": "The name of the broker against the transaction.",
+          "type": "string"
+        },
+        "GstClaimable": {
+          "description": "The total of any GST amount that is payable. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "BrokerageGst": {
+          "description": "The GST amount of any brokerage for the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "BrokerageIncludingGst": {
+          "description": "The total of any brokerage for the transaction including GST. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "TransactionId": {
+          "description": "The unique identifier of the transaction.",
+          "type": "string"
+        },
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/Security"
+        },
+        "TransactionDate": {
+          "description": "The date on which the transaction occurred.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "The number of units or shares disposed.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "NetAmount": {
+          "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "Unconfirmed": {
+          "description": "Whether the transaction has not been confirmed.",
+          "type": "boolean"
+        },
+        "AveragePrice": {
+          "description": "Net amount divided by quantity. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "DisposalMethod": {
+          "description": "Tax method used on the security disposal.",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "Displays any notes that have added to the transaction.",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "A categorised type of the transaction.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Metadata": {
+      "properties": {
+        "TotalCount": {
+          "description": "Total number of results found.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "description": "Total pages of results.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "TransactionIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "Metadata including pagination.",
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashSummary": {
+      "properties": {
+        "CashBookCode": {
+          "description": "The code of the cashbook.",
+          "type": "string"
+        },
+        "CashBookDescription": {
+          "description": "A description of the cashbook.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Denominated currency of the cashbook transactions.",
+          "type": "string"
+        },
+        "OpeningBalance": {
+          "description": "Cashbook balance at the FromDate in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "Deposits": {
+          "description": "Sum of all credit type transactions for the cashbook in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawals": {
+          "description": "Sum of all debit type transactions for the cashbook in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalance": {
+          "description": "Cashbook balance at the ToDate in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalanceInAccountCurrency": {
+          "description": "ClosingBalance of the cashbook. (Account currency)",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashTransaction": {
+      "properties": {
+        "TransactionId": {
+          "description": "The unique identifier of the transaction.",
+          "type": "string"
+        },
+        "TransactionDate": {
+          "description": "The date on which the transaction occurred.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Denominated currency of the transaction.",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "A categorised type of the transaction.",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "Displays any notes that have added to the transaction.",
+          "type": "string"
+        },
+        "Deposit": {
+          "description": "The amount in the denominated currency if this transaction is a credit type.",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawal": {
+          "description": "The amount in the denominated currency if this transaction is a debit type.",
+          "format": "double",
+          "type": "number"
+        },
+        "ValueInAccountCurrency": {
+          "description": "Value of the transaction. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "Balance": {
+          "description": "The balance in the denominated currency of the cash book after the transaction has been credited or debited.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashBook": {
+      "properties": {
+        "Summary": {
+          "description": "",
+          "$ref": "#/definitions/CashSummary"
+        },
+        "Transactions": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashTransaction"
+          },
+          "type": "array"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashBookIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashBook"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "Metadata including pagination.",
+          "$ref": "#/definitions/Metadata"
         }
       },
       "required": [],
@@ -4924,11 +5440,6 @@
           "description": "Account name.",
           "type": "string"
         },
-        "ValuationDate": {
-          "description": "Account valuation date or asat date.",
-          "format": "date-time",
-          "type": "string"
-        },
         "ConsolidationType": {
           "description": "None = 78, Portfolio = 80, Transaction = 84, FeeGroup = 85, ShareTrader = 86, SuperFund = 87.",
           "$ref": "#/definitions/ConsolidationType"
@@ -4956,22 +5467,59 @@
         "RecalcStatus": {
           "description": "OK = 0, Error = 1.",
           "$ref": "#/definitions/RecalcStatus"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "Metadata": {
-      "properties": {
-        "TotalCount": {
-          "description": "Total number of results found.",
-          "format": "int32",
-          "type": "integer"
         },
-        "TotalPages": {
-          "description": "Total pages of results.",
-          "format": "int32",
-          "type": "integer"
+        "ValuationDate": {
+          "description": "Account valuation date or asat date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "FirstTransactionDate": {
+          "description": "The first transaction date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreatedDate": {
+          "description": "The created date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "LastRecalcDate": {
+          "description": "The run-date of the latest account recalculation.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "RecalcRequired": {
+          "description": "Whether this account requires recalculation to accurately calculate all values.",
+          "type": "boolean"
+        },
+        "MarketValue": {
+          "description": "The Valuation of the account on the valuation date.",
+          "format": "double",
+          "type": "number"
+        },
+        "OwnerUserName": {
+          "description": "The account owner's username.",
+          "type": "string"
+        },
+        "Product": {
+          "description": "The description of the account product.",
+          "type": "string"
+        },
+        "BenchmarkId1": {
+          "description": "The unique ID of the account's benchmark 1.",
+          "type": "string"
+        },
+        "Benchmark1": {
+          "description": "The name of the account’s benchmark 1.",
+          "type": "string"
+        },
+        "BenchmarkId2": {
+          "description": "The unique ID of the account's benchmark 2.",
+          "type": "string"
+        },
+        "Benchmark2": {
+          "description": "The name of the account’s benchmark 2.",
+          "type": "string"
         }
       },
       "required": [],
@@ -6776,6 +7324,16 @@
           "format": "double",
           "type": "number"
         },
+        "MarketValueGainOrLoss": {
+          "description": "MarketValueGainOrLoss as a result of the market price (MV) movement of the security. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "ExchangeRateGainOrLoss": {
+          "description": "ExchangeRateGainOrLoss as a result of the movement of the exchange rate (FX). (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
         "EstimatedIncome": {
           "description": "Indicative field calculated based on the income of each asset generated over the past twelve months. (Account currency)",
           "format": "double",
@@ -6870,8 +7428,18 @@
           "format": "double",
           "type": "number"
         },
+        "MarketValueGainOrLoss": {
+          "description": "MarketValueGainOrLoss as a result of the market price (MV) movement of the security. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "ExchangeRateGainOrLoss": {
+          "description": "ExchangeRateGainOrLoss as a result of the movement of the exchange rate (FX). (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
         "PercentTotalGainOrLoss": {
-          "description": "The gain or loss expressed as a percentage over the adjusted cost base.",
+          "description": "The total gain or loss (TG) expressed as a percentage over the adjusted cost base.",
           "format": "double",
           "type": "number"
         },
@@ -7460,6 +8028,209 @@
         }
       },
       "required": [],
+      "type": "object"
+    },
+    "CashflowInstructionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        16,
+        17
+      ]
+    },
+    "FrequencyType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "CashflowInstructionDetail": {
+      "properties": {
+        "ModelCode": {
+          "description": "Model code. (Model code **ProRata** means pro rata across existing models)",
+          "type": "string"
+        },
+        "Sequence": {
+          "description": "Sequence to apply. (Starting from 1 as highest priority, then 2, 3 ...)",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Percentage": {
+          "description": "Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "ModelCode"
+      ],
+      "type": "object"
+    },
+    "CashflowInstruction": {
+      "properties": {
+        "Id": {
+          "description": "Cashflow instruction ID.",
+          "type": "string"
+        },
+        "CashflowInstructionType": {
+          "description": "Regular contribution = 1, Regular withdrawal = 2, One-off direct debit = 3, One-off withdrawal = 4, Income reinvestment = 5, Expenses = 6, Pension payment = 7 (Only allowed for SuperSMA (pension) accounts), Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Term deposit maturity = 10, Term deposit order = 11, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.",
+          "$ref": "#/definitions/CashflowInstructionType"
+        },
+        "FrequencyType": {
+          "description": "Adhoc =0, Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4, Daily = 5, Weekly = 6.",
+          "$ref": "#/definitions/FrequencyType"
+        },
+        "StartDate": {
+          "description": "Start date of the cashflow instruction.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDate": {
+          "description": "End date of the cashflow instruction.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Value": {
+          "description": "Value of the cashflow instruction.",
+          "format": "double",
+          "type": "number"
+        },
+        "Allocations": {
+          "description": "Cashflow instruction details.",
+          "items": {
+            "$ref": "#/definitions/CashflowInstructionDetail"
+          },
+          "type": "array"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "OneOffCashflowInstructionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        3,
+        4
+      ]
+    },
+    "PostOneOffCashflowInstructionRequest": {
+      "properties": {
+        "CashflowInstructionType": {
+          "description": "OneOffDirectDebit = 3, OneOffWithdrawal = 4.",
+          "$ref": "#/definitions/OneOffCashflowInstructionType"
+        },
+        "Amount": {
+          "description": "Amount of the one-off cashflow instruction to apply.",
+          "format": "double",
+          "type": "number"
+        },
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "Allocations": {
+          "description": "Cashflow instruction details.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/CashflowInstructionDetail"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "Allocations",
+        "CashflowInstructionType"
+      ],
+      "type": "object"
+    },
+    "RegularCashflowInstructionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        16,
+        17
+      ]
+    },
+    "RegularWithdrawalFrequencyType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "PutRegularCashflowInstructionRequest": {
+      "properties": {
+        "CashflowInstructionType": {
+          "description": "Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.",
+          "$ref": "#/definitions/RegularCashflowInstructionType"
+        },
+        "FrequencyType": {
+          "description": "Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4.",
+          "$ref": "#/definitions/RegularWithdrawalFrequencyType"
+        },
+        "StartDate": {
+          "description": "Start date of the cashflow instruction. (Only applicable for regular withdrawal)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDate": {
+          "description": "End date of the cashflow instruction. (Only applicable for regular withdrawal)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Amount": {
+          "description": "Amount of the cashflow instruction to apply. (Only applicable for regular contribution and regular withdrawal)",
+          "format": "double",
+          "type": "number"
+        },
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "Allocations": {
+          "description": "Cashflow instruction details.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/CashflowInstructionDetail"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "Allocations",
+        "CashflowInstructionType",
+        "FrequencyType"
+      ],
       "type": "object"
     },
     "AssetClassInvestment": {
@@ -8695,262 +9466,6 @@
       ],
       "type": "object"
     },
-    "Transaction": {
-      "properties": {
-        "DeemedAmount": {
-          "description": "The buyback capital value applied for CGT purposes. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "CostBaseUnknown": {
-          "description": "Whether cost base is unknown.",
-          "type": "boolean"
-        },
-        "BuyBack": {
-          "description": "If the transaction is classified as a buyback.",
-          "type": "boolean"
-        },
-        "AveragePriceInTradedCurrency": {
-          "description": "TradedCurrencyAmount divided by quantity.",
-          "format": "double",
-          "type": "number"
-        },
-        "AmountInTradedCurrency": {
-          "description": "Displays the amount traded in an international currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "TradedCurrency": {
-          "description": "For International Investments. Displays the currency in which the asset was traded.",
-          "type": "string"
-        },
-        "SettlementDate": {
-          "description": "The date on which the transaction settled.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "AveragePriceInSettlementCurrency": {
-          "description": "AmountInSettlementCurrency divided by quantity.",
-          "format": "double",
-          "type": "number"
-        },
-        "AmountInSettlementCurrency": {
-          "description": "Displays the amount settled in an international currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "SettlementCurrency": {
-          "description": "Displays the currency in which the trade was settled.",
-          "type": "string"
-        },
-        "Broker": {
-          "description": "The name of the broker against the transaction.",
-          "type": "string"
-        },
-        "GstClaimable": {
-          "description": "The total of any GST amount that is payable. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "BrokerageGst": {
-          "description": "The GST amount of any brokerage for the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "BrokerageIncludingGst": {
-          "description": "The total of any brokerage for the transaction including GST. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "TransactionId": {
-          "description": "The unique identifier of the transaction.",
-          "type": "string"
-        },
-        "Security": {
-          "description": "",
-          "$ref": "#/definitions/Security"
-        },
-        "TransactionDate": {
-          "description": "The date on which the transaction occurred.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "Quantity": {
-          "description": "The number of units or shares disposed.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "NetAmount": {
-          "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "Unconfirmed": {
-          "description": "Whether the transaction has not been confirmed.",
-          "type": "boolean"
-        },
-        "AveragePrice": {
-          "description": "Net amount divided by quantity. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "DisposalMethod": {
-          "description": "Tax method used on the security disposal.",
-          "type": "string"
-        },
-        "Narration": {
-          "description": "Displays any notes that have added to the transaction.",
-          "type": "string"
-        },
-        "TransactionTypeDescription": {
-          "description": "A categorised type of the transaction.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "TransactionIEnumerablePagedResponse": {
-      "properties": {
-        "Data": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/Transaction"
-          },
-          "type": "array"
-        },
-        "Metadata": {
-          "description": "Metadata including pagination.",
-          "$ref": "#/definitions/Metadata"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "CashSummary": {
-      "properties": {
-        "CashBookCode": {
-          "description": "The code of the cashbook.",
-          "type": "string"
-        },
-        "CashBookDescription": {
-          "description": "A description of the cashbook.",
-          "type": "string"
-        },
-        "Currency": {
-          "description": "Denominated currency of the cashbook transactions.",
-          "type": "string"
-        },
-        "OpeningBalance": {
-          "description": "Cashbook balance at the FromDate in the denominated currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "Deposits": {
-          "description": "Sum of all credit type transactions for the cashbook in the denominated currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "Withdrawals": {
-          "description": "Sum of all debit type transactions for the cashbook in the denominated currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "ClosingBalance": {
-          "description": "Cashbook balance at the ToDate in the denominated currency.",
-          "format": "double",
-          "type": "number"
-        },
-        "ClosingBalanceInAccountCurrency": {
-          "description": "ClosingBalance of the cashbook. (Account currency)",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "CashTransaction": {
-      "properties": {
-        "TransactionId": {
-          "description": "The unique identifier of the transaction.",
-          "type": "string"
-        },
-        "TransactionDate": {
-          "description": "The date on which the transaction occurred.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "Currency": {
-          "description": "Denominated currency of the transaction.",
-          "type": "string"
-        },
-        "TransactionTypeDescription": {
-          "description": "A categorised type of the transaction.",
-          "type": "string"
-        },
-        "Narration": {
-          "description": "Displays any notes that have added to the transaction.",
-          "type": "string"
-        },
-        "Deposit": {
-          "description": "The amount in the denominated currency if this transaction is a credit type.",
-          "format": "double",
-          "type": "number"
-        },
-        "Withdrawal": {
-          "description": "The amount in the denominated currency if this transaction is a debit type.",
-          "format": "double",
-          "type": "number"
-        },
-        "ValueInAccountCurrency": {
-          "description": "Value of the transaction. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "Balance": {
-          "description": "The balance in the denominated currency of the cash book after the transaction has been credited or debited.",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "CashBook": {
-      "properties": {
-        "Summary": {
-          "description": "",
-          "$ref": "#/definitions/CashSummary"
-        },
-        "Transactions": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/CashTransaction"
-          },
-          "type": "array"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "CashBookIEnumerablePagedResponse": {
-      "properties": {
-        "Data": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/CashBook"
-          },
-          "type": "array"
-        },
-        "Metadata": {
-          "description": "Metadata including pagination.",
-          "$ref": "#/definitions/Metadata"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -8977,7 +9492,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.05.05",
+    "version": "2021.06.02",
     "title": "Public API"
   }
 }

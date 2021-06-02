@@ -342,6 +342,21 @@
                   <li>
                     <a href="#get-bpay" class="toc-h2 toc-link" data-title="GET BPAY"><span class="get">GET</span> BPAY</a>
                   </li>
+                  <li>
+                    <a href="#get-cashflow-instructions" class="toc-h2 toc-link" data-title="GET Cashflow Instructions"><span class="get">GET</span> Cashflow Instructions</a>
+                  </li>
+                  <li>
+                    <a href="#post-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="POST One-off Cashflow Instructions"><span class="post">POST</span> One-off Cashflow Instructions</a>
+                  </li>
+                  <li>
+                    <a href="#delete-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="DELETE One-off Cashflow Instructions"><span class="delete">DELETE</span> One-off Cashflow Instructions</a>
+                  </li>
+                  <li>
+                    <a href="#put-regular-cashflow-instructions" class="toc-h2 toc-link" data-title="PUT Regular Cashflow Instructions"><span class="put">PUT</span> Regular Cashflow Instructions</a>
+                  </li>
+                  <li>
+                    <a href="#delete-regular-cashflow-instructions" class="toc-h2 toc-link" data-title="DELETE Regular Cashflow Instructions"><span class="delete">DELETE</span> Regular Cashflow Instructions</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -8334,6 +8349,561 @@
 </tbody></table>
 
 <p><br/></p>
+<h3 id='get-cashflow-instructions'><span class="get">GET</span> Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions</p>
+</blockquote>
+
+<p>This endpoint returns cashflow instructions for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-30'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">AU400000</span>
+</code></pre></div><h5 id='request-parameter-query-10'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU243904"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CashflowInstructionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2200-01-01T00:00:00+11:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MACAUD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU253714"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CashflowInstructionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-12T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-12T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.32</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU253778"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CashflowInstructionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-09-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.32</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.000000</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProRata"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-20'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Cashflow instruction ID.</td>
+</tr>
+<tr>
+<td>CashflowInstructionType</td>
+<td>enum</td>
+<td>Regular contribution = 1, Regular withdrawal = 2, One-off direct debit = 3, One-off withdrawal = 4, Income reinvestment = 5, Expenses = 6, Pension payment = 7 (Only allowed for SuperSMA (pension) accounts), Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Term deposit maturity = 10, Term deposit order = 11, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.</td>
+</tr>
+<tr>
+<td>FrequencyType</td>
+<td>enum</td>
+<td>Adhoc =0, Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4, Daily = 5, Weekly = 6.</td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td>date-time</td>
+<td>Start date of the cashflow instruction.</td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td>date-time</td>
+<td>End date of the cashflow instruction.</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>double</td>
+<td>Value of the cashflow instruction.</td>
+</tr>
+<tr>
+<td>Allocations</td>
+<td>array</td>
+<td>Cashflow instruction details.</td>
+</tr>
+<tr>
+<td>Allocations.ModelCode</td>
+<td>string</td>
+<td>Model code. (Model code <strong>ProRata</strong> means pro rata across existing models)</td>
+</tr>
+<tr>
+<td>Allocations.Sequence</td>
+<td>integer</td>
+<td>Sequence to apply. (Starting from 1 as highest priority, then 2, 3 ...)</td>
+</tr>
+<tr>
+<td>Allocations.Percentage</td>
+<td>double</td>
+<td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='post-one-off-cashflow-instructions'><span class="post">POST</span> One-off Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/oneoff</p>
+</blockquote>
+
+<p>This endpoint allows you to add one-off cashflow instruction for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-31'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"CashflowInstructionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.32</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MACAUD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.9</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-18'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td>enum</td>
+<td>OneOffDirectDebit = 3, OneOffWithdrawal = 4.</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>double</td>
+<td>Amount of the one-off cashflow instruction to apply.</td>
+</tr>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>Allocations<span class="required">required</span></td>
+<td>array</td>
+<td>Cashflow instruction details.</td>
+</tr>
+<tr>
+<td>Allocations.ModelCode<span class="required">required</span></td>
+<td>string</td>
+<td>Model code. (Model code <strong>ProRata</strong> means pro rata across existing models)</td>
+</tr>
+<tr>
+<td>Allocations.Sequence</td>
+<td>integer</td>
+<td>Sequence to apply. (Starting from 1 as highest priority, then 2, 3 ...)</td>
+</tr>
+<tr>
+<td>Allocations.Percentage</td>
+<td>double</td>
+<td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h3 id='delete-one-off-cashflow-instructions'><span class="delete">DELETE</span> One-off Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/oneoff</p>
+</blockquote>
+
+<p>This endpoint allows you to delete one-off cashflow instruction for the account. (Only allowed for one-off direct debit)</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-32'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">AU400000</span>
+<span class="na">CashflowInstructionId</span><span class="pi">:</span> <span class="s">AU1</span>
+<span class="na">CashflowInstructionType</span><span class="pi">:</span> <span class="m">3</span>
+</code></pre></div><h5 id='request-parameter-query-11'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>CashflowInstructionId<span class="required">required</span></td>
+<td>string</td>
+<td>Cashflow instruction ID returned by GET cashflow instructions endpoint</td>
+</tr>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td></td>
+<td>OneOffDirectDebit = 3.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h3 id='put-regular-cashflow-instructions'><span class="put">PUT</span> Regular Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/regular</p>
+</blockquote>
+
+<p>This endpoint allows you to update regular cashflow instruction for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.32</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"CashflowInstructionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0005"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProRata"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-09-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-19'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td>enum</td>
+<td>Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.</td>
+</tr>
+<tr>
+<td>FrequencyType<span class="required">required</span></td>
+<td>enum</td>
+<td>Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4.</td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td>date-time</td>
+<td>Start date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td>date-time</td>
+<td>End date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>double</td>
+<td>Amount of the cashflow instruction to apply. (Only applicable for regular contribution and regular withdrawal)</td>
+</tr>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>Allocations<span class="required">required</span></td>
+<td>array</td>
+<td>Cashflow instruction details.</td>
+</tr>
+<tr>
+<td>Allocations.ModelCode<span class="required">required</span></td>
+<td>string</td>
+<td>Model code. (Model code <strong>ProRata</strong> means pro rata across existing models)</td>
+</tr>
+<tr>
+<td>Allocations.Sequence</td>
+<td>integer</td>
+<td>Sequence to apply. (Starting from 1 as highest priority, then 2, 3 ...)</td>
+</tr>
+<tr>
+<td>Allocations.Percentage</td>
+<td>double</td>
+<td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h3 id='delete-regular-cashflow-instructions'><span class="delete">DELETE</span> Regular Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/regular</p>
+</blockquote>
+
+<p>This endpoint allows you to delete regular cashflow instruction for the account. (Only allowed for regular contribution and regular withdrawal)</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">AU400000</span>
+<span class="na">CashflowInstructionType</span><span class="pi">:</span> <span class="m">1</span>
+</code></pre></div><h5 id='request-parameter-query-12'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td></td>
+<td>RegularContribution = 1, RegularWithdrawal = 2.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
 <h1 id='investments'>Investments</h1><h3 id='get-securities'><span class="get">GET</span> Securities</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.onpraemium.com/api/securities</p>
@@ -8347,7 +8917,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-30'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-35'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8387,7 +8957,7 @@
 <span class="c1"># Search by security codes</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">BHP.ASX</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">PPS.ASX</span>
-</code></pre></div><h5 id='request-parameter-query-10'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-13'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8432,7 +9002,7 @@
     </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-20'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-21'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
