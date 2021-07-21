@@ -8861,7 +8861,7 @@
 <tr>
 <td>CashflowInstructionType</td>
 <td>enum</td>
-<td>Regular contribution = 1, Regular withdrawal = 2, One-off direct debit = 3, One-off withdrawal = 4, Income reinvestment = 5, Expenses = 6, Pension payment = 7 (Only allowed for SuperSMA (pension) accounts), Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Term deposit maturity = 10, Term deposit order = 11, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.</td>
+<td>Regular contribution = 1, Regular withdrawal = 2, One-off direct debit = 3, One-off withdrawal = 4, Income reinvestment = 5, Expenses = 6, Pension payment = 7 (Only allowed for SuperSMA pension accounts), All contributions and rollovers = 8 (Only allowed for SuperSMA accumulation accounts), Other withdrawals = 9, Term deposit maturity = 10, Term deposit order = 11, Superfund withdrawals and rollovers = 16 (Only allowed for SuperSMA accumulation and pension accounts), Insurance premiums = 17 (Only allowed for SuperSMA accumulation and pension accounts).</td>
 </tr>
 <tr>
 <td>FrequencyType</td>
@@ -9163,7 +9163,7 @@
 <tr>
 <td>CashflowInstructionType<span class="required">required</span></td>
 <td>enum</td>
-<td>Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, Other additions for non-SuperSMA (accumulation) accounts = 8, All contributions and rollovers for SuperSMA (accumulation) accounts = 8, Other withdrawals = 9, Superfund withdrawals and rollovers = 16, Insurance premiums = 17.</td>
+<td>Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, All contributions and rollovers (Only allowed for SuperSMA accumulation accounts) = 8, Other withdrawals = 9, Superfund withdrawals and rollovers (Only allowed for SuperSMA accumulation and pension accounts) = 16, Insurance premiums (Only allowed for SuperSMA accumulation and pension accounts) = 17.</td>
 </tr>
 <tr>
 <td>FrequencyType<span class="required">required</span></td>

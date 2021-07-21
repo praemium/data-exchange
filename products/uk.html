@@ -658,7 +658,13 @@
         </span><span class="nl">"FeeOverride"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"IsTiered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"TaxWrappers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="mi">8</span><span class="p">,</span><span class="w">
+          </span><span class="mi">9</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1000002828"</span><span class="p">,</span><span class="w">
@@ -670,6 +676,13 @@
           </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"IsTiered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"TaxWrappers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="mi">13</span><span class="w">
+        </span><span class="p">]</span><span class="w">
         </span><span class="nl">"SingleAssetModelIsin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IE10G3QG6S78"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"SingleAssetModelCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -833,6 +846,11 @@
 <td>Models.FeeOverride.Tiers.Percentage</td>
 <td>double</td>
 <td>Fee percentage.</td>
+</tr>
+<tr>
+<td>Models.TaxWrappers</td>
+<td>array</td>
+<td>Unspecified = 0, CgtChargeable = 1, TaxExempt = 2, Unknown = 3, Isa = 4, OffshoreBond = 5, OnshoreBond = 6, PersonalPension = 7, RtsRats = 8, Sipp = 9, GroupSipp = 10, Ssas = 11, S32 = 12, TrustNotUkTaxable = 13, CompanyNotUkTaxable = 14, Qnups = 15, Qrops = 16, Efurbs = 17, Ebt = 18, InternationalPensionsAndSavingsScheme = 19, Jisa = 20, OffshoreBondPersonalised = 21.</td>
 </tr>
 <tr>
 <td>Models.SingleAssetModelIsin</td>
