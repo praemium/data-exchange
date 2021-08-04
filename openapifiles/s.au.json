@@ -1,6 +1,51 @@
 {
   "paths": {
     "/api/esgcategories": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "AddAUAccountEsgCategories",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostEsgCategoryRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
       "put": {
         "responses": {
           "204": {
@@ -116,51 +161,6 @@
             "required": true,
             "description": "Account ID.",
             "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      },
-      "post": {
-        "responses": {
-          "204": {
-            "description": "Success"
-          }
-        },
-        "operationId": "AddAUAccountEsgCategories",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PostEsgCategoryRequest"
-            }
           },
           {
             "name": "Authorization",
@@ -1852,6 +1852,76 @@
             "required": true,
             "description": "Account ID.",
             "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/incomeschedules/bulk": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Income schedules bulk",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BulkIncomeScheduleData"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUIncomeSchedulesBulk",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "AccountIds",
+            "in": "query",
+            "required": true,
+            "description": "An array of account IDs.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           },
           {
             "name": "FromDate",
@@ -4059,25 +4129,6 @@
     }
   },
   "definitions": {
-    "PutEsgCategoryRequest": {
-      "properties": {
-        "AccountId": {
-          "description": "Account ID.",
-          "type": "string"
-        },
-        "CategoryIds": {
-          "description": "An array of ESG category IDs.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "AccountId"
-      ],
-      "type": "object"
-    },
     "PostEsgCategoryRequest": {
       "properties": {
         "AccountId": {
@@ -4096,6 +4147,25 @@
       "required": [
         "AccountId",
         "CategoryIds"
+      ],
+      "type": "object"
+    },
+    "PutEsgCategoryRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "CategoryIds": {
+          "description": "An array of ESG category IDs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId"
       ],
       "type": "object"
     },
@@ -7899,6 +7969,22 @@
       "required": [],
       "type": "object"
     },
+    "BulkIncomeScheduleData": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "IncomeSchedules": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/IncomeSchedule"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "ModelStatus": {
       "format": "int32",
       "type": "integer",
@@ -9650,7 +9736,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.07.21",
+    "version": "2021.08.04",
     "title": "Public API"
   }
 }
