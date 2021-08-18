@@ -1,6 +1,55 @@
 {
   "paths": {
     "/api/esgcategories": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "ESG category IDs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUAccountEsgCategories",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
       "post": {
         "responses": {
           "204": {
@@ -111,55 +160,6 @@
             "in": "query",
             "required": false,
             "description": "The category ID as returned by the all ESG categories endpoint.",
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      },
-      "get": {
-        "responses": {
-          "200": {
-            "description": "ESG category IDs",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "operationId": "GetAUAccountEsgCategories",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "accountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
             "type": "string"
           },
           {
@@ -9736,7 +9736,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.08.04",
+    "version": "2021.08.18",
     "title": "Public API"
   }
 }
