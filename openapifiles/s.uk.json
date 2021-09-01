@@ -1,5 +1,60 @@
 {
   "paths": {
+    "/api/ssologin": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "SSO login",
+            "schema": {
+              "$ref": "#/definitions/SsoLoginResponse"
+            }
+          }
+        },
+        "operationId": "SsoLogin",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SsoLoginRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/users": {
       "get": {
         "responses": {
@@ -577,37 +632,26 @@
         ]
       }
     },
-    "/api/ssologin": {
-      "post": {
+    "/api/holdings": {
+      "get": {
         "responses": {
           "200": {
-            "description": "SSO login",
+            "description": "Holdings",
             "schema": {
-              "$ref": "#/definitions/SsoLoginResponse"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UkHoldingData"
+              }
             }
           }
         },
-        "operationId": "SsoLogin",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
+        "operationId": "GetUkHoldings",
         "produces": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SsoLoginRequest"
-            }
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -627,6 +671,24 @@
             "in": "header",
             "required": true,
             "description": "API version of the endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "AccountIds",
+            "in": "query",
+            "required": true,
+            "description": "An array of account IDs.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "name": "ValuationDate",
+            "in": "query",
+            "required": true,
+            "description": "Date used to display the data.",
+            "format": "date-time",
             "type": "string"
           }
         ]
@@ -680,6 +742,44 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "TargetApplication": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "SsoLoginRequest": {
+      "properties": {
+        "Application": {
+          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
+          "$ref": "#/definitions/TargetApplication"
+        },
+        "UserId": {
+          "description": "ID of the user to log in. Either UserId or Username is required.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Application",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "SsoLoginResponse": {
+      "properties": {
+        "SsoUrl": {
+          "description": "SSO URL.",
+          "type": "string"
+        }
+      },
+      "required": [],
       "type": "object"
     },
     "User": {
@@ -2890,15 +2990,16 @@
     "SubscriptionModel": {
       "properties": {
         "ModelCode": {
-          "description": "",
+          "description": "Model code.",
           "type": "string"
         },
         "Weighting": {
-          "description": "",
+          "description": "Account’s model weighting at the valuation date.",
           "format": "double",
           "type": "number"
         }
       },
+      "required": [],
       "type": "object"
     },
     "CashHub": {
@@ -2925,6 +3026,193 @@
           "$ref": "#/definitions/CashHub"
         }
       },
+      "type": "object"
+    },
+    "UkValuation": {
+      "properties": {
+        "ValuationDate": {
+          "description": "Date used to display the data.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "TotalCost": {
+          "description": "The total account cost based on the cost base of unrealised holdings. ",
+          "format": "double",
+          "type": "number"
+        },
+        "TotalValue": {
+          "description": "The total account value based on the quantity and price of unrealised holdings. ",
+          "format": "double",
+          "type": "number"
+        },
+        "NetValue": {
+          "description": "The total account value inclusive of receivables and payables. ",
+          "format": "double",
+          "type": "number"
+        },
+        "TotalGainOrLoss": {
+          "description": " ",
+          "format": "double",
+          "type": "number"
+        },
+        "MarketValueGainOrLoss": {
+          "description": " ",
+          "format": "double",
+          "type": "number"
+        },
+        "AccountCurrency": {
+          "description": "Accounts currency",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UkHoldingSecurity": {
+      "properties": {
+        "Code": {
+          "description": "Security code of the security.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Description of the security.",
+          "type": "string"
+        },
+        "AssetClassDescription": {
+          "description": "A description of the security’s asset class.",
+          "type": "string"
+        },
+        "AssetClassCode": {
+          "description": "The asset class code of the security’s asset class.",
+          "type": "string"
+        },
+        "AssetClassCategory": {
+          "description": "The asset class category of the security’s asset class.",
+          "type": "string"
+        },
+        "TypeDescription": {
+          "description": "The asset type of the security’s asset class.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UkHolding": {
+      "properties": {
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/UkHoldingSecurity"
+        },
+        "Quantity": {
+          "description": "The number of securities held by the account at the recalculation date.",
+          "format": "double",
+          "type": "number"
+        },
+        "UnitCost": {
+          "description": "Average unit cost of the holding. This is the actual cost divided by the quantity. ",
+          "format": "double",
+          "type": "number"
+        },
+        "Cost": {
+          "description": "Actual cost is based on the cost base of unrealised holdings. ",
+          "format": "double",
+          "type": "number"
+        },
+        "UnitValue": {
+          "description": "The last price of the holding available at the recalculation date. ",
+          "format": "double",
+          "type": "number"
+        },
+        "UnitPriceDate": {
+          "description": "The date of the unit price. ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Value": {
+          "description": "Value is calculated based on the unit price multiplied by the quantity. ",
+          "format": "double",
+          "type": "number"
+        },
+        "PercentTotalValue": {
+          "description": "The percentage ratio of the value relative to the total account value.",
+          "format": "double",
+          "type": "number"
+        },
+        "GainOrLoss": {
+          "description": " ",
+          "format": "double",
+          "type": "number"
+        },
+        "PercentTotalGainOrLoss": {
+          "description": "The total gain or loss (TG) expressed as a percentage over the adjusted cost base.",
+          "format": "double",
+          "type": "number"
+        },
+        "ValueInSecurityCurrency": {
+          "description": "The value based on the quantity and local price of unrealised holdings.",
+          "format": "double",
+          "type": "number"
+        },
+        "NativeCurrency": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UkCashHub": {
+      "properties": {
+        "GBP": {
+          "description": "Cash model weighting at the valuation date.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UkSubscription": {
+      "properties": {
+        "Models": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/SubscriptionModel"
+          },
+          "type": "array"
+        },
+        "CashHub": {
+          "description": "",
+          "$ref": "#/definitions/UkCashHub"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UkHoldingData": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "Valuation": {
+          "description": "",
+          "$ref": "#/definitions/UkValuation"
+        },
+        "Holdings": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/UkHolding"
+          },
+          "type": "array"
+        },
+        "Subscriptions": {
+          "description": "",
+          "$ref": "#/definitions/UkSubscription"
+        }
+      },
+      "required": [],
       "type": "object"
     },
     "ModelStatus": {
@@ -3177,44 +3465,6 @@
       },
       "type": "object"
     },
-    "TargetApplication": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3
-      ]
-    },
-    "SsoLoginRequest": {
-      "properties": {
-        "Application": {
-          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
-          "$ref": "#/definitions/TargetApplication"
-        },
-        "UserId": {
-          "description": "ID of the user to log in. Either UserId or Username is required.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "Application",
-        "UserId"
-      ],
-      "type": "object"
-    },
-    "SsoLoginResponse": {
-      "properties": {
-        "SsoUrl": {
-          "description": "SSO URL.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -3241,7 +3491,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.08.18",
+    "version": "2021.09.01",
     "title": "Public API"
   }
 }

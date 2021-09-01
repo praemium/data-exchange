@@ -315,6 +315,14 @@
               </ul>
           </li>
           <li>
+            <a href="#holdings" class="toc-h1 toc-link" data-title="Holdings">Holdings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-holdings" class="toc-h2 toc-link" data-title="GET Holdings"><span class="get">GET</span> Holdings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#trading-sma" class="toc-h1 toc-link" data-title="Trading SMA">Trading SMA</a>
               <ul class="toc-list-h2">
                   <li>
@@ -7008,12 +7016,12 @@
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
 </span></code></pre></div>
 <p><br/></p>
-<h1 id='trading-sma'>Trading SMA</h1><h3 id='get-account-model-weightings'><span class="get">GET</span> Account Model Weightings</h3>
+<h1 id='holdings'>Holdings</h1><h3 id='get-holdings'><span class="get">GET</span> Holdings</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/holdings</p>
 </blockquote>
 
-<p>This endpoint returns the account model weightings for the account.</p>
+<p>This endpoint returns holdings for the accounts.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -7049,8 +7057,396 @@
 <blockquote>
 <p><strong>Request Parameter - Query Examples</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK1</span>
+<span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK2</span>
+<span class="na">ValuationDate</span><span class="pi">:</span> <span class="s">2021-02-23T00:00:00Z</span>
 </code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountIds<span class="required">required</span></td>
+<td>array</td>
+<td>An array of account IDs.</td>
+</tr>
+<tr>
+<td>ValuationDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>Date used to display the data.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Valuation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ValuationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-23T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">948274.19</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1015661.69</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"NetValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1015661.69</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">67387.5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MarketValueGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">67387.5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AccountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Holdings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB00B3TYHH97"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vanguard LifeStrategy 60% Equity Fund Acc -A- GBP"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overseas Shares"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OEIC"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shares In Listed Company (Overseas)"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">4343.796</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">214.88</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">933394.86</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">230.39</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPriceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T19:56:43.723+01:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000782.36</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">98.54</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"GainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">67387.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ValueInSecurityCurrency"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000782.36</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NativeCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBPCASH"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash &amp; Equivalents"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Account"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">14879.33</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">14879.33</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPriceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T19:56:43.723+01:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">14879.33</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.46</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"GainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ValueInSecurityCurrency"</span><span class="p">:</span><span class="w"> </span><span class="mf">14879.33</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NativeCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"Subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"CashHub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"GBP"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Valuation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ValuationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-23T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">373009.18</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">391830.56</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"NetValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">391830.56</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">18821.38</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MarketValueGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">18821.38</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AccountCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Holdings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB00B41XG308"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vanguard LifeStrategy 100% Equity Fund Acc A GBP"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Overseas Shares"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OEIC"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shares In Listed Company (Overseas)"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">1335.5928</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">275.04</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">367340.3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">289.13</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPriceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T20:25:37.817+01:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">386161.68</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">98.55</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"GainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">18821.38</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ValueInSecurityCurrency"</span><span class="p">:</span><span class="w"> </span><span class="mf">386161.68</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NativeCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+DPSCASH"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending withdrawals for DPS Service"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash &amp; Equivalents"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Account"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">121.97</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">121.97</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPriceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T20:25:37.817+01:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">121.97</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"GainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ValueInSecurityCurrency"</span><span class="p">:</span><span class="w"> </span><span class="mf">121.97</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NativeCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBPCASH"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AssetClassDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash &amp; Equivalents"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Account"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">5546.91</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitCost"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">5546.91</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPriceDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T20:25:37.817+01:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mf">5546.91</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.42</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"GainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PercentTotalGainOrLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ValueInSecurityCurrency"</span><span class="p">:</span><span class="w"> </span><span class="mf">5546.91</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"NativeCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"Subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"CashHub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"GBP"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId</td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>Valuation</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Valuation.ValuationDate</td>
+<td>date-time</td>
+<td>Date used to display the data.</td>
+</tr>
+<tr>
+<td>Valuation.TotalCost</td>
+<td>double</td>
+<td>The total account cost based on the cost base of unrealised holdings.</td>
+</tr>
+<tr>
+<td>Valuation.TotalValue</td>
+<td>double</td>
+<td>The total account value based on the quantity and price of unrealised holdings.</td>
+</tr>
+<tr>
+<td>Valuation.NetValue</td>
+<td>double</td>
+<td>The total account value inclusive of receivables and payables.</td>
+</tr>
+<tr>
+<td>Valuation.TotalGainOrLoss</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>Valuation.MarketValueGainOrLoss</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>Valuation.AccountCurrency</td>
+<td>string</td>
+<td>Accounts currency</td>
+</tr>
+<tr>
+<td>Holdings</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>Holdings.Security</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Holdings.Security.Code</td>
+<td>string</td>
+<td>Security code of the security.</td>
+</tr>
+<tr>
+<td>Holdings.Security.Description</td>
+<td>string</td>
+<td>Description of the security.</td>
+</tr>
+<tr>
+<td>Holdings.Security.AssetClassDescription</td>
+<td>string</td>
+<td>A description of the security’s asset class.</td>
+</tr>
+<tr>
+<td>Holdings.Security.AssetClassCode</td>
+<td>string</td>
+<td>The asset class code of the security’s asset class.</td>
+</tr>
+<tr>
+<td>Holdings.Security.AssetClassCategory</td>
+<td>string</td>
+<td>The asset class category of the security’s asset class.</td>
+</tr>
+<tr>
+<td>Holdings.Security.TypeDescription</td>
+<td>string</td>
+<td>The asset type of the security’s asset class.</td>
+</tr>
+<tr>
+<td>Holdings.Quantity</td>
+<td>double</td>
+<td>The number of securities held by the account at the recalculation date.</td>
+</tr>
+<tr>
+<td>Holdings.UnitCost</td>
+<td>double</td>
+<td>Average unit cost of the holding. This is the actual cost divided by the quantity.</td>
+</tr>
+<tr>
+<td>Holdings.Cost</td>
+<td>double</td>
+<td>Actual cost is based on the cost base of unrealised holdings.</td>
+</tr>
+<tr>
+<td>Holdings.UnitValue</td>
+<td>double</td>
+<td>The last price of the holding available at the recalculation date.</td>
+</tr>
+<tr>
+<td>Holdings.UnitPriceDate</td>
+<td>date-time</td>
+<td>The date of the unit price.</td>
+</tr>
+<tr>
+<td>Holdings.Value</td>
+<td>double</td>
+<td>Value is calculated based on the unit price multiplied by the quantity.</td>
+</tr>
+<tr>
+<td>Holdings.PercentTotalValue</td>
+<td>double</td>
+<td>The percentage ratio of the value relative to the total account value.</td>
+</tr>
+<tr>
+<td>Holdings.GainOrLoss</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>Holdings.PercentTotalGainOrLoss</td>
+<td>double</td>
+<td>The total gain or loss (TG) expressed as a percentage over the adjusted cost base.</td>
+</tr>
+<tr>
+<td>Holdings.ValueInSecurityCurrency</td>
+<td>double</td>
+<td>The value based on the quantity and local price of unrealised holdings.</td>
+</tr>
+<tr>
+<td>Holdings.NativeCurrency</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>Subscriptions</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Subscriptions.Models</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>Subscriptions.Models.ModelCode</td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>Subscriptions.Models.Weighting</td>
+<td>double</td>
+<td>Account’s model weighting at the valuation date.</td>
+</tr>
+<tr>
+<td>Subscriptions.CashHub</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Subscriptions.CashHub.GBP</td>
+<td>double</td>
+<td>Cash model weighting at the valuation date.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h1 id='trading-sma'>Trading SMA</h1><h3 id='get-account-model-weightings'><span class="get">GET</span> Account Model Weightings</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/accountmodelweightings</p>
+</blockquote>
+
+<p>This endpoint returns the account model weightings for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
+</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7075,7 +7471,7 @@
     </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7109,7 +7505,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7195,7 +7591,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7234,7 +7630,7 @@
 <span class="c1"># Search by security codes</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">BHP.LSE</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">ROC.LON</span>
-</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-6'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7274,7 +7670,7 @@
     </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-15'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
