@@ -259,6 +259,80 @@
         ]
       }
     },
+    "/api/accounts": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Accounts",
+            "schema": {
+              "$ref": "#/definitions/AccountUKIEnumerablePagedResponse"
+            }
+          }
+        },
+        "operationId": "GetUKAccounts",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Account search string. This parameter accepts wildcards (*).",
+            "type": "string"
+          },
+          {
+            "name": "accountIds",
+            "in": "query",
+            "required": false,
+            "description": "An array of account IDs. If AccountIds are provided, all other parameters will be ignored.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": " Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "description": " Default to 100.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/accountmodelweightings": {
       "get": {
         "responses": {
@@ -782,6 +856,22 @@
       "required": [],
       "type": "object"
     },
+    "Metadata": {
+      "properties": {
+        "TotalCount": {
+          "description": "",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "description": "",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
     "User": {
       "properties": {
         "UserId": {
@@ -1019,6 +1109,18 @@
       ],
       "type": "object"
     },
+    "EntityType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
     "FeeType": {
       "format": "int32",
       "type": "integer",
@@ -1055,6 +1157,18 @@
       },
       "type": "object"
     },
+    "ConsolidationType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        78,
+        80,
+        84,
+        85,
+        86,
+        87
+      ]
+    },
     "AccountType": {
       "format": "int32",
       "type": "integer",
@@ -1086,6 +1200,148 @@
         27,
         28
       ]
+    },
+    "AccountStatus": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "RecalcType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "RecalcStatus": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "AccountUK": {
+      "properties": {
+        "ProductProvider": {
+          "description": "The name of the Product Provider.",
+          "type": "string"
+        },
+        "ProductReference": {
+          "description": "The Product Providers Reference Number.",
+          "type": "string"
+        },
+        "AdviserFirmReference": {
+          "description": "The adviser firms internal account reference.",
+          "type": "string"
+        },
+        "Id": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "Code": {
+          "description": "Account code.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Account name.",
+          "type": "string"
+        },
+        "ConsolidationType": {
+          "description": "None = 78, Portfolio = 80, Transaction = 84, FeeGroup = 85, ShareTrader = 86, SuperFund = 87.",
+          "$ref": "#/definitions/ConsolidationType"
+        },
+        "AccountType": {
+          "description": "Standard = 0, Sma = 1, Smsf = 3, SuperSmaAccumulation = 4, SuperSmaPension = 5, OffshoreBond = 10, Sipp = 11, Qrops = 12, RtsRats = 13, Pra = 14, Isa = 15, Gia = 16, Pera = 17, PersonalPension = 18, GroupSipp = 19, Jisa = 26, OnshoreBond = 27, OffshoreBondPersonalised = 28.",
+          "$ref": "#/definitions/AccountType"
+        },
+        "EntityType": {
+          "description": "Individual = 0, Trust = 1, Corporate = 2, Partnership = 3, Superfund = 4, Joint = 5.",
+          "$ref": "#/definitions/EntityType"
+        },
+        "IsSma": {
+          "description": "Whether the account is SMA.",
+          "type": "boolean"
+        },
+        "Status": {
+          "description": "Active = 0, Draft = 1, Closed = 2, Deleted = 3, Pending Closure = 4, Awaiting Cash Receipt = 5, Receipted not Cleared = 6.",
+          "$ref": "#/definitions/AccountStatus"
+        },
+        "RecalcType": {
+          "description": "None = 0, Manual = 1, Auto = 2.",
+          "$ref": "#/definitions/RecalcType"
+        },
+        "RecalcStatus": {
+          "description": "OK = 0, Error = 1.",
+          "$ref": "#/definitions/RecalcStatus"
+        },
+        "ValuationDate": {
+          "description": "Account valuation date or asat date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "FirstTransactionDate": {
+          "description": "The first transaction date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreatedDate": {
+          "description": "The created date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "LastRecalcDate": {
+          "description": "The run-date of the latest account recalculation.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "RecalcRequired": {
+          "description": "Whether this account requires recalculation to accurately calculate all values.",
+          "type": "boolean"
+        },
+        "MarketValue": {
+          "description": "The Valuation of the account on the valuation date.",
+          "format": "double",
+          "type": "number"
+        },
+        "OwnerUserName": {
+          "description": "The account owner's username.",
+          "type": "string"
+        },
+        "Product": {
+          "description": "The description of the account product.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "AccountUKIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/AccountUK"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "",
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object"
     },
     "AccountModelWeighting": {
       "properties": {
@@ -3491,7 +3747,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.09.01",
+    "version": "2021.09.15",
     "title": "Public API"
   }
 }

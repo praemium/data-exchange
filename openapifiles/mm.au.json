@@ -1,107 +1,5 @@
 {
   "paths": {
-    "/api/dailyreturns": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "Daily returns",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DailyReturn"
-              }
-            }
-          }
-        },
-        "operationId": "GetAUDailyReturns",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          },
-          {
-            "name": "AccountId",
-            "in": "query",
-            "required": true,
-            "description": "Account ID.",
-            "type": "string"
-          },
-          {
-            "name": "FromDate",
-            "in": "query",
-            "required": true,
-            "description": "The from date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "ToDate",
-            "in": "query",
-            "required": true,
-            "description": "The to date used when calculating data for the request.",
-            "format": "date-time",
-            "type": "string"
-          },
-          {
-            "name": "IncludeCash",
-            "in": "query",
-            "required": false,
-            "description": "Whether cash should be included. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeExcludedSecurities",
-            "in": "query",
-            "required": false,
-            "description": "Whether or not to include any security that has been excluded from performance. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "IncludeTaxCredits",
-            "in": "query",
-            "required": false,
-            "description": "Whether or not to include tax credits. Default to false.",
-            "type": "boolean"
-          },
-          {
-            "name": "DisplayReturns",
-            "in": "query",
-            "required": false,
-            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.",
-            "type": "enum"
-          },
-          {
-            "name": "CalculationMethod",
-            "in": "query",
-            "required": false,
-            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
-            "type": "enum"
-          }
-        ]
-      }
-    },
     "/api/benchmarks": {
       "get": {
         "responses": {
@@ -4092,6 +3990,108 @@
         ]
       }
     },
+    "/api/dailyreturns": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Daily returns",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DailyReturn"
+              }
+            }
+          }
+        },
+        "operationId": "GetAUDailyReturns",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "IncludeCash",
+            "in": "query",
+            "required": false,
+            "description": "Whether cash should be included. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeExcludedSecurities",
+            "in": "query",
+            "required": false,
+            "description": "Whether or not to include any security that has been excluded from performance. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "IncludeTaxCredits",
+            "in": "query",
+            "required": false,
+            "description": "Whether or not to include tax credits. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "DisplayReturns",
+            "in": "query",
+            "required": false,
+            "description": "BeforeExpenses = 0, AfterExpenses = 1, Both = 2. Default to 2.",
+            "type": "enum"
+          },
+          {
+            "name": "CalculationMethod",
+            "in": "query",
+            "required": false,
+            "description": "ApproximateReturns = 0, TimeWeightedReturn = 1. Default to 1.",
+            "type": "enum"
+          }
+        ]
+      }
+    },
     "/api/token": {
       "post": {
         "responses": {
@@ -4129,67 +4129,6 @@
     }
   },
   "definitions": {
-    "DailyReturn": {
-      "properties": {
-        "Date": {
-          "description": "The date of the return.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "BeginningMarketValue": {
-          "description": "The beginning market value of the account on the Date. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "EndingMarketValue": {
-          "description": "The ending market value of the account on the Date. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "NetContribution": {
-          "description": "The net additions and withdrawals that flowed into and out of the account within the performance period. The transactions that make up this net amount when including cash are available from the Additions and withdrawals report. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "NetInternalTransfers": {
-          "description": "Internal transfers between cash books that are not to be treated as a client addition or withdrawal. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "TotalExpenses": {
-          "description": "The total expenses recorded against the account within the period. The Trading Activity > Income & Expenses > Expense Details page provides the ability to view these expenses. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "TaxCredits": {
-          "description": "The total tax credits of the account received within the performance period. (Account currency)",
-          "format": "double",
-          "type": "number"
-        },
-        "PercentageReturn": {
-          "description": "The performance percentage return",
-          "format": "double",
-          "type": "number"
-        },
-        "NetPercentReturn": {
-          "description": "The performance percentage return inclusive of expenses.",
-          "format": "double",
-          "type": "number"
-        },
-        "CumulativePercentageReturn": {
-          "description": "The cumulative percentage return of the account from the From Date to the DailyReturns Date.",
-          "format": "double",
-          "type": "number"
-        },
-        "CumulativeNetPercentReturn": {
-          "description": "The cumulative net percentage return of the account from the From Date to the DailyReturns Date.",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "Benchmark": {
       "properties": {
         "Id": {
@@ -9806,6 +9745,67 @@
       "required": [],
       "type": "object"
     },
+    "DailyReturn": {
+      "properties": {
+        "Date": {
+          "description": "The date of the return.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "BeginningMarketValue": {
+          "description": "The beginning market value of the account on the Date. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "EndingMarketValue": {
+          "description": "The ending market value of the account on the Date. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "NetContribution": {
+          "description": "The net additions and withdrawals that flowed into and out of the account within the performance period. The transactions that make up this net amount when including cash are available from the Additions and withdrawals report. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "NetInternalTransfers": {
+          "description": "Internal transfers between cash books that are not to be treated as a client addition or withdrawal. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "TotalExpenses": {
+          "description": "The total expenses recorded against the account within the period. The Trading Activity > Income & Expenses > Expense Details page provides the ability to view these expenses. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCredits": {
+          "description": "The total tax credits of the account received within the performance period. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "PercentageReturn": {
+          "description": "The performance percentage return",
+          "format": "double",
+          "type": "number"
+        },
+        "NetPercentReturn": {
+          "description": "The performance percentage return inclusive of expenses.",
+          "format": "double",
+          "type": "number"
+        },
+        "CumulativePercentageReturn": {
+          "description": "The cumulative percentage return of the account from the From Date to the DailyReturns Date.",
+          "format": "double",
+          "type": "number"
+        },
+        "CumulativeNetPercentReturn": {
+          "description": "The cumulative net percentage return of the account from the From Date to the DailyReturns Date.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -9832,7 +9832,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.09.01",
+    "version": "2021.09.15",
     "title": "Public API"
   }
 }

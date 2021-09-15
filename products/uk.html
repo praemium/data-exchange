@@ -315,6 +315,14 @@
               </ul>
           </li>
           <li>
+            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-accounts" class="toc-h2 toc-link" data-title="GET Accounts"><span class="get">GET</span> Accounts</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#holdings" class="toc-h1 toc-link" data-title="Holdings">Holdings</a>
               <ul class="toc-list-h2">
                   <li>
@@ -7016,12 +7024,12 @@
 <div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
 </span></code></pre></div>
 <p><br/></p>
-<h1 id='holdings'>Holdings</h1><h3 id='get-holdings'><span class="get">GET</span> Holdings</h3>
+<h1 id='accounts'>Accounts</h1><h3 id='get-accounts'><span class="get">GET</span> Accounts</h3>
 <blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/holdings</p>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/accounts</p>
 </blockquote>
 
-<p>This endpoint returns holdings for the accounts.</p>
+<p>This endpoint returns a list of accounts.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -7057,10 +7065,311 @@
 <blockquote>
 <p><strong>Request Parameter - Query Examples</strong></p>
 </blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="c1"># Return all</span>
+<span class="na">Page</span><span class="pi">:</span> <span class="m">1</span>
+<span class="na">Size</span><span class="pi">:</span> <span class="m">100</span>
+
+<span class="c1"># Search by string</span>
+<span class="na">Search</span><span class="pi">:</span> <span class="nv">*01</span>
+<span class="na">Page</span><span class="pi">:</span> <span class="m">1</span>
+<span class="na">Size</span><span class="pi">:</span> <span class="m">100</span>
+
+<span class="c1"># Search by account IDs</span>
+<span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK1</span>
+<span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK2</span>
+<span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK3</span>
+</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Search</td>
+<td>string</td>
+<td>Account search string. This parameter accepts wildcards (*).</td>
+</tr>
+<tr>
+<td>AccountIds</td>
+<td>array</td>
+<td>An array of account IDs. If AccountIds are provided, all other parameters will be ignored.</td>
+</tr>
+<tr>
+<td>Page</td>
+<td>integer</td>
+<td>Default to 1.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>integer</td>
+<td>Default to 100.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK112233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSS112233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMAInv 112233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ConsolidationType"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EntityType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsSma"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ValuationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FirstTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-12-01T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-11-23T15:38:01+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"LastRecalcDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T18:58:35+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MarketValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">125665.41</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OwnerUserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2154"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Praemium Retirement Services Limited"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRA0338"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdviserFirmReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK445566"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSS445566"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMAInv 445566"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ConsolidationType"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EntityType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsSma"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ValuationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FirstTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-02-17T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-12-23T09:09:52+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"LastRecalcDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T18:58:57+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MarketValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">566801.06</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OwnerUserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2154"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Praemium Retirement Account (PRA)"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Praemium Retirement Services Limited"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRA0825"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdviserFirmReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"445566"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK778899"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSS778899"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMAInv 778899"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ConsolidationType"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EntityType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsSma"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ValuationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FirstTransactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-03-30T00:00:00+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-03-22T11:04:38+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"LastRecalcDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-18T19:00:37+04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecalcRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MarketValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">70357.79</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OwnerUserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9937"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Praemium Administration Limited"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdviserFirmReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"778899"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"TotalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1153</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>Data.ProductProvider</td>
+<td>string</td>
+<td>The name of the Product Provider.</td>
+</tr>
+<tr>
+<td>Data.ProductReference</td>
+<td>string</td>
+<td>The Product Providers Reference Number.</td>
+</tr>
+<tr>
+<td>Data.AdviserFirmReference</td>
+<td>string</td>
+<td>The adviser firms internal account reference.</td>
+</tr>
+<tr>
+<td>Data.Id</td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>Data.Code</td>
+<td>string</td>
+<td>Account code.</td>
+</tr>
+<tr>
+<td>Data.Name</td>
+<td>string</td>
+<td>Account name.</td>
+</tr>
+<tr>
+<td>Data.ConsolidationType</td>
+<td>enum</td>
+<td>None = 78, Portfolio = 80, Transaction = 84, FeeGroup = 85, ShareTrader = 86, SuperFund = 87.</td>
+</tr>
+<tr>
+<td>Data.AccountType</td>
+<td>enum</td>
+<td>Standard = 0, Sma = 1, Smsf = 3, SuperSmaAccumulation = 4, SuperSmaPension = 5, OffshoreBond = 10, Sipp = 11, Qrops = 12, RtsRats = 13, Pra = 14, Isa = 15, Gia = 16, Pera = 17, PersonalPension = 18, GroupSipp = 19, Jisa = 26, OnshoreBond = 27, OffshoreBondPersonalised = 28.</td>
+</tr>
+<tr>
+<td>Data.EntityType</td>
+<td>enum</td>
+<td>Individual = 0, Trust = 1, Corporate = 2, Partnership = 3, Superfund = 4, Joint = 5.</td>
+</tr>
+<tr>
+<td>Data.IsSma</td>
+<td>boolean</td>
+<td>Whether the account is SMA.</td>
+</tr>
+<tr>
+<td>Data.Status</td>
+<td>enum</td>
+<td>Active = 0, Draft = 1, Closed = 2, Deleted = 3, Pending Closure = 4, Awaiting Cash Receipt = 5, Receipted not Cleared = 6.</td>
+</tr>
+<tr>
+<td>Data.RecalcType</td>
+<td>enum</td>
+<td>None = 0, Manual = 1, Auto = 2.</td>
+</tr>
+<tr>
+<td>Data.RecalcStatus</td>
+<td>enum</td>
+<td>OK = 0, Error = 1.</td>
+</tr>
+<tr>
+<td>Data.ValuationDate</td>
+<td>date-time</td>
+<td>Account valuation date or asat date.</td>
+</tr>
+<tr>
+<td>Data.FirstTransactionDate</td>
+<td>date-time</td>
+<td>The first transaction date of the account.</td>
+</tr>
+<tr>
+<td>Data.CreatedDate</td>
+<td>date-time</td>
+<td>The created date of the account.</td>
+</tr>
+<tr>
+<td>Data.LastRecalcDate</td>
+<td>date-time</td>
+<td>The run-date of the latest account recalculation.</td>
+</tr>
+<tr>
+<td>Data.RecalcRequired</td>
+<td>boolean</td>
+<td>Whether this account requires recalculation to accurately calculate all values.</td>
+</tr>
+<tr>
+<td>Data.MarketValue</td>
+<td>double</td>
+<td>The Valuation of the account on the valuation date.</td>
+</tr>
+<tr>
+<td>Data.OwnerUserName</td>
+<td>string</td>
+<td>The account owner&#39;s username.</td>
+</tr>
+<tr>
+<td>Data.Product</td>
+<td>string</td>
+<td>The description of the account product.</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Metadata.TotalCount</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>Metadata.TotalPages</td>
+<td>integer</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h1 id='holdings'>Holdings</h1><h3 id='get-holdings'><span class="get">GET</span> Holdings</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/holdings</p>
+</blockquote>
+
+<p>This endpoint returns holdings for the accounts.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK1</span>
 <span class="na">AccountIds</span><span class="pi">:</span> <span class="s">UK2</span>
 <span class="na">ValuationDate</span><span class="pi">:</span> <span class="s">2021-02-23T00:00:00Z</span>
-</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7223,7 +7532,7 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7417,7 +7726,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7446,7 +7755,7 @@
 <p><strong>Request Parameter - Query Examples</strong></p>
 </blockquote>
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
-</code></pre></div><h5 id='request-parameter-query-5'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-6'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7471,7 +7780,7 @@
     </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-15'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7505,7 +7814,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7591,7 +7900,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-20'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7630,7 +7939,7 @@
 <span class="c1"># Search by security codes</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">BHP.LSE</span>
 <span class="na">SecurityCodes</span><span class="pi">:</span> <span class="s">ROC.LON</span>
-</code></pre></div><h5 id='request-parameter-query-6'>Request Parameter - Query</h5>
+</code></pre></div><h5 id='request-parameter-query-7'>Request Parameter - Query</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7670,7 +7979,7 @@
     </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-15'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-16'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
