@@ -3363,7 +3363,7 @@
 <td>Gia = 1.</td>
 </tr>
 <tr>
-<td>Accounts.PdsId</td>
+<td>Accounts.PdsId<span class="required">required</span></td>
 <td>string</td>
 <td>PDS ID of account.</td>
 </tr>
@@ -4329,7 +4329,7 @@
 <td>Gia = 1.</td>
 </tr>
 <tr>
-<td>Accounts.PdsId</td>
+<td>Accounts.PdsId<span class="required">required</span></td>
 <td>string</td>
 <td>PDS ID of account.</td>
 </tr>
@@ -5405,7 +5405,7 @@
 <td>Gia = 1.</td>
 </tr>
 <tr>
-<td>Accounts.PdsId</td>
+<td>Accounts.PdsId<span class="required">required</span></td>
 <td>string</td>
 <td>PDS ID of account.</td>
 </tr>
@@ -6179,7 +6179,7 @@
 <td>Isa = 0.</td>
 </tr>
 <tr>
-<td>Accounts.PdsId</td>
+<td>Accounts.PdsId<span class="required">required</span></td>
 <td>string</td>
 <td>PDS ID of account.</td>
 </tr>
@@ -7101,6 +7101,16 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>Page</td>
+<td>integer</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>integer</td>
+<td>Page size to return. Default to 100.</td>
+</tr>
+<tr>
 <td>Search</td>
 <td>string</td>
 <td>Account search string. This parameter accepts wildcards (*).</td>
@@ -7109,16 +7119,6 @@
 <td>AccountIds</td>
 <td>array</td>
 <td>An array of account IDs. If AccountIds are provided, all other parameters will be ignored.</td>
-</tr>
-<tr>
-<td>Page</td>
-<td>integer</td>
-<td>Default to 1.</td>
-</tr>
-<tr>
-<td>Size</td>
-<td>integer</td>
-<td>Default to 100.</td>
 </tr>
 </tbody></table>
 
@@ -7329,12 +7329,12 @@
 <tr>
 <td>Metadata.TotalCount</td>
 <td>integer</td>
-<td></td>
+<td>Total number of results found.</td>
 </tr>
 <tr>
 <td>Metadata.TotalPages</td>
 <td>integer</td>
-<td></td>
+<td>Total pages of results.</td>
 </tr>
 </tbody></table>
 
@@ -7792,12 +7792,12 @@
 <tr>
 <td>FromDate<span class="required">required</span></td>
 <td>date-time</td>
-<td></td>
+<td>The from date used when calculating data for the request.</td>
 </tr>
 <tr>
 <td>ToDate<span class="required">required</span></td>
 <td>date-time</td>
-<td></td>
+<td>The to date used when calculating data for the request.</td>
 </tr>
 <tr>
 <td>BuysAndSellsOnly</td>
@@ -7807,22 +7807,22 @@
 <tr>
 <td>Page</td>
 <td>integer</td>
-<td>Default to 1.</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
 </tr>
 <tr>
 <td>Size</td>
 <td>integer</td>
-<td>Default to 100.</td>
+<td>Page size to return. Default to 100.</td>
 </tr>
 <tr>
 <td>OrderBy</td>
 <td>enum</td>
-<td></td>
+<td>TransactionDate = 0, Security = 1. Default to 0.</td>
 </tr>
 <tr>
 <td>Order</td>
 <td>enum</td>
-<td></td>
+<td>Asc = 0, Desc = 1. Default to 1.</td>
 </tr>
 </tbody></table>
 
@@ -7905,17 +7905,17 @@
 <tr>
 <td>Data.AveragePriceInTradedCurrency</td>
 <td>double</td>
-<td></td>
+<td>TradedCurrencyAmount divided by quantity.</td>
 </tr>
 <tr>
 <td>Data.AmountInTradedCurrency</td>
 <td>double</td>
-<td></td>
+<td>Displays the amount traded in an international currency.</td>
 </tr>
 <tr>
 <td>Data.TradedCurrency</td>
 <td>string</td>
-<td></td>
+<td>For International Investments. Displays the currency in which the asset was traded.</td>
 </tr>
 <tr>
 <td>Data.SettlementDate</td>
@@ -7950,47 +7950,47 @@
 <tr>
 <td>Data.TransactionId</td>
 <td>string</td>
-<td></td>
+<td>The unique identifier of the transaction.</td>
 </tr>
 <tr>
 <td>Data.Security</td>
 <td>object</td>
-<td>Security&#39;s code and ISIN.</td>
+<td></td>
 </tr>
 <tr>
 <td>Data.Security.Code</td>
 <td>string</td>
-<td></td>
+<td>Security code.</td>
 </tr>
 <tr>
 <td>Data.Security.Isin</td>
 <td>string</td>
-<td></td>
+<td>Security Isin.</td>
 </tr>
 <tr>
 <td>Data.TransactionDate</td>
 <td>date-time</td>
-<td></td>
+<td>The date on which the transaction occurred.</td>
 </tr>
 <tr>
 <td>Data.Quantity</td>
 <td>integer</td>
-<td>Quantity of stock transfer.</td>
+<td>The number of units or shares disposed.</td>
 </tr>
 <tr>
 <td>Data.NetAmount</td>
 <td>double</td>
-<td>(Account currency)</td>
+<td>This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)</td>
 </tr>
 <tr>
 <td>Data.AveragePrice</td>
 <td>double</td>
-<td>(Account currency)</td>
+<td>Net amount divided by quantity. (Account currency)</td>
 </tr>
 <tr>
 <td>Data.Narration</td>
 <td>string</td>
-<td></td>
+<td>Displays any notes that have added to the transaction.</td>
 </tr>
 <tr>
 <td>Data.TransactionTypeDescription</td>
@@ -8005,12 +8005,12 @@
 <tr>
 <td>Metadata.TotalCount</td>
 <td>integer</td>
-<td></td>
+<td>Total number of results found.</td>
 </tr>
 <tr>
 <td>Metadata.TotalPages</td>
 <td>integer</td>
-<td></td>
+<td>Total pages of results.</td>
 </tr>
 </tbody></table>
 
