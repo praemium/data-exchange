@@ -1,60 +1,5 @@
 {
   "paths": {
-    "/api/ssologin": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "SSO login",
-            "schema": {
-              "$ref": "#/definitions/SsoLoginResponse"
-            }
-          }
-        },
-        "operationId": "SsoLogin",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SsoLoginRequest"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
     "/api/transactions": {
       "get": {
         "responses": {
@@ -152,6 +97,86 @@
             "required": false,
             "description": "Asc = 0, Desc = 1. Default to 1.",
             "type": "enum"
+          }
+        ]
+      }
+    },
+    "/api/unsettledtransactions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Unsettled transactions",
+            "schema": {
+              "$ref": "#/definitions/UnsettledTransactionUKIEnumerablePagedResponse"
+            }
+          }
+        },
+        "operationId": "GetUKUnsettledTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "required": false,
+            "description": "Page number to return. Default to 1. Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Size",
+            "in": "query",
+            "required": false,
+            "description": "Page size to return. Default to 100.",
+            "format": "int32",
+            "type": "integer"
           }
         ]
       }
@@ -869,6 +894,61 @@
         ]
       }
     },
+    "/api/ssologin": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "SSO login",
+            "schema": {
+              "$ref": "#/definitions/SsoLoginResponse"
+            }
+          }
+        },
+        "operationId": "SsoLogin",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SsoLoginRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/token": {
       "post": {
         "responses": {
@@ -917,60 +997,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "TargetApplication": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3
-      ]
-    },
-    "SsoLoginRequest": {
-      "properties": {
-        "Application": {
-          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
-          "$ref": "#/definitions/TargetApplication"
-        },
-        "UserId": {
-          "description": "ID of the user to log in. Either UserId or Username is required.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "Application",
-        "UserId"
-      ],
-      "type": "object"
-    },
-    "SsoLoginResponse": {
-      "properties": {
-        "SsoUrl": {
-          "description": "SSO URL.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "Metadata": {
-      "properties": {
-        "TotalCount": {
-          "description": "Total number of results found.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "TotalPages": {
-          "description": "Total pages of results.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [],
       "type": "object"
     },
     "Transaction": {
@@ -1091,6 +1117,22 @@
       },
       "type": "object"
     },
+    "Metadata": {
+      "properties": {
+        "TotalCount": {
+          "description": "Total number of results found.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "description": "Total pages of results.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
     "SecurityUK": {
       "properties": {
         "Code": {
@@ -1169,8 +1211,8 @@
         },
         "Quantity": {
           "description": "The number of units or shares disposed.",
-          "format": "int32",
-          "type": "integer"
+          "format": "double",
+          "type": "number"
         },
         "NetAmount": {
           "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
@@ -1200,6 +1242,177 @@
           "description": "",
           "items": {
             "$ref": "#/definitions/TransactionUK"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "",
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "UnsettledTransaction": {
+      "properties": {
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/Security"
+        },
+        "TransactionDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "NetAmount": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "AveragePrice": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Brokerage": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Gst": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "DisposalMethod": {
+          "description": "",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "",
+          "type": "string"
+        },
+        "TradedCurrency": {
+          "description": "",
+          "type": "string"
+        },
+        "AmountInTradedCurrency": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "AveragePriceInTradedCurrency": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "SettlementDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ContractNoteReference": {
+          "description": "",
+          "type": "string"
+        },
+        "OtherCharges": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "OtherChargesGst": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "UnsettledTransactionUK": {
+      "properties": {
+        "ContractNoteReference": {
+          "description": "Unique contract note reference number.",
+          "type": "string"
+        },
+        "AveragePriceInTradedCurrency": {
+          "description": "TradedCurrencyAmount divided by quantity.",
+          "format": "double",
+          "type": "number"
+        },
+        "AmountInTradedCurrency": {
+          "description": "Displays the amount traded in an international currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "TradedCurrency": {
+          "description": "For International Investments. Displays the currency in which the asset was traded.",
+          "type": "string"
+        },
+        "SettlementDate": {
+          "description": "The date on which the transaction settled.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "StampDuty": {
+          "description": "Stamp Duty.",
+          "format": "double",
+          "type": "number"
+        },
+        "PTMLevy": {
+          "description": "PTM Levy.",
+          "format": "double",
+          "type": "number"
+        },
+        "DilutionLevy": {
+          "description": "Dilution Levy.",
+          "format": "double",
+          "type": "number"
+        },
+        "Security": {
+          "description": "",
+          "$ref": "#/definitions/SecurityUK"
+        },
+        "TransactionDate": {
+          "description": "The date on which the transaction occurred.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "The number of units or shares disposed.",
+          "format": "double",
+          "type": "number"
+        },
+        "NetAmount": {
+          "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
+          "format": "double",
+          "type": "number"
+        },
+        "Narration": {
+          "description": "Displays any notes that have added to the transaction.",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "A categorised type of the transaction.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "UnsettledTransactionUKIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/UnsettledTransactionUK"
           },
           "type": "array"
         },
@@ -4059,6 +4272,44 @@
       },
       "type": "object"
     },
+    "TargetApplication": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "SsoLoginRequest": {
+      "properties": {
+        "Application": {
+          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
+          "$ref": "#/definitions/TargetApplication"
+        },
+        "UserId": {
+          "description": "ID of the user to log in. Either UserId or Username is required.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Application",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "SsoLoginResponse": {
+      "properties": {
+        "SsoUrl": {
+          "description": "SSO URL.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -4085,7 +4336,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.10.13",
+    "version": "2021.10.27",
     "title": "Public API"
   }
 }

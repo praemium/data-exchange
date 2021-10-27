@@ -262,6 +262,9 @@
                   <li>
                     <a href="#get-transactions" class="toc-h2 toc-link" data-title="GET Transactions"><span class="get">GET</span> Transactions</a>
                   </li>
+                  <li>
+                    <a href="#get-unsettled-transactions" class="toc-h2 toc-link" data-title="GET Unsettled Transactions"><span class="get">GET</span> Unsettled Transactions</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1177,7 +1180,7 @@
             </span><span class="nl">"Isin"</span><span class="p">:</span><span class="s2">"GB00BK6MJG80"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="s2">"2021-09-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mi">-1065</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mf">-1065.0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="mf">-1133.92</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AveragePrice"</span><span class="p">:</span><span class="mf">1.063995</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Narration"</span><span class="p">:</span><span class="s2">"Partial capital return - GB00BK6MJG80"</span><span class="p">,</span><span class="w">
@@ -1200,7 +1203,7 @@
           </span><span class="nl">"Isin"</span><span class="p">:</span><span class="s2">"GB00B5KKCX12"</span><span class="w">
        </span><span class="p">},</span><span class="w">
        </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="s2">"2021-08-27T10:00:00+00:00"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
        </span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="mf">-1.14</span><span class="p">,</span><span class="w">
        </span><span class="nl">"AveragePrice"</span><span class="p">:</span><span class="mf">1.808042</span><span class="p">,</span><span class="w">
        </span><span class="nl">"Narration"</span><span class="p">:</span><span class="s2">"Traded on 27/08/2021 at 10:00AM at market with FNZ."</span><span class="p">,</span><span class="w">
@@ -1302,7 +1305,7 @@
 </tr>
 <tr>
 <td>Data.Quantity</td>
-<td>integer</td>
+<td>double</td>
 <td>The number of units or shares disposed.</td>
 </tr>
 <tr>
@@ -1314,6 +1317,244 @@
 <td>Data.AveragePrice</td>
 <td>double</td>
 <td>Net amount divided by quantity. (Account currency)</td>
+</tr>
+<tr>
+<td>Data.Narration</td>
+<td>string</td>
+<td>Displays any notes that have added to the transaction.</td>
+</tr>
+<tr>
+<td>Data.TransactionTypeDescription</td>
+<td>string</td>
+<td>A categorised type of the transaction.</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Metadata.TotalCount</td>
+<td>integer</td>
+<td>Total number of results found.</td>
+</tr>
+<tr>
+<td>Metadata.TotalPages</td>
+<td>integer</td>
+<td>Total pages of results.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='get-unsettled-transactions'><span class="get">GET</span> Unsettled Transactions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/unsettledtransactions</p>
+</blockquote>
+
+<p>This endpoint returns unsettled transactions for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-5'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">UK1000000112</span>
+<span class="na">FromDate</span><span class="pi">:</span> <span class="s">2010-05-06T00:00:00Z</span>
+<span class="na">ToDate</span><span class="pi">:</span> <span class="s">2019-06-29T00:00:00Z</span>
+<span class="na">Page</span><span class="pi">:</span> <span class="m">1</span>
+<span class="na">Size</span><span class="pi">:</span> <span class="m">100</span>
+</code></pre></div><h5 id='request-parameter-query-4'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>FromDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>The from date used when calculating data for the request.</td>
+</tr>
+<tr>
+<td>ToDate<span class="required">required</span></td>
+<td>date-time</td>
+<td>The to date used when calculating data for the request.</td>
+</tr>
+<tr>
+<td>Page</td>
+<td>integer</td>
+<td>Page number to return. Default to 1. Default to 1.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>integer</td>
+<td>Page size to return. Default to 100.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ContractNoteReference"</span><span class="p">:</span><span class="s2">"192444900"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AveragePriceInTradedCurrency"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AmountInTradedCurrency"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TradedCurrency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="s2">"2019-07-04T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StampDuty"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PTMLevy"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DilutionLevy"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="s2">"GB00B5ZX1M70"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Isin"</span><span class="p">:</span><span class="s2">"GB00B5ZX1M70"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="s2">"2019-06-28T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mf">217.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="mf">291.4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Narration"</span><span class="p">:</span><span class="s2">"Traded on 28/06/2019 at 10:00AM at market with FNZ."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TransactionTypeDescription"</span><span class="p">:</span><span class="s2">"Buy"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ContractNoteReference"</span><span class="p">:</span><span class="s2">"192444889"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AveragePriceInTradedCurrency"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AmountInTradedCurrency"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TradedCurrency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="s2">"2019-07-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"StampDuty"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PTMLevy"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DilutionLevy"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Security"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="s2">"LU0049015760"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Isin"</span><span class="p">:</span><span class="s2">"LU0049015760"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"TransactionDate"</span><span class="p">:</span><span class="s2">"2019-06-28T10:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="mf">-9.64</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Narration"</span><span class="p">:</span><span class="s2">"Traded on 28/06/2019 at 10:00AM at market with FNZ."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TransactionTypeDescription"</span><span class="p">:</span><span class="s2">"Sell"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-5'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>Data.ContractNoteReference</td>
+<td>string</td>
+<td>Unique contract note reference number.</td>
+</tr>
+<tr>
+<td>Data.AveragePriceInTradedCurrency</td>
+<td>double</td>
+<td>TradedCurrencyAmount divided by quantity.</td>
+</tr>
+<tr>
+<td>Data.AmountInTradedCurrency</td>
+<td>double</td>
+<td>Displays the amount traded in an international currency.</td>
+</tr>
+<tr>
+<td>Data.TradedCurrency</td>
+<td>string</td>
+<td>For International Investments. Displays the currency in which the asset was traded.</td>
+</tr>
+<tr>
+<td>Data.SettlementDate</td>
+<td>date-time</td>
+<td>The date on which the transaction settled.</td>
+</tr>
+<tr>
+<td>Data.StampDuty</td>
+<td>double</td>
+<td>Stamp Duty.</td>
+</tr>
+<tr>
+<td>Data.PTMLevy</td>
+<td>double</td>
+<td>PTM Levy.</td>
+</tr>
+<tr>
+<td>Data.DilutionLevy</td>
+<td>double</td>
+<td>Dilution Levy.</td>
+</tr>
+<tr>
+<td>Data.Security</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Data.Security.Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>Data.Security.Isin</td>
+<td>string</td>
+<td>Security Isin.</td>
+</tr>
+<tr>
+<td>Data.TransactionDate</td>
+<td>date-time</td>
+<td>The date on which the transaction occurred.</td>
+</tr>
+<tr>
+<td>Data.Quantity</td>
+<td>double</td>
+<td>The number of units or shares disposed.</td>
+</tr>
+<tr>
+<td>Data.NetAmount</td>
+<td>double</td>
+<td>This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)</td>
 </tr>
 <tr>
 <td>Data.Narration</td>
