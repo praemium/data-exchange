@@ -1,5 +1,60 @@
 {
   "paths": {
+    "/api/ssologin": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "SSO login",
+            "schema": {
+              "$ref": "#/definitions/SsoLoginResponse"
+            }
+          }
+        },
+        "operationId": "SsoLogin",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SsoLoginRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/transactions": {
       "get": {
         "responses": {
@@ -97,6 +152,93 @@
             "required": false,
             "description": "Asc = 0, Desc = 1. Default to 1.",
             "type": "enum"
+          }
+        ]
+      }
+    },
+    "/api/cashtransactions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Cash transactions",
+            "schema": {
+              "$ref": "#/definitions/CashBookUKIEnumerablePagedResponse"
+            }
+          }
+        },
+        "operationId": "GetUKCashTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "IncludePendingUnsettled",
+            "in": "query",
+            "required": false,
+            "description": "Whether to include pending unsettled cash transactions. Default to false.",
+            "type": "boolean"
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "required": false,
+            "description": "Page number to return. Default to 1. Default to 1.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "Size",
+            "in": "query",
+            "required": false,
+            "description": "Page size to return. Default to 100.",
+            "format": "int32",
+            "type": "integer"
+          },
+          {
+            "name": "AccountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "required": true,
+            "description": "The from date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "required": true,
+            "description": "The to date used when calculating data for the request.",
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
           }
         ]
       }
@@ -894,61 +1036,6 @@
         ]
       }
     },
-    "/api/ssologin": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "SSO login",
-            "schema": {
-              "$ref": "#/definitions/SsoLoginResponse"
-            }
-          }
-        },
-        "operationId": "SsoLogin",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SsoLoginRequest"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      }
-    },
     "/api/token": {
       "post": {
         "responses": {
@@ -997,6 +1084,64 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "TargetApplication": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "SsoLoginRequest": {
+      "properties": {
+        "Application": {
+          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
+          "$ref": "#/definitions/TargetApplication"
+        },
+        "UserId": {
+          "description": "ID of the user to log in. Either UserId or Username is required.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Parameters": {
+          "description": "",
+          "type": "object"
+        }
+      },
+      "required": [
+        "Application",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "SsoLoginResponse": {
+      "properties": {
+        "SsoUrl": {
+          "description": "SSO URL.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Metadata": {
+      "properties": {
+        "TotalCount": {
+          "description": "Total number of results found.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalPages": {
+          "description": "Total pages of results.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [],
       "type": "object"
     },
     "Transaction": {
@@ -1117,22 +1262,6 @@
       },
       "type": "object"
     },
-    "Metadata": {
-      "properties": {
-        "TotalCount": {
-          "description": "Total number of results found.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "TotalPages": {
-          "description": "Total pages of results.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "SecurityUK": {
       "properties": {
         "Code": {
@@ -1242,6 +1371,228 @@
           "description": "",
           "items": {
             "$ref": "#/definitions/TransactionUK"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "",
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "CashSummary": {
+      "properties": {
+        "CashBookCode": {
+          "description": "",
+          "type": "string"
+        },
+        "CashBookDescription": {
+          "description": "",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "",
+          "type": "string"
+        },
+        "OpeningBalance": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Deposits": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawals": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalance": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalanceInAccountCurrency": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "CashTransaction": {
+      "properties": {
+        "TransactionId": {
+          "description": "",
+          "type": "string"
+        },
+        "TransactionDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "",
+          "type": "string"
+        },
+        "Deposit": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawal": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "ValueInAccountCurrency": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "Balance": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "CashBook": {
+      "properties": {
+        "Summary": {
+          "description": "",
+          "$ref": "#/definitions/CashSummary"
+        },
+        "Transactions": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashTransaction"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "CashSummaryUK": {
+      "properties": {
+        "CashBookCode": {
+          "description": "The code of the cashbook.",
+          "type": "string"
+        },
+        "CashBookDescription": {
+          "description": "A description of the cashbook.",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Denominated currency of the cashbook transactions.",
+          "type": "string"
+        },
+        "OpeningBalance": {
+          "description": "Cashbook balance at the FromDate in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "Deposits": {
+          "description": "Sum of all credit type transactions for the cashbook in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawals": {
+          "description": "Sum of all debit type transactions for the cashbook in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalance": {
+          "description": "Cashbook balance at the ToDate in the denominated currency.",
+          "format": "double",
+          "type": "number"
+        },
+        "ClosingBalanceInAccountCurrency": {
+          "description": "ClosingBalance of the cashbook. (Account currency)",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashTransactionUK": {
+      "properties": {
+        "TransactionId": {
+          "description": "The unique identifier of the transaction.",
+          "type": "string"
+        },
+        "TransactionDate": {
+          "description": "The date on which the transaction occurred.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Currency": {
+          "description": "Denominated currency of the transaction.",
+          "type": "string"
+        },
+        "TransactionTypeDescription": {
+          "description": "A categorised type of the transaction.",
+          "type": "string"
+        },
+        "Narration": {
+          "description": "Displays any notes that have added to the transaction.",
+          "type": "string"
+        },
+        "Deposit": {
+          "description": "The amount in the denominated currency if this transaction is a credit type.",
+          "format": "double",
+          "type": "number"
+        },
+        "Withdrawal": {
+          "description": "The amount in the denominated currency if this transaction is a debit type.",
+          "format": "double",
+          "type": "number"
+        },
+        "Balance": {
+          "description": "The balance in the denominated currency of the cash book after the transaction has been credited or debited.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashBookUK": {
+      "properties": {
+        "Summary": {
+          "description": "",
+          "$ref": "#/definitions/CashSummaryUK"
+        },
+        "Transactions": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashTransactionUK"
+          },
+          "type": "array"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "CashBookUKIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CashBookUK"
           },
           "type": "array"
         },
@@ -2450,6 +2801,51 @@
         2
       ]
     },
+    "DraftFeeType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "FeeConsentType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "FeeConsent": {
+      "properties": {
+        "Type": {
+          "description": "",
+          "$ref": "#/definitions/FeeConsentType"
+        },
+        "AnniversaryDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "TermStartDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        },
+        "TermEndDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Frequency": {
       "format": "int32",
       "type": "integer",
@@ -2499,8 +2895,48 @@
             "$ref": "#/definitions/DraftTargetAllocationInstruction"
           },
           "type": "array"
+        },
+        "Contributions": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/DraftTargetAllocationInstruction"
+          },
+          "type": "array"
         }
       },
+      "type": "object"
+    },
+    "PaymentMethods": {
+      "required": [],
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "DraftRegularTransaction": {
+      "properties": {
+        "Amount": {
+          "description": "Amount of the regular contribution.",
+          "format": "double",
+          "type": "number"
+        },
+        "Method": {
+          "description": "ElectronicTransfer (not applicable for regular contribution) = 2, Cheque = 3, StandingOrder (for regular contribution only) = 4.",
+          "$ref": "#/definitions/PaymentMethods"
+        },
+        "Frequency": {
+          "description": "Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.",
+          "$ref": "#/definitions/Frequency"
+        }
+      },
+      "required": [
+        "Method"
+      ],
       "type": "object"
     },
     "DraftAccountType": {
@@ -2525,7 +2961,8 @@
         15,
         16,
         17,
-        18
+        18,
+        19
       ]
     },
     "DraftModel": {
@@ -2571,18 +3008,6 @@
       },
       "required": [],
       "type": "object"
-    },
-    "PaymentMethods": {
-      "required": [],
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
     },
     "DraftInitialInvestment": {
       "properties": {
@@ -3234,13 +3659,13 @@
     },
     "DraftFeeUK": {
       "properties": {
-        "Type": {
-          "description": "Fee type.",
-          "type": "string"
-        },
         "Id": {
           "description": "Fee ID.",
           "type": "string"
+        },
+        "Type": {
+          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5.",
+          "$ref": "#/definitions/DraftFeeType"
         },
         "Rate": {
           "description": "Fee rate.",
@@ -3252,9 +3677,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "Id"
-      ],
+      "required": [],
       "type": "object"
     },
     "DraftAccountBankAccountUK": {
@@ -3285,27 +3708,6 @@
         }
       },
       "required": [],
-      "type": "object"
-    },
-    "DraftRegularTransaction": {
-      "properties": {
-        "Amount": {
-          "description": "Amount of the regular contribution.",
-          "format": "double",
-          "type": "number"
-        },
-        "Method": {
-          "description": "ElectronicTransfer (not applicable for regular contribution) = 2, Cheque = 3, StandingOrder (for regular contribution only) = 4.",
-          "$ref": "#/definitions/PaymentMethods"
-        },
-        "Frequency": {
-          "description": "Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.",
-          "$ref": "#/definitions/Frequency"
-        }
-      },
-      "required": [
-        "Method"
-      ],
       "type": "object"
     },
     "Region": {
@@ -4272,44 +4674,6 @@
       },
       "type": "object"
     },
-    "TargetApplication": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3
-      ]
-    },
-    "SsoLoginRequest": {
-      "properties": {
-        "Application": {
-          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
-          "$ref": "#/definitions/TargetApplication"
-        },
-        "UserId": {
-          "description": "ID of the user to log in. Either UserId or Username is required.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "Application",
-        "UserId"
-      ],
-      "type": "object"
-    },
-    "SsoLoginResponse": {
-      "properties": {
-        "SsoUrl": {
-          "description": "SSO URL.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -4336,7 +4700,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2021.10.27",
+    "version": "2022.02.09",
     "title": "Public API"
   }
 }

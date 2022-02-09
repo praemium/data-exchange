@@ -253,6 +253,9 @@
                     <a href="#post-individual-applicant-amp-individual-account" class="toc-h2 toc-link" data-title="POST Individual Applicant &amp; Individual Account"><span class="post">POST</span> Individual Applicant &amp; Individual Account</a>
                   </li>
                   <li>
+                    <a href="#post-individual-applicant-amp-joint-account" class="toc-h2 toc-link" data-title="POST Individual Applicant &amp; Joint Account"><span class="post">POST</span> Individual Applicant &amp; Joint Account</a>
+                  </li>
+                  <li>
                     <a href="#post-corporate-applicant-amp-company-account" class="toc-h2 toc-link" data-title="POST Corporate Applicant &amp; Company Account"><span class="post">POST</span> Corporate Applicant &amp; Company Account</a>
                   </li>
                   <li>
@@ -715,7 +718,7 @@
 <tr>
 <td>Fees.Type</td>
 <td>enum</td>
-<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5.</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
 </tr>
 <tr>
 <td>Fees.Class</td>
@@ -1058,11 +1061,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -1094,6 +1106,16 @@
         </span><span class="nl">"Cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">132.12</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Shares"</span><span class="p">:</span><span class="w"> </span><span class="mf">321.32</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1357,6 +1379,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -1365,6 +1392,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -1446,6 +1493,46 @@
 <td>enum</td>
 <td>BPay = 0, DirectDebit = 1.</td>
 </tr>
+<tr>
+<td>Accounts.RegularWithdrawal</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Amount</td>
+<td>double</td>
+<td>Amount for regular withdrawal.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Amount</td>
+<td>double</td>
+<td>Amount for regular contribution.</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -1456,6 +1543,583 @@
   </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h5 id='response-parameters-4'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ApplicationId</td>
+<td>string</td>
+<td>Unique application ID to be used as an application reference.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
+<h3 id='post-individual-applicant-amp-joint-account'><span class="post">POST</span> Individual Applicant &amp; Joint Account</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/application</p>
+</blockquote>
+
+<p>This endpoint creates multiple individual applicants and an joint account in the system.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-5'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Applicants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IndividualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HomeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"MailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MissingReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MissingReasonText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"IsPoliticallyExposedPerson"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PepDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior politician"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IndividualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ms"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mary"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m.smith@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489232"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489232"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HomeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"MailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456780"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MissingReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MissingReasonText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"IsPoliticallyExposedPerson"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PepDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior politician"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr &amp; Ms Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RegisteredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr &amp; Ms Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN0001"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"BankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Bsb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12012"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6555555567"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Usages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Income"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CashContribution"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"Exclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"InitialInvestment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">132.12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Shares"</span><span class="p">:</span><span class="w"> </span><span class="mf">321.32</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-3'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AdviserId<span class="required">required</span></td>
+<td>integer</td>
+<td>Adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>OwnerAdviserId</td>
+<td>integer</td>
+<td>Owner adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>Applicants<span class="required">required</span></td>
+<td>array</td>
+<td>Objects containing the applicant data. There must be at least one applicant for the request to succeed. The array of objects may contain a mix of Individual and Corporate applicants.</td>
+</tr>
+<tr>
+<td>Applicants.OwnerAdviserId</td>
+<td>integer</td>
+<td>Owner adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>Applicants.ApplicantType</td>
+<td>enum</td>
+<td>Individual = 0.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails</td>
+<td>object</td>
+<td>Used for individual applicants.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Title</td>
+<td>string</td>
+<td>Title: Mr, Mrs, Ms, Miss, Doctor, Lady, Prof and Sir.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.FirstName</td>
+<td>string</td>
+<td>First name of individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.LastName</td>
+<td>string</td>
+<td>Last name of individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.DateOfBirth</td>
+<td>date-time</td>
+<td>Date of birth of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Email</td>
+<td>string</td>
+<td>Email address of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Phone</td>
+<td>string</td>
+<td>Primary contact number of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.PhoneOther</td>
+<td>string</td>
+<td>Other phone of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Gender<span class="required">required</span></td>
+<td>enum</td>
+<td>Male = 1, Female = 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.UserName</td>
+<td>string</td>
+<td>User Name of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.UserId</td>
+<td>string</td>
+<td>User ID of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.IsPoliticallyExposedPerson</td>
+<td>boolean</td>
+<td>Whether applicant is politically exposed.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.PepDetails</td>
+<td>string</td>
+<td>If applicant is politically exposed, details must be supplied.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.TaxResidenceCountryCode</td>
+<td>string</td>
+<td>Tax residence country code.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.CitizenshipCountryCode</td>
+<td>string</td>
+<td>Citizenship country code.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications</td>
+<td>array</td>
+<td>Array of TFN / ABN.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.Type</td>
+<td>enum</td>
+<td>Tfn = 0, Tin = 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.Value</td>
+<td>string</td>
+<td>Identification value of applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.MissingReason</td>
+<td>enum</td>
+<td>CountryDoesntIssue = 1, DontNeedOne = 2, Other = 99.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.MissingReasonText</td>
+<td>string</td>
+<td>Reason identification of applicant is missing.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress</td>
+<td>object</td>
+<td>Home address of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Street</td>
+<td>string</td>
+<td>Address line 1.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Line2</td>
+<td>string</td>
+<td>Address line 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Line3</td>
+<td>string</td>
+<td>Address line 3.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Postcode</td>
+<td>string</td>
+<td>Postcode of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Suburb</td>
+<td>string</td>
+<td>Suburb of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.CountryCode</td>
+<td>string</td>
+<td>Country code of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.IsRegistered</td>
+<td>boolean</td>
+<td>Whether address is registered.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress</td>
+<td>object</td>
+<td>Mailing address of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Street</td>
+<td>string</td>
+<td>Address line 1.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Line2</td>
+<td>string</td>
+<td>Address line 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Line3</td>
+<td>string</td>
+<td>Address line 3.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Postcode</td>
+<td>string</td>
+<td>Postcode of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Suburb</td>
+<td>string</td>
+<td>Suburb of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.CountryCode</td>
+<td>string</td>
+<td>Country code of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.IsRegistered</td>
+<td>boolean</td>
+<td>Whether address is registered.</td>
+</tr>
+<tr>
+<td>Accounts</td>
+<td>array</td>
+<td>Array of accounts to be opened with the application. Must be linked to an included applicant.</td>
+</tr>
+<tr>
+<td>Accounts.Name</td>
+<td>string</td>
+<td>Account name.</td>
+</tr>
+<tr>
+<td>Accounts.RegisteredName</td>
+<td>string</td>
+<td>Account registered name.</td>
+</tr>
+<tr>
+<td>Accounts.ShortName</td>
+<td>string</td>
+<td>Account short name.</td>
+</tr>
+<tr>
+<td>Accounts.AccountType<span class="required">required</span></td>
+<td>enum</td>
+<td>Joint = 19.</td>
+</tr>
+<tr>
+<td>Accounts.PdsId<span class="required">required</span></td>
+<td>string</td>
+<td>PDS ID of account.</td>
+</tr>
+<tr>
+<td>Accounts.OwnerAdviserId</td>
+<td>integer</td>
+<td>Owner adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>Accounts.Fees</td>
+<td>array</td>
+<td>Account fees.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Id</td>
+<td>string</td>
+<td>Fee ID.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Rate</td>
+<td>double</td>
+<td>Fee rate.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Unit</td>
+<td>string</td>
+<td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.Models</td>
+<td>array</td>
+<td>Account models.</td>
+</tr>
+<tr>
+<td>Accounts.Models.Code</td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>Accounts.Models.Proportion</td>
+<td>double</td>
+<td>Proportion of model.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts</td>
+<td>array</td>
+<td>Bank accounts.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.Bsb</td>
+<td>string</td>
+<td>Bank account BSB.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.AccountNumber</td>
+<td>string</td>
+<td>Bank account number.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.AccountName</td>
+<td>string</td>
+<td>Bank account name.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.Usages</td>
+<td>array</td>
+<td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions</td>
+<td>array</td>
+<td>Account exclusions.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security</td>
+<td>object</td>
+<td>Security code of the exclusion.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security.Code</td>
+<td>string</td>
+<td>Security code of the security.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security.Exchange</td>
+<td>string</td>
+<td>Exchange code of the security.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestment</td>
+<td>object</td>
+<td>Initial investment of account.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestment.Cash</td>
+<td>double</td>
+<td>Select if the initial investment will include cash.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestment.Shares</td>
+<td>double</td>
+<td>Select if the initial investment will include shares.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestment.Method<span class="required">required</span></td>
+<td>enum</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-5'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1484,7 +2148,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-5'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-6'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1562,11 +2226,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -1598,11 +2271,21 @@
         </span><span class="nl">"Cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">132.12</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Shares"</span><span class="p">:</span><span class="w"> </span><span class="mf">321.32</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-3'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-4'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1916,6 +2599,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -1924,6 +2612,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -2010,6 +2718,46 @@
 <td>integer</td>
 <td>Owner adviser ID to create the application under.</td>
 </tr>
+<tr>
+<td>Accounts.RegularWithdrawal</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Amount</td>
+<td>double</td>
+<td>Amount for regular withdrawal.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Amount</td>
+<td>double</td>
+<td>Amount for regular contribution.</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -2019,7 +2767,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-5'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-6'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2048,7 +2796,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-6'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-7'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2127,11 +2875,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -2177,11 +2934,21 @@
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"Income"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-4'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-5'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2440,6 +3207,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -2448,6 +3220,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -2584,6 +3376,46 @@
 <td>double</td>
 <td>Target allocation income percentage.</td>
 </tr>
+<tr>
+<td>Accounts.RegularWithdrawal</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Amount</td>
+<td>double</td>
+<td>Amount for regular withdrawal.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Amount</td>
+<td>double</td>
+<td>Amount for regular contribution.</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -2593,7 +3425,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-6'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-7'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2622,7 +3454,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-7'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-8'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2700,11 +3532,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -2750,11 +3591,21 @@
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"Income"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RegularContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-5'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-6'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3068,6 +3919,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -3076,6 +3932,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -3217,6 +4093,46 @@
 <td>double</td>
 <td>Target allocation income percentage.</td>
 </tr>
+<tr>
+<td>Accounts.RegularWithdrawal</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularWithdrawal.Amount</td>
+<td>double</td>
+<td>Amount for regular withdrawal.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Method</td>
+<td>enum</td>
+<td>BPay = 0, DirectDebit = 1.</td>
+</tr>
+<tr>
+<td>Accounts.RegularContributions.Amount</td>
+<td>double</td>
+<td>Amount for regular contribution.</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -3226,7 +4142,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-7'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-8'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3255,7 +4171,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-8'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-9'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3334,11 +4250,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -3423,7 +4348,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-6'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-7'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3677,6 +4602,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -3685,6 +4615,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -3955,7 +4905,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-8'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-9'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3978,777 +4928,6 @@
 </blockquote>
 
 <p>This endpoint creates an individual applicant and a SuperSMA account-based-pensions (ABP) account in the system.</p>
-
-<blockquote>
-<p><strong>Header Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
-<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
-<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-9'>Header Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Authorization<span class="required">required</span></td>
-<td>string</td>
-<td>OAuth 2.0 access token.</td>
-</tr>
-<tr>
-<td>x-pps-subscription-key<span class="required">required</span></td>
-<td>string</td>
-<td>Product subscription key.</td>
-</tr>
-<tr>
-<td>x-pps-api-version<span class="required">required</span></td>
-<td>string</td>
-<td>API version of the endpoint.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Request Parameter - Body Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Applicants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IndividualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"HomeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"MailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"MissingReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MissingReasonText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"IsPoliticallyExposedPerson"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PepDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior politician"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"Accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"RegisteredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN0001"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"BankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Bsb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12012"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6555555567"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Usages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"Income"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"CashContribution"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"Exclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0002"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nl">"InitialInvestmentSuper"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ContributionSources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"MemberNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test member number"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceOfContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test product name"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"Usi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test usi"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"EntireBalance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"Transfers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU123456"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TransferMethod"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"OtherContributions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"ContributionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"PensionPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CommencementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"TargetAllocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0101"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"Income"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"ReversionaryBeneficiary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. John Smith"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Sex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Relationship"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-01-01"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"Beneficiaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="nl">"IsBindingNomination"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-7'>Request Parameter - Body</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AdviserId<span class="required">required</span></td>
-<td>integer</td>
-<td>Adviser ID to create the application under.</td>
-</tr>
-<tr>
-<td>OwnerAdviserId</td>
-<td>integer</td>
-<td>Owner adviser ID to create the application under.</td>
-</tr>
-<tr>
-<td>Applicants<span class="required">required</span></td>
-<td>array</td>
-<td>Objects containing the applicant data. There must be at least one applicant for the request to succeed. The array of objects may contain a mix of Individual and Corporate applicants.</td>
-</tr>
-<tr>
-<td>Applicants.OwnerAdviserId</td>
-<td>integer</td>
-<td>Owner adviser ID to create the application under.</td>
-</tr>
-<tr>
-<td>Applicants.ApplicantType</td>
-<td>enum</td>
-<td>Individual = 0.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails</td>
-<td>object</td>
-<td>Used for individual applicants.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Title</td>
-<td>string</td>
-<td>Title: Mr, Mrs, Ms, Miss, Doctor, Lady, Prof and Sir.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.FirstName</td>
-<td>string</td>
-<td>First name of individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.LastName</td>
-<td>string</td>
-<td>Last name of individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.DateOfBirth</td>
-<td>date-time</td>
-<td>Date of birth of the individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Email</td>
-<td>string</td>
-<td>Email address of the individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Phone</td>
-<td>string</td>
-<td>Primary contact number of the individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.PhoneOther</td>
-<td>string</td>
-<td>Other phone of the individual.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Gender<span class="required">required</span></td>
-<td>enum</td>
-<td>Male = 1, Female = 2.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.UserName</td>
-<td>string</td>
-<td>User Name of individual applicant.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.UserId</td>
-<td>string</td>
-<td>User ID of individual applicant.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.IsPoliticallyExposedPerson</td>
-<td>boolean</td>
-<td>Whether applicant is politically exposed.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.PepDetails</td>
-<td>string</td>
-<td>If applicant is politically exposed, details must be supplied.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.TaxResidenceCountryCode</td>
-<td>string</td>
-<td>Tax residence country code.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.CitizenshipCountryCode</td>
-<td>string</td>
-<td>Citizenship country code.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Identifications</td>
-<td>array</td>
-<td>Array of TFN / ABN.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Identifications.Type</td>
-<td>enum</td>
-<td>Tfn = 0, Tin = 2.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Identifications.Value</td>
-<td>string</td>
-<td>Identification value of applicant.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Identifications.MissingReason</td>
-<td>enum</td>
-<td>CountryDoesntIssue = 1, DontNeedOne = 2, Other = 99.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.Identifications.MissingReasonText</td>
-<td>string</td>
-<td>Reason identification of applicant is missing.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress</td>
-<td>object</td>
-<td>Home address of individual applicant.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.Street</td>
-<td>string</td>
-<td>Address line 1.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.Line2</td>
-<td>string</td>
-<td>Address line 2.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.Line3</td>
-<td>string</td>
-<td>Address line 3.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.Postcode</td>
-<td>string</td>
-<td>Postcode of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.Suburb</td>
-<td>string</td>
-<td>Suburb of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.CountryCode</td>
-<td>string</td>
-<td>Country code of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.HomeAddress.IsRegistered</td>
-<td>boolean</td>
-<td>Whether address is registered.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress</td>
-<td>object</td>
-<td>Mailing address of individual applicant.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.Street</td>
-<td>string</td>
-<td>Address line 1.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.Line2</td>
-<td>string</td>
-<td>Address line 2.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.Line3</td>
-<td>string</td>
-<td>Address line 3.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.Postcode</td>
-<td>string</td>
-<td>Postcode of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.Suburb</td>
-<td>string</td>
-<td>Suburb of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.CountryCode</td>
-<td>string</td>
-<td>Country code of address.</td>
-</tr>
-<tr>
-<td>Applicants.IndividualDetails.MailingAddress.IsRegistered</td>
-<td>boolean</td>
-<td>Whether address is registered.</td>
-</tr>
-<tr>
-<td>Accounts</td>
-<td>array</td>
-<td>Array of accounts to be opened with the application. Must be linked to an included applicant.</td>
-</tr>
-<tr>
-<td>Accounts.Name</td>
-<td>string</td>
-<td>Account name.</td>
-</tr>
-<tr>
-<td>Accounts.RegisteredName</td>
-<td>string</td>
-<td>Account registered name.</td>
-</tr>
-<tr>
-<td>Accounts.ShortName</td>
-<td>string</td>
-<td>Account short name.</td>
-</tr>
-<tr>
-<td>Accounts.AccountType<span class="required">required</span></td>
-<td>enum</td>
-<td>SuperSmaPensionAbp = 17.</td>
-</tr>
-<tr>
-<td>Accounts.PdsId<span class="required">required</span></td>
-<td>string</td>
-<td>PDS ID of account.</td>
-</tr>
-<tr>
-<td>Accounts.Fees</td>
-<td>array</td>
-<td>Account fees.</td>
-</tr>
-<tr>
-<td>Accounts.Fees.Id</td>
-<td>string</td>
-<td>Fee ID.</td>
-</tr>
-<tr>
-<td>Accounts.Fees.Rate</td>
-<td>double</td>
-<td>Fee rate.</td>
-</tr>
-<tr>
-<td>Accounts.Fees.Unit</td>
-<td>string</td>
-<td>Fee unit, dollars or percentage.</td>
-</tr>
-<tr>
-<td>Accounts.Models</td>
-<td>array</td>
-<td>Account models.</td>
-</tr>
-<tr>
-<td>Accounts.Models.Code<span class="required">required</span></td>
-<td>string</td>
-<td>Model code.</td>
-</tr>
-<tr>
-<td>Accounts.Models.Proportion</td>
-<td>double</td>
-<td>Proportion of model.</td>
-</tr>
-<tr>
-<td>Accounts.BankAccounts</td>
-<td>array</td>
-<td>Bank accounts.</td>
-</tr>
-<tr>
-<td>Accounts.BankAccounts.Bsb</td>
-<td>string</td>
-<td>Bank account BSB.</td>
-</tr>
-<tr>
-<td>Accounts.BankAccounts.AccountNumber</td>
-<td>string</td>
-<td>Bank account number.</td>
-</tr>
-<tr>
-<td>Accounts.BankAccounts.AccountName</td>
-<td>string</td>
-<td>Bank account name.</td>
-</tr>
-<tr>
-<td>Accounts.BankAccounts.Usages</td>
-<td>array</td>
-<td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
-</tr>
-<tr>
-<td>Accounts.Exclusions</td>
-<td>array</td>
-<td>Account exclusions.</td>
-</tr>
-<tr>
-<td>Accounts.Exclusions.Security</td>
-<td>object</td>
-<td>Security code of the exclusion.</td>
-</tr>
-<tr>
-<td>Accounts.Exclusions.Security.Code<span class="required">required</span></td>
-<td>string</td>
-<td>Security code of the security.</td>
-</tr>
-<tr>
-<td>Accounts.Exclusions.Security.Exchange<span class="required">required</span></td>
-<td>string</td>
-<td>Exchange code of the security.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation</td>
-<td>object</td>
-<td>Target allocation.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Fees</td>
-<td>array</td>
-<td>Target allocation fees.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Fees.Code</td>
-<td>string</td>
-<td>Target allocation fees code.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Fees.Percentage</td>
-<td>double</td>
-<td>Target allocation fees percentage.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Income</td>
-<td>array</td>
-<td>Target allocation income.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Income.Code</td>
-<td>string</td>
-<td>Target allocation income code.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Income.Percentage</td>
-<td>double</td>
-<td>Target allocation income percentage.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Payments</td>
-<td>array</td>
-<td>Target allocation payment.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Payments.Code</td>
-<td>string</td>
-<td>Target allocation payment code.</td>
-</tr>
-<tr>
-<td>Accounts.TargetAllocation.Payments.Percentage</td>
-<td>double</td>
-<td>Target allocation payment percentage.</td>
-</tr>
-<tr>
-<td>Accounts.PensionPayment</td>
-<td>object</td>
-<td>Pension Payment.</td>
-</tr>
-<tr>
-<td>Accounts.PensionPayment.Type</td>
-<td>enum</td>
-<td>Specified = 0, Minimum = 1.</td>
-</tr>
-<tr>
-<td>Accounts.PensionPayment.Amount</td>
-<td>double</td>
-<td>Pension payment amount.</td>
-</tr>
-<tr>
-<td>Accounts.PensionPayment.Frequency</td>
-<td>enum</td>
-<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
-</tr>
-<tr>
-<td>Accounts.PensionPayment.CommencementDate</td>
-<td>date-time</td>
-<td>Pension payment commencement date.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper</td>
-<td>object</td>
-<td>Initial investment for super.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources</td>
-<td>array</td>
-<td>Initial investment super contribution sources.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.MemberNumber</td>
-<td>string</td>
-<td>Contribution sources member number.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution</td>
-<td>object</td>
-<td>Source of contribution.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution.ProductName</td>
-<td>string</td>
-<td>Source of contribution product name.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution.Usi</td>
-<td>string</td>
-<td>Source of contribution USI.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.EntireBalance</td>
-<td>boolean</td>
-<td>Entire balance.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.ContributionSources.ExpectedAmount</td>
-<td>double</td>
-<td>Expected amount.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.Transfers</td>
-<td>array</td>
-<td>Initial investment super transfers.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.Transfers.AccountId</td>
-<td>string</td>
-<td>Transfer account ID.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.Transfers.TransferMethod</td>
-<td>enum</td>
-<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.Transfers.Amount</td>
-<td>double</td>
-<td>Transfer amount.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.OtherContributions</td>
-<td>array</td>
-<td>Other contributions.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.OtherContributions.ContributionType</td>
-<td>enum</td>
-<td>NonConcessional_Personal = 21, NonConcessional_Spouse = 22, NonConcessional_Child = 24, Downsizer = 43.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.OtherContributions.ExpectedAmount</td>
-<td>double</td>
-<td>Other contributions expected amount.</td>
-</tr>
-<tr>
-<td>Accounts.ReversionaryBeneficiary</td>
-<td>object</td>
-<td>Reversionary beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.ReversionaryBeneficiary.Sex</td>
-<td>enum</td>
-<td>Male = 1, Female = 2.</td>
-</tr>
-<tr>
-<td>Accounts.ReversionaryBeneficiary.FullName</td>
-<td>string</td>
-<td>Full name of beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.ReversionaryBeneficiary.Relationship</td>
-<td>enum</td>
-<td>Spouse = 1, Child = 2, Other = 3.</td>
-</tr>
-<tr>
-<td>Accounts.ReversionaryBeneficiary.DateOfBirth</td>
-<td>date-time</td>
-<td>Date of birth of beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries</td>
-<td>array</td>
-<td>Beneficiaries.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Proportion</td>
-<td>double</td>
-<td>The portion of the benefit that should be paid to the beneficiary. These must add up to 100%.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address</td>
-<td>object</td>
-<td>Address of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.Street<span class="required">required</span></td>
-<td>string</td>
-<td>Address street of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.Line2</td>
-<td>string</td>
-<td>Address Line 2 of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.Line3</td>
-<td>string</td>
-<td>Address Line 3 of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.Postcode</td>
-<td>string</td>
-<td>Postcode of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.Suburb</td>
-<td>string</td>
-<td>Suburb of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.CountryCode</td>
-<td>string</td>
-<td>Country code of the beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Address.IsRegistered</td>
-<td>boolean</td>
-<td>Address is registered.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.FullName</td>
-<td>string</td>
-<td>Full name of beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.Relationship</td>
-<td>enum</td>
-<td>Spouse = 1, Child = 2, Other = 3, PersonalLegalRepresentative = 8.</td>
-</tr>
-<tr>
-<td>Accounts.Beneficiaries.DateOfBirth</td>
-<td>date-time</td>
-<td>Date of birth of beneficiary.</td>
-</tr>
-<tr>
-<td>Accounts.IsBindingNomination</td>
-<td>boolean</td>
-<td>If nomination is binding.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-9'>Response Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ApplicationId</td>
-<td>string</td>
-<td>Unique application ID to be used as an application reference.</td>
-</tr>
-</tbody></table>
-
-<p><br/>
-<br/></p>
-<h3 id='post-individual-applicant-amp-supersma-transition-to-retirement-account'><span class="post">POST</span> Individual Applicant &amp; SuperSMA Transition-To-Retirement Account</h3>
-<blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/application</p>
-</blockquote>
-
-<p>This endpoint creates an individual applicant and a SuperSMA transition-to-retirement (TTR) account in the system.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -4835,11 +5014,20 @@
       </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
@@ -5156,7 +5344,7 @@
 <tr>
 <td>Accounts.AccountType<span class="required">required</span></td>
 <td>enum</td>
-<td>SuperSmaPensionTtr = 18.</td>
+<td>SuperSmaPensionAbp = 17.</td>
 </tr>
 <tr>
 <td>Accounts.PdsId<span class="required">required</span></td>
@@ -5174,6 +5362,11 @@
 <td>Fee ID.</td>
 </tr>
 <tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
 <td>Accounts.Fees.Rate</td>
 <td>double</td>
 <td>Fee rate.</td>
@@ -5182,6 +5375,26 @@
 <td>Accounts.Fees.Unit</td>
 <td>string</td>
 <td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
 </tr>
 <tr>
 <td>Accounts.Models</td>
@@ -5514,6 +5727,811 @@
 
 <p><br/>
 <br/></p>
+<h3 id='post-individual-applicant-amp-supersma-transition-to-retirement-account'><span class="post">POST</span> Individual Applicant &amp; SuperSMA Transition-To-Retirement Account</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/application</p>
+</blockquote>
+
+<p>This endpoint creates an individual applicant and a SuperSMA transition-to-retirement (TTR) account in the system.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-11'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>OAuth 2.0 access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AdviserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Applicants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ApplicantType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IndividualDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.smith@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"012489235"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HomeAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"MailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Test St"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Suburb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Melbourne"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Identifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MissingReason"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"MissingReasonText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"IsPoliticallyExposedPerson"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PepDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior politician"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RegisteredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss Jane Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PdsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU5"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">153.4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU21871"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dollar"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"FeeConsent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AnniversaryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0001"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN0001"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Proportion"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"BankAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Bsb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12012"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6555555567"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Usages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Income"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CashContribution"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"Exclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU0002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"InitialInvestmentSuper"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ContributionSources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MemberNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test member number"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SourceOfContribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test product name"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Usi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test usi"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"EntireBalance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"Transfers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TransferMethod"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"OtherContributions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ContributionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PensionPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CommencementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"TargetAllocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB0101"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"Income"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"Payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"ReversionaryBeneficiary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. John Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Relationship"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-01-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Beneficiaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"IsBindingNomination"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-9'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AdviserId<span class="required">required</span></td>
+<td>integer</td>
+<td>Adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>OwnerAdviserId</td>
+<td>integer</td>
+<td>Owner adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>Applicants<span class="required">required</span></td>
+<td>array</td>
+<td>Objects containing the applicant data. There must be at least one applicant for the request to succeed. The array of objects may contain a mix of Individual and Corporate applicants.</td>
+</tr>
+<tr>
+<td>Applicants.OwnerAdviserId</td>
+<td>integer</td>
+<td>Owner adviser ID to create the application under.</td>
+</tr>
+<tr>
+<td>Applicants.ApplicantType</td>
+<td>enum</td>
+<td>Individual = 0.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails</td>
+<td>object</td>
+<td>Used for individual applicants.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Title</td>
+<td>string</td>
+<td>Title: Mr, Mrs, Ms, Miss, Doctor, Lady, Prof and Sir.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.FirstName</td>
+<td>string</td>
+<td>First name of individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.LastName</td>
+<td>string</td>
+<td>Last name of individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.DateOfBirth</td>
+<td>date-time</td>
+<td>Date of birth of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Email</td>
+<td>string</td>
+<td>Email address of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Phone</td>
+<td>string</td>
+<td>Primary contact number of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.PhoneOther</td>
+<td>string</td>
+<td>Other phone of the individual.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Gender<span class="required">required</span></td>
+<td>enum</td>
+<td>Male = 1, Female = 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.UserName</td>
+<td>string</td>
+<td>User Name of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.UserId</td>
+<td>string</td>
+<td>User ID of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.IsPoliticallyExposedPerson</td>
+<td>boolean</td>
+<td>Whether applicant is politically exposed.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.PepDetails</td>
+<td>string</td>
+<td>If applicant is politically exposed, details must be supplied.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.TaxResidenceCountryCode</td>
+<td>string</td>
+<td>Tax residence country code.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.CitizenshipCountryCode</td>
+<td>string</td>
+<td>Citizenship country code.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications</td>
+<td>array</td>
+<td>Array of TFN / ABN.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.Type</td>
+<td>enum</td>
+<td>Tfn = 0, Tin = 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.Value</td>
+<td>string</td>
+<td>Identification value of applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.MissingReason</td>
+<td>enum</td>
+<td>CountryDoesntIssue = 1, DontNeedOne = 2, Other = 99.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.Identifications.MissingReasonText</td>
+<td>string</td>
+<td>Reason identification of applicant is missing.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress</td>
+<td>object</td>
+<td>Home address of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Street</td>
+<td>string</td>
+<td>Address line 1.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Line2</td>
+<td>string</td>
+<td>Address line 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Line3</td>
+<td>string</td>
+<td>Address line 3.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Postcode</td>
+<td>string</td>
+<td>Postcode of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.Suburb</td>
+<td>string</td>
+<td>Suburb of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.CountryCode</td>
+<td>string</td>
+<td>Country code of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.HomeAddress.IsRegistered</td>
+<td>boolean</td>
+<td>Whether address is registered.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress</td>
+<td>object</td>
+<td>Mailing address of individual applicant.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Street</td>
+<td>string</td>
+<td>Address line 1.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Line2</td>
+<td>string</td>
+<td>Address line 2.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Line3</td>
+<td>string</td>
+<td>Address line 3.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Postcode</td>
+<td>string</td>
+<td>Postcode of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.Suburb</td>
+<td>string</td>
+<td>Suburb of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.CountryCode</td>
+<td>string</td>
+<td>Country code of address.</td>
+</tr>
+<tr>
+<td>Applicants.IndividualDetails.MailingAddress.IsRegistered</td>
+<td>boolean</td>
+<td>Whether address is registered.</td>
+</tr>
+<tr>
+<td>Accounts</td>
+<td>array</td>
+<td>Array of accounts to be opened with the application. Must be linked to an included applicant.</td>
+</tr>
+<tr>
+<td>Accounts.Name</td>
+<td>string</td>
+<td>Account name.</td>
+</tr>
+<tr>
+<td>Accounts.RegisteredName</td>
+<td>string</td>
+<td>Account registered name.</td>
+</tr>
+<tr>
+<td>Accounts.ShortName</td>
+<td>string</td>
+<td>Account short name.</td>
+</tr>
+<tr>
+<td>Accounts.AccountType<span class="required">required</span></td>
+<td>enum</td>
+<td>SuperSmaPensionTtr = 18.</td>
+</tr>
+<tr>
+<td>Accounts.PdsId<span class="required">required</span></td>
+<td>string</td>
+<td>PDS ID of account.</td>
+</tr>
+<tr>
+<td>Accounts.Fees</td>
+<td>array</td>
+<td>Account fees.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Id</td>
+<td>string</td>
+<td>Fee ID.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Type</td>
+<td>enum</td>
+<td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Rate</td>
+<td>double</td>
+<td>Fee rate.</td>
+</tr>
+<tr>
+<td>Accounts.Fees.Unit</td>
+<td>string</td>
+<td>Fee unit, dollars or percentage.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.Type</td>
+<td>enum</td>
+<td>Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.AnniversaryDate</td>
+<td>date-time</td>
+<td>Anniversary date of ongoing fee. (Cannot be used along with TermStartDate and TermEndDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermStartDate</td>
+<td>date-time</td>
+<td>Start date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.FeeConsent.TermEndDate</td>
+<td>date-time</td>
+<td>End date of fixed term fee. (Cannot be used along with AnniversaryDate)</td>
+</tr>
+<tr>
+<td>Accounts.Models</td>
+<td>array</td>
+<td>Account models.</td>
+</tr>
+<tr>
+<td>Accounts.Models.Code<span class="required">required</span></td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>Accounts.Models.Proportion</td>
+<td>double</td>
+<td>Proportion of model.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts</td>
+<td>array</td>
+<td>Bank accounts.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.Bsb</td>
+<td>string</td>
+<td>Bank account BSB.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.AccountNumber</td>
+<td>string</td>
+<td>Bank account number.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.AccountName</td>
+<td>string</td>
+<td>Bank account name.</td>
+</tr>
+<tr>
+<td>Accounts.BankAccounts.Usages</td>
+<td>array</td>
+<td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions</td>
+<td>array</td>
+<td>Account exclusions.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security</td>
+<td>object</td>
+<td>Security code of the exclusion.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security.Code<span class="required">required</span></td>
+<td>string</td>
+<td>Security code of the security.</td>
+</tr>
+<tr>
+<td>Accounts.Exclusions.Security.Exchange<span class="required">required</span></td>
+<td>string</td>
+<td>Exchange code of the security.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation</td>
+<td>object</td>
+<td>Target allocation.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Fees</td>
+<td>array</td>
+<td>Target allocation fees.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Fees.Code</td>
+<td>string</td>
+<td>Target allocation fees code.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Fees.Percentage</td>
+<td>double</td>
+<td>Target allocation fees percentage.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Income</td>
+<td>array</td>
+<td>Target allocation income.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Income.Code</td>
+<td>string</td>
+<td>Target allocation income code.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Income.Percentage</td>
+<td>double</td>
+<td>Target allocation income percentage.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Payments</td>
+<td>array</td>
+<td>Target allocation payment.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Payments.Code</td>
+<td>string</td>
+<td>Target allocation payment code.</td>
+</tr>
+<tr>
+<td>Accounts.TargetAllocation.Payments.Percentage</td>
+<td>double</td>
+<td>Target allocation payment percentage.</td>
+</tr>
+<tr>
+<td>Accounts.PensionPayment</td>
+<td>object</td>
+<td>Pension Payment.</td>
+</tr>
+<tr>
+<td>Accounts.PensionPayment.Type</td>
+<td>enum</td>
+<td>Specified = 0, Minimum = 1.</td>
+</tr>
+<tr>
+<td>Accounts.PensionPayment.Amount</td>
+<td>double</td>
+<td>Pension payment amount.</td>
+</tr>
+<tr>
+<td>Accounts.PensionPayment.Frequency</td>
+<td>enum</td>
+<td>Monthly = 0, Quarterly = 1, SemiAnnually = 2, Annually = 3.</td>
+</tr>
+<tr>
+<td>Accounts.PensionPayment.CommencementDate</td>
+<td>date-time</td>
+<td>Pension payment commencement date.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper</td>
+<td>object</td>
+<td>Initial investment for super.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources</td>
+<td>array</td>
+<td>Initial investment super contribution sources.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.MemberNumber</td>
+<td>string</td>
+<td>Contribution sources member number.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution</td>
+<td>object</td>
+<td>Source of contribution.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution.ProductName</td>
+<td>string</td>
+<td>Source of contribution product name.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.SourceOfContribution.Usi</td>
+<td>string</td>
+<td>Source of contribution USI.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.EntireBalance</td>
+<td>boolean</td>
+<td>Entire balance.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.ContributionSources.ExpectedAmount</td>
+<td>double</td>
+<td>Expected amount.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.Transfers</td>
+<td>array</td>
+<td>Initial investment super transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.Transfers.AccountId</td>
+<td>string</td>
+<td>Transfer account ID.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.Transfers.TransferMethod</td>
+<td>enum</td>
+<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.Transfers.Amount</td>
+<td>double</td>
+<td>Transfer amount.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.OtherContributions</td>
+<td>array</td>
+<td>Other contributions.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.OtherContributions.ContributionType</td>
+<td>enum</td>
+<td>NonConcessional_Personal = 21, NonConcessional_Spouse = 22, NonConcessional_Child = 24, Downsizer = 43.</td>
+</tr>
+<tr>
+<td>Accounts.InitialInvestmentSuper.OtherContributions.ExpectedAmount</td>
+<td>double</td>
+<td>Other contributions expected amount.</td>
+</tr>
+<tr>
+<td>Accounts.ReversionaryBeneficiary</td>
+<td>object</td>
+<td>Reversionary beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.ReversionaryBeneficiary.Sex</td>
+<td>enum</td>
+<td>Male = 1, Female = 2.</td>
+</tr>
+<tr>
+<td>Accounts.ReversionaryBeneficiary.FullName</td>
+<td>string</td>
+<td>Full name of beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.ReversionaryBeneficiary.Relationship</td>
+<td>enum</td>
+<td>Spouse = 1, Child = 2, Other = 3.</td>
+</tr>
+<tr>
+<td>Accounts.ReversionaryBeneficiary.DateOfBirth</td>
+<td>date-time</td>
+<td>Date of birth of beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries</td>
+<td>array</td>
+<td>Beneficiaries.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Proportion</td>
+<td>double</td>
+<td>The portion of the benefit that should be paid to the beneficiary. These must add up to 100%.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address</td>
+<td>object</td>
+<td>Address of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.Street<span class="required">required</span></td>
+<td>string</td>
+<td>Address street of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.Line2</td>
+<td>string</td>
+<td>Address Line 2 of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.Line3</td>
+<td>string</td>
+<td>Address Line 3 of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.Postcode</td>
+<td>string</td>
+<td>Postcode of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.Suburb</td>
+<td>string</td>
+<td>Suburb of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.CountryCode</td>
+<td>string</td>
+<td>Country code of the beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Address.IsRegistered</td>
+<td>boolean</td>
+<td>Address is registered.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.FullName</td>
+<td>string</td>
+<td>Full name of beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.Relationship</td>
+<td>enum</td>
+<td>Spouse = 1, Child = 2, Other = 3, PersonalLegalRepresentative = 8.</td>
+</tr>
+<tr>
+<td>Accounts.Beneficiaries.DateOfBirth</td>
+<td>date-time</td>
+<td>Date of birth of beneficiary.</td>
+</tr>
+<tr>
+<td>Accounts.IsBindingNomination</td>
+<td>boolean</td>
+<td>If nomination is binding.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"ApplicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1bdac67-39a0-4835-8168-e99f44f01iu7"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-11'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ApplicationId</td>
+<td>string</td>
+<td>Unique application ID to be used as an application reference.</td>
+</tr>
+</tbody></table>
+
+<p><br/>
+<br/></p>
 <h3 id='get-app-form'><span class="get">GET</span> App Form</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.onpraemium.com/api/appform</p>
@@ -5527,7 +6545,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-11'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-12'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5591,7 +6609,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-12'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-13'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5649,7 +6667,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-11'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-12'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5698,7 +6716,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-13'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-14'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5749,7 +6767,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-12'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5778,7 +6796,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-14'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-15'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5835,7 +6853,7 @@
   </span><span class="nl">"PhoneOther"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0498765432"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Team"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Team AB"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-9'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-10'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5963,7 +6981,7 @@
   </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9108602</span><span class="p">,</span><span class="w">
   </span><span class="nl">"GetStartedToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.onpraemium.com/useraccount/changepassword?token=9108602-ED6205A469E04029B724EA9A11BDE37F-637141711208895228"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-13'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -5997,7 +7015,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-15'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-16'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6031,7 +7049,7 @@
   </span><span class="nl">"UserRole"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Access"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-10'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-11'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6080,7 +7098,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-16'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6134,7 +7152,7 @@
     </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-14'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-15'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6168,7 +7186,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-17'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6206,7 +7224,7 @@
     </span><span class="p">}</span><span class="w">    
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-11'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-12'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6260,7 +7278,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-18'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6324,7 +7342,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-15'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-16'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6361,89 +7379,6 @@
 </blockquote>
 
 <p>This endpoint allows you to replace security exclusions for the account. If a blank array of SecurityExclusions is sent as a body parameter, all exclusions will be removed.</p>
-
-<blockquote>
-<p><strong>Header Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
-<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
-<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-19'>Header Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Authorization<span class="required">required</span></td>
-<td>string</td>
-<td>Access token.</td>
-</tr>
-<tr>
-<td>x-pps-subscription-key<span class="required">required</span></td>
-<td>string</td>
-<td>Product subscription key.</td>
-</tr>
-<tr>
-<td>x-pps-api-version<span class="required">required</span></td>
-<td>string</td>
-<td>API version of the endpoint.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Request Parameter - Body Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-12'>Request Parameter - Body</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccountId<span class="required">required</span></td>
-<td>string</td>
-<td>Account ID.</td>
-</tr>
-<tr>
-<td>SecurityExclusions</td>
-<td>array</td>
-<td>Security exclusion.</td>
-</tr>
-<tr>
-<td>SecurityExclusions.SecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>Security ID.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
-</span></code></pre></div>
-<p><br/></p>
-<h3 id='post-security-exclusions'><span class="post">POST</span> Security Exclusions</h3>
-<blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/securityexclusions</p>
-</blockquote>
-
-<p>This endpoint allows you to add security exclusions for the account.</p>
 
 <blockquote>
 <p><strong>Header Examples</strong></p>
@@ -6504,6 +7439,89 @@
 <td>Account ID.</td>
 </tr>
 <tr>
+<td>SecurityExclusions</td>
+<td>array</td>
+<td>Security exclusion.</td>
+</tr>
+<tr>
+<td>SecurityExclusions.SecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h3 id='post-security-exclusions'><span class="post">POST</span> Security Exclusions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/securityexclusions</p>
+</blockquote>
+
+<p>This endpoint allows you to add security exclusions for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-21'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-14'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
 <td>SecurityExclusions<span class="required">required</span></td>
 <td>array</td>
 <td>Security exclusion.</td>
@@ -6534,7 +7552,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-21'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-22'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6607,7 +7625,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-22'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-23'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6679,7 +7697,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-16'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-17'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6738,92 +7756,6 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-23'>Header Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Authorization<span class="required">required</span></td>
-<td>string</td>
-<td>Access token.</td>
-</tr>
-<tr>
-<td>x-pps-subscription-key<span class="required">required</span></td>
-<td>string</td>
-<td>Product subscription key.</td>
-</tr>
-<tr>
-<td>x-pps-api-version<span class="required">required</span></td>
-<td>string</td>
-<td>API version of the endpoint.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Request Parameter - Body Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"FromSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"ToSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-14'>Request Parameter - Body</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccountId<span class="required">required</span></td>
-<td>string</td>
-<td>Account ID.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions</td>
-<td>array</td>
-<td>Security substitution.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.FromSecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>From security ID.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.ToSecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>To security ID.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
-</span></code></pre></div>
-<p><br/></p>
-<h3 id='post-security-substitutions'><span class="post">POST</span> Security Substitutions</h3>
-<blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/securitysubstitutions</p>
-</blockquote>
-
-<p>This endpoint allows you to add security substitutions for the account.</p>
-
-<blockquote>
-<p><strong>Header Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
-<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
-<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
 </code></pre></div><h5 id='header-parameters-24'>Header Parameters</h5>
 <table><thead>
 <tr>
@@ -6875,6 +7807,92 @@
 <td>Account ID.</td>
 </tr>
 <tr>
+<td>SecuritySubstitutions</td>
+<td>array</td>
+<td>Security substitution.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.FromSecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>From security ID.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.ToSecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>To security ID.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
+<h3 id='post-security-substitutions'><span class="post">POST</span> Security Substitutions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/securitysubstitutions</p>
+</blockquote>
+
+<p>This endpoint allows you to add security substitutions for the account.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-25'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"FromSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ToSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-16'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
 <td>SecuritySubstitutions<span class="required">required</span></td>
 <td>array</td>
 <td>Security substitution.</td>
@@ -6910,7 +7928,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-25'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-26'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -6989,7 +8007,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-26'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-27'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7030,215 +8048,6 @@
 <td>AccountId<span class="required">required</span></td>
 <td>string</td>
 <td>Account ID.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T15:20:00.237+11:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-10T10:13:54.67+11:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAN0019AU"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FND"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T16:17:07.61+11:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"FromSecurity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"ToSecurity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-17'>Response Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SecurityExclusions</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>SecurityExclusions.CreatedDate</td>
-<td>date-time</td>
-<td>Date security exclusion was created.</td>
-</tr>
-<tr>
-<td>SecurityExclusions.Security</td>
-<td>object</td>
-<td>Security name.</td>
-</tr>
-<tr>
-<td>SecurityExclusions.Security.Code</td>
-<td>string</td>
-<td>Security code.</td>
-</tr>
-<tr>
-<td>SecurityExclusions.Security.Exchange</td>
-<td>string</td>
-<td>Security exchange.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.CreatedDate</td>
-<td>date-time</td>
-<td>Date security substitution was created.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.FromSecurity</td>
-<td>object</td>
-<td>From security.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.FromSecurity.Code</td>
-<td>string</td>
-<td>Security code.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.FromSecurity.Exchange</td>
-<td>string</td>
-<td>Security exchange.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.ToSecurity</td>
-<td>object</td>
-<td>To security.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.ToSecurity.Code</td>
-<td>string</td>
-<td>Security code.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.ToSecurity.Exchange</td>
-<td>string</td>
-<td>Security exchange.</td>
-</tr>
-</tbody></table>
-
-<p><br/></p>
-<h3 id='put-security-customisations'><span class="put">PUT</span> Security Customisations</h3>
-<blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/securitycustomisations</p>
-</blockquote>
-
-<p>This endpoint allows you to replace all security exclusions and substitutions for the account. If a blank array of SecurityExclusions and/or SecuritySubstitutions is sent as a body parameter, all exclusions and/or substitutions will be removed.</p>
-
-<blockquote>
-<p><strong>Header Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
-<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
-<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-27'>Header Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Authorization<span class="required">required</span></td>
-<td>string</td>
-<td>Access token.</td>
-</tr>
-<tr>
-<td>x-pps-subscription-key<span class="required">required</span></td>
-<td>string</td>
-<td>Product subscription key.</td>
-</tr>
-<tr>
-<td>x-pps-api-version<span class="required">required</span></td>
-<td>string</td>
-<td>API version of the endpoint.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Request Parameter - Body Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"FromSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ToSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-16'>Request Parameter - Body</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccountId<span class="required">required</span></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>SecurityExclusions<span class="required">required</span></td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>SecurityExclusions.SecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>Security ID.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions<span class="required">required</span></td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.FromSecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>From security ID.</td>
-</tr>
-<tr>
-<td>SecuritySubstitutions.ToSecurityId<span class="required">required</span></td>
-<td>string</td>
-<td>To security ID.</td>
 </tr>
 </tbody></table>
 
@@ -7353,6 +8162,215 @@
 </tbody></table>
 
 <p><br/></p>
+<h3 id='put-security-customisations'><span class="put">PUT</span> Security Customisations</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/securitycustomisations</p>
+</blockquote>
+
+<p>This endpoint allows you to replace all security exclusions and substitutions for the account. If a blank array of SecurityExclusions and/or SecuritySubstitutions is sent as a body parameter, all exclusions and/or substitutions will be removed.</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-28'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Body Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"FromSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ToSecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU3"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='request-parameter-body-17'>Request Parameter - Body</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>SecurityExclusions<span class="required">required</span></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>SecurityExclusions.SecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions<span class="required">required</span></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.FromSecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>From security ID.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.ToSecurityId<span class="required">required</span></td>
+<td>string</td>
+<td>To security ID.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"SecurityExclusions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T15:20:00.237+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-10T10:13:54.67+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAN0019AU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FND"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"SecuritySubstitutions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-16T16:17:07.61+11:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FromSecurity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"ToSecurity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASX"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h5 id='response-parameters-19'>Response Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SecurityExclusions</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>SecurityExclusions.CreatedDate</td>
+<td>date-time</td>
+<td>Date security exclusion was created.</td>
+</tr>
+<tr>
+<td>SecurityExclusions.Security</td>
+<td>object</td>
+<td>Security name.</td>
+</tr>
+<tr>
+<td>SecurityExclusions.Security.Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>SecurityExclusions.Security.Exchange</td>
+<td>string</td>
+<td>Security exchange.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.CreatedDate</td>
+<td>date-time</td>
+<td>Date security substitution was created.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.FromSecurity</td>
+<td>object</td>
+<td>From security.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.FromSecurity.Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.FromSecurity.Exchange</td>
+<td>string</td>
+<td>Security exchange.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.ToSecurity</td>
+<td>object</td>
+<td>To security.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.ToSecurity.Code</td>
+<td>string</td>
+<td>Security code.</td>
+</tr>
+<tr>
+<td>SecuritySubstitutions.ToSecurity.Exchange</td>
+<td>string</td>
+<td>Security exchange.</td>
+</tr>
+</tbody></table>
+
+<p><br/></p>
 <h3 id='get-minimum-trade-size'><span class="get">GET</span> Minimum Trade Size</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.onpraemium.com/api/minimumtradesize</p>
@@ -7366,7 +8384,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-28'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-29'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7419,7 +8437,7 @@
   </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.5128</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Units"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-19'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-20'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7458,7 +8476,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-29'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-30'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7492,7 +8510,7 @@
   </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.5128</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Units"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-17'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-18'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7541,7 +8559,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-30'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-31'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7601,7 +8619,7 @@
     </span><span class="nl">"ReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000005"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-20'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-21'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7635,7 +8653,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-31'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-32'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7735,7 +8753,7 @@
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-21'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-22'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7809,7 +8827,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-32'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7854,7 +8872,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-18'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-19'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7918,7 +8936,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -7993,7 +9011,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-35'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8042,7 +9060,7 @@
   </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-09-24T00:00:00+10:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"FrequencyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h5 id='request-parameter-body-19'>Request Parameter - Body</h5>
+</span></code></pre></div><h5 id='request-parameter-body-20'>Request Parameter - Body</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8121,7 +9139,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-35'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-36'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8190,7 +9208,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-36'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-37'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8275,7 +9293,7 @@
     </span><span class="nl">"IsAllowedByApl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h5 id='response-parameters-22'>Response Parameters</h5>
+</span></code></pre></div><h5 id='response-parameters-23'>Response Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
