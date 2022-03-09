@@ -7944,6 +7944,14 @@
           "description": "",
           "$ref": "#/definitions/DraftRegularTransaction"
         },
+        "AdviserServicesProvided": {
+          "description": "The services provided by the adviser: Review of your account = 1, Strategic superannuation advice = 2, Investment advice on your account = 3, Contribution strategy = 4, Insurance in superannuation strategy = 5, Withdrawal advice (lump sum and/or pension) = 6.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "Name": {
           "description": "Account name.",
           "type": "string"
@@ -9932,7 +9940,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.02.09",
+    "version": "2022.03.09",
     "title": "Public API"
   }
 }
