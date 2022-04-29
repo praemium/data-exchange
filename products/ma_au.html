@@ -1116,6 +1116,14 @@
           </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InspecieTransfers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutsideOfRebalQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HoldingType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HinOrSrn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928734234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1533,6 +1541,41 @@
 <td>double</td>
 <td>Amount for regular contribution.</td>
 </tr>
+<tr>
+<td>Accounts.InspecieTransfers</td>
+<td>array</td>
+<td>Inspecie transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Quantity</td>
+<td>double</td>
+<td>Quantity of the security.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td>Quantity of the security outside of rebalance.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HinOrSrn</td>
+<td>string</td>
+<td>HIN or SRN.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -1733,6 +1776,14 @@
         </span><span class="nl">"Cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">132.12</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Shares"</span><span class="p">:</span><span class="w"> </span><span class="mf">321.32</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InspecieTransfers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutsideOfRebalQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HoldingType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HinOrSrn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928734234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -2110,6 +2161,41 @@
 <td>enum</td>
 <td></td>
 </tr>
+<tr>
+<td>Accounts.InspecieTransfers</td>
+<td>array</td>
+<td>Inspecie transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Quantity</td>
+<td>double</td>
+<td>Quantity of the security.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td>Quantity of the security outside of rebalance.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HinOrSrn</td>
+<td>string</td>
+<td>HIN or SRN.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -2281,6 +2367,14 @@
           </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InspecieTransfers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutsideOfRebalQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HoldingType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HinOrSrn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928734234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -2758,6 +2852,41 @@
 <td>double</td>
 <td>Amount for regular contribution.</td>
 </tr>
+<tr>
+<td>Accounts.InspecieTransfers</td>
+<td>array</td>
+<td>Inspecie transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Quantity</td>
+<td>double</td>
+<td>Number of the security</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td>Number of the security outside of rebalance</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HinOrSrn</td>
+<td>string</td>
+<td>HIN or SRN.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -2944,6 +3073,14 @@
           </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InspecieTransfers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutsideOfRebalQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HoldingType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HinOrSrn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928734234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -3416,6 +3553,41 @@
 <td>double</td>
 <td>Amount for regular contribution.</td>
 </tr>
+<tr>
+<td>Accounts.InspecieTransfers</td>
+<td>array</td>
+<td>Inspecie transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Quantity</td>
+<td>double</td>
+<td>Quantity of the security.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td>Quantity of the security outside of rebalance.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HinOrSrn</td>
+<td>string</td>
+<td>HIN or SRN.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -3601,6 +3773,14 @@
           </span><span class="nl">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InspecieTransfers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SecurityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU94"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutsideOfRebalQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HoldingType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"HinOrSrn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928734234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -4133,6 +4313,41 @@
 <td>double</td>
 <td>Amount for regular contribution.</td>
 </tr>
+<tr>
+<td>Accounts.InspecieTransfers</td>
+<td>array</td>
+<td>Inspecie transfers.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Quantity</td>
+<td>double</td>
+<td>Number of the security</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td>Number of the security outside of rebalance</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.HinOrSrn</td>
+<td>string</td>
+<td>HIN or SRN.</td>
+</tr>
+<tr>
+<td>Accounts.InspecieTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -4321,8 +4536,9 @@
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"OtherContributions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"ContributionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="w">
+            </span><span class="nl">"ContributionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpectedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">35234.43543</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SuperSmaAccumulatedPaymentType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -4799,7 +5015,7 @@
 <tr>
 <td>Accounts.InitialInvestmentSuper.OtherContributions.ContributionType</td>
 <td>enum</td>
-<td>NonConcessional_Personal = 21, NonConcessional_Spouse = 22, NonConcessional_Child = 24, Downsizer = 43.</td>
+<td>NonConcessional_Personal = 21, NonConcessional_Spouse = 22, NonConcessional_Child = 24, Exempt_CGT_15Year = 31 (for direct debit only), Exempt_CGT_Retirement = 32 (for direct debit only), Exempt_PersonalInjuryElection = 33 (for direct debit only), Downsizer = 43.</td>
 </tr>
 <tr>
 <td>Accounts.InitialInvestmentSuper.OtherContributions.ExpectedAmount</td>
@@ -4807,19 +5023,9 @@
 <td>Other contributions expected amount.</td>
 </tr>
 <tr>
-<td>Accounts.InitialInvestmentSuper.AccumContribution</td>
-<td>object</td>
-<td>Accumulation contribution.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.AccumContribution.ContributionType</td>
+<td>Accounts.InitialInvestmentSuper.OtherContributions.SuperSmaAccumulatedPaymentType</td>
 <td>enum</td>
-<td>NonConcessional_Personal = 21, NonConcessional_Spouse = 22.</td>
-</tr>
-<tr>
-<td>Accounts.InitialInvestmentSuper.AccumContribution.ExpectedAmount</td>
-<td>double</td>
-<td>Accumulation contribution expected amount.</td>
+<td>Bpay = 0, DirectDebit = 1, DirectCredit = 2. (Only applicable for SuperSMA accumulation accounts)</td>
 </tr>
 <tr>
 <td>Accounts.Beneficiaries</td>
@@ -8612,10 +8818,13 @@
 </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400000"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000001"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"BillerCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">320592</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BpayType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU400001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BillerCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">310294</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000005"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -8635,7 +8844,17 @@
 <tr>
 <td>ReferenceNumber</td>
 <td>string</td>
-<td>BPAY reference number.</td>
+<td>Customer reference number.</td>
+</tr>
+<tr>
+<td>BillerCode</td>
+<td>integer</td>
+<td>BPay biller code.</td>
+</tr>
+<tr>
+<td>BpayType</td>
+<td>enum</td>
+<td>Personal = 1, Spouse = 2, Downsizer = 3, SpecialPersonal = 4.</td>
 </tr>
 </tbody></table>
 
@@ -8792,6 +9011,11 @@
 <td>Value of the cashflow instruction.</td>
 </tr>
 <tr>
+<td>TaxType</td>
+<td>enum</td>
+<td>PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)</td>
+</tr>
+<tr>
 <td>Allocations</td>
 <td>array</td>
 <td>Cashflow instruction details.</td>
@@ -8889,6 +9113,11 @@
 <td>Amount</td>
 <td>double</td>
 <td>Amount of the one-off cashflow instruction to apply.</td>
+</tr>
+<tr>
+<td>TaxType</td>
+<td>enum</td>
+<td>PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)</td>
 </tr>
 <tr>
 <td>AccountId<span class="required">required</span></td>

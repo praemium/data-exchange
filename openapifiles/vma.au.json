@@ -5676,7 +5676,7 @@
       ],
       "type": "object"
     },
-    "HoldingType": {
+    "InspecieHoldingType": {
       "format": "int32",
       "type": "integer",
       "enum": [
@@ -5684,7 +5684,7 @@
         1
       ]
     },
-    "TransferDirection": {
+    "InspecieTransferDirection": {
       "format": "int32",
       "type": "integer",
       "enum": [
@@ -5710,7 +5710,7 @@
         },
         "HoldingType": {
           "description": "IssuerSponsored = 0, Chess = 1.",
-          "$ref": "#/definitions/HoldingType"
+          "$ref": "#/definitions/InspecieHoldingType"
         },
         "SponsorOrIssuer": {
           "description": "Is the security held with a sponsor or issuer.",
@@ -5727,7 +5727,7 @@
         },
         "Direction": {
           "description": "In = 0, Out = 1.",
-          "$ref": "#/definitions/TransferDirection"
+          "$ref": "#/definitions/InspecieTransferDirection"
         }
       },
       "required": [],
@@ -7647,6 +7647,15 @@
         50
       ]
     },
+    "SuperSmaAccumulatedPaymentType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
     "DraftInflowsOtherContribution": {
       "properties": {
         "ContributionType": {
@@ -7657,6 +7666,10 @@
           "description": "Expected amount.",
           "format": "double",
           "type": "number"
+        },
+        "SuperSmaAccumulatedPaymentType": {
+          "description": "",
+          "$ref": "#/definitions/SuperSmaAccumulatedPaymentType"
         }
       },
       "required": [
@@ -7686,10 +7699,6 @@
             "$ref": "#/definitions/DraftInflowsOtherContribution"
           },
           "type": "array"
-        },
-        "AccumContribution": {
-          "description": "Accumulation contribution.",
-          "$ref": "#/definitions/DraftInflowsOtherContribution"
         }
       },
       "required": [],
@@ -7786,6 +7795,57 @@
       },
       "required": [
         "Method"
+      ],
+      "type": "object"
+    },
+    "HoldingType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "TransferDirection": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "DraftInspecieTransfer": {
+      "properties": {
+        "SecurityId": {
+          "description": "",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "OutsideOfRebalanceQuantity": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "HoldingType": {
+          "description": "",
+          "$ref": "#/definitions/HoldingType"
+        },
+        "HinOrSrn": {
+          "description": "",
+          "type": "string"
+        },
+        "Direction": {
+          "description": "",
+          "$ref": "#/definitions/TransferDirection"
+        }
+      },
+      "required": [
+        "HoldingType",
+        "SecurityId"
       ],
       "type": "object"
     },
@@ -7949,6 +8009,13 @@
           "items": {
             "format": "int32",
             "type": "integer"
+          },
+          "type": "array"
+        },
+        "InSpecieTransfers": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/DraftInspecieTransfer"
           },
           "type": "array"
         },
@@ -9302,6 +9369,16 @@
       ],
       "type": "object"
     },
+    "BpayType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
     "BpayInfo": {
       "properties": {
         "AccountId": {
@@ -9309,8 +9386,17 @@
           "type": "string"
         },
         "ReferenceNumber": {
-          "description": "BPAY reference number.",
+          "description": "Customer reference number.",
           "type": "string"
+        },
+        "BillerCode": {
+          "description": "BPay biller code.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "BpayType": {
+          "description": "Personal = 1, Spouse = 2, Downsizer = 3, SpecialPersonal = 4.",
+          "$ref": "#/definitions/BpayType"
         }
       },
       "required": [],
@@ -9346,6 +9432,24 @@
         4,
         5,
         6
+      ]
+    },
+    "SuperannuationContributionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ]
     },
     "CashflowInstructionDetail": {
@@ -9399,6 +9503,10 @@
           "format": "double",
           "type": "number"
         },
+        "TaxType": {
+          "description": "PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)",
+          "$ref": "#/definitions/SuperannuationContributionType"
+        },
         "Allocations": {
           "description": "Cashflow instruction details.",
           "items": {
@@ -9428,6 +9536,10 @@
           "description": "Amount of the one-off cashflow instruction to apply.",
           "format": "double",
           "type": "number"
+        },
+        "TaxType": {
+          "description": "PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)",
+          "$ref": "#/definitions/SuperannuationContributionType"
         },
         "AccountId": {
           "description": "Account ID.",
@@ -9940,7 +10052,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.03.09",
+    "version": "2022.04.29",
     "title": "Public API"
   }
 }
