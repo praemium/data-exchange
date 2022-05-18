@@ -7637,7 +7637,6 @@
         21,
         22,
         23,
-        24,
         31,
         32,
         33,
@@ -7849,6 +7848,39 @@
       ],
       "type": "object"
     },
+    "InvestorsType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "DraftAccountInvestorType": {
+      "properties": {
+        "InvestorsType": {
+          "description": "",
+          "$ref": "#/definitions/InvestorsType"
+        },
+        "WholesaleCertificateDate": {
+          "description": "",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "DraftAccountType": {
       "format": "int32",
       "type": "integer",
@@ -8018,6 +8050,10 @@
             "$ref": "#/definitions/DraftInspecieTransfer"
           },
           "type": "array"
+        },
+        "AccountInvestorsType": {
+          "description": "",
+          "$ref": "#/definitions/DraftAccountInvestorType"
         },
         "Name": {
           "description": "Account name.",
@@ -10052,7 +10088,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.04.29",
+    "version": "2022.05.18",
     "title": "Public API"
   }
 }
