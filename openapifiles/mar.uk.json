@@ -4667,11 +4667,11 @@
     "SsoLoginRequest": {
       "properties": {
         "Application": {
-          "description": "The ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
+          "description": "ID of the application the user will be sent to once logged in. Platform = 0, InvestorPortal = 1, AdviserPortal = 2, ApplicationPortal = 3.",
           "$ref": "#/definitions/TargetApplication"
         },
         "UserId": {
-          "description": "ID of the user to log in. Either UserId or Username is required.",
+          "description": "ID of the user to log in.",
           "format": "int32",
           "type": "integer"
         },
@@ -4722,7 +4722,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.07.15",
+    "version": "2022.07.22",
     "title": "Public API"
   }
 }
