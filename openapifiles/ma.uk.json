@@ -1230,8 +1230,8 @@
         },
         "Quantity": {
           "description": "",
-          "format": "int32",
-          "type": "integer"
+          "format": "double",
+          "type": "number"
         },
         "NetAmount": {
           "description": "",
@@ -4722,7 +4722,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.09.14",
+    "version": "2022.09.28",
     "title": "Public API"
   }
 }

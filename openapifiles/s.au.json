@@ -5237,8 +5237,8 @@
         },
         "Quantity": {
           "description": "The number of units or shares disposed.",
-          "format": "int32",
-          "type": "integer"
+          "format": "double",
+          "type": "number"
         },
         "NetAmount": {
           "description": "This value should be adjusted (increased for a buy, decreased for a sell) for any brokerage, GST or other charges paid to transact. (Account currency)",
@@ -10241,7 +10241,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.09.14",
+    "version": "2022.09.28",
     "title": "Public API"
   }
 }
