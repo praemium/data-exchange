@@ -1073,6 +1073,155 @@
     }
   },
   "definitions": {
+    "SuperannuationContributionType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "CashflowInstructionDetail": {
+      "properties": {
+        "ModelCode": {
+          "description": "",
+          "type": "string"
+        },
+        "Sequence": {
+          "description": "",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Percentage": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "ModelCode"
+      ],
+      "type": "object"
+    },
+    "DollarReturnData": {
+      "properties": {
+        "CapitalAppreciation": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "TotalIncome": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "TaxCredits": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "ForexMovements": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "GrossDollarReturn": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "TotalExpenses": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "NetDollarReturn": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "PerformanceReturn": {
+      "properties": {
+        "PeriodDescription": {
+          "description": "",
+          "type": "string"
+        },
+        "GrossPercentReturn": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "NetPercentReturn": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Performance": {
+      "properties": {
+        "HoldingsExcluded": {
+          "description": "",
+          "type": "boolean"
+        },
+        "BeginningMarketValue": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "EndingMarketValue": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "NetCapitalMovement": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "NetInternalTransfers": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "CashExpenses": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "UnallocatedAmount": {
+          "description": "",
+          "format": "double",
+          "type": "number"
+        },
+        "DollarReturn": {
+          "description": "",
+          "$ref": "#/definitions/DollarReturnData"
+        },
+        "PercentReturns": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/PerformanceReturn"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Security": {
       "properties": {
         "Code": {
@@ -4504,46 +4653,6 @@
         6
       ]
     },
-    "SuperannuationContributionType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    "CashflowInstructionDetail": {
-      "properties": {
-        "ModelCode": {
-          "description": "",
-          "type": "string"
-        },
-        "Sequence": {
-          "description": "",
-          "format": "int32",
-          "type": "integer"
-        },
-        "Percentage": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [
-        "ModelCode"
-      ],
-      "type": "object"
-    },
     "CashflowInstruction": {
       "properties": {
         "Id": {
@@ -4587,115 +4696,6 @@
       },
       "type": "object"
     },
-    "DollarReturnData": {
-      "properties": {
-        "CapitalAppreciation": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "TotalIncome": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "TaxCredits": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "ForexMovements": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "GrossDollarReturn": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "TotalExpenses": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "NetDollarReturn": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "PerformanceReturn": {
-      "properties": {
-        "PeriodDescription": {
-          "description": "",
-          "type": "string"
-        },
-        "GrossPercentReturn": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "NetPercentReturn": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "Performance": {
-      "properties": {
-        "HoldingsExcluded": {
-          "description": "",
-          "type": "boolean"
-        },
-        "BeginningMarketValue": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "EndingMarketValue": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "NetCapitalMovement": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "NetInternalTransfers": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "CashExpenses": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "UnallocatedAmount": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "DollarReturn": {
-          "description": "",
-          "$ref": "#/definitions/DollarReturnData"
-        },
-        "PercentReturns": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/PerformanceReturn"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -4722,7 +4722,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2022.09.28",
+    "version": "2023.01.11",
     "title": "Public API"
   }
 }

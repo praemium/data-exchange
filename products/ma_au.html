@@ -217,12 +217,12 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" alt="Navbar" />
+        <img src="../images/navbar.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
       <a href="../index.html">
-        <img src="https://branding.onpraemium.com/image/gid_257/sidebar" class="logo" alt="Sidebar" />
+        <img src="https://branding.onpraemium.com/image/gid_257/sidebar" class="logo" alt="" />
       </a>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -352,10 +352,10 @@
                     <a href="#get-cashflow-instructions" class="toc-h2 toc-link" data-title="GET Cashflow Instructions"><span class="get">GET</span> Cashflow Instructions</a>
                   </li>
                   <li>
-                    <a href="#post-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="POST One-off Cashflow Instructions"><span class="post">POST</span> One-off Cashflow Instructions</a>
+                    <a href="#delete-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="DELETE One-off Cashflow Instructions"><span class="delete">DELETE</span> One-off Cashflow Instructions</a>
                   </li>
                   <li>
-                    <a href="#delete-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="DELETE One-off Cashflow Instructions"><span class="delete">DELETE</span> One-off Cashflow Instructions</a>
+                    <a href="#post-one-off-cashflow-instructions" class="toc-h2 toc-link" data-title="POST One-off Cashflow Instructions"><span class="post">POST</span> One-off Cashflow Instructions</a>
                   </li>
                   <li>
                     <a href="#put-regular-cashflow-instructions" class="toc-h2 toc-link" data-title="PUT Regular Cashflow Instructions"><span class="put">PUT</span> Regular Cashflow Instructions</a>
@@ -2477,7 +2477,7 @@
 <tr>
 <td>Applicants.CorporateDetails.Identifications.Type</td>
 <td>enum</td>
-<td>Tfn = 0, Abn = 1.</td>
+<td>Tfn = 0, Abn = 1. Only Abn is allowed for corporate applicants.</td>
 </tr>
 <tr>
 <td>Applicants.CorporateDetails.Identifications.Value</td>
@@ -3921,7 +3921,7 @@
 <tr>
 <td>Applicants.CorporateDetails.Identifications.Type</td>
 <td>enum</td>
-<td>Tfn = 0, Abn = 1.</td>
+<td>Tfn = 0, Abn = 1. Only Abn is allowed for corporate applicants.</td>
 </tr>
 <tr>
 <td>Applicants.CorporateDetails.Identifications.Value</td>
@@ -9133,6 +9133,81 @@
 </tbody></table>
 
 <p><br/></p>
+<h3 id='delete-one-off-cashflow-instructions'><span class="delete">DELETE</span> One-off Cashflow Instructions</h3>
+<blockquote>
+<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/oneoff</p>
+</blockquote>
+
+<p>This endpoint allows you to delete one-off cashflow instruction for the account. (Only allowed for one-off direct debit)</p>
+
+<blockquote>
+<p><strong>Header Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
+<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
+<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
+</code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization<span class="required">required</span></td>
+<td>string</td>
+<td>Access token.</td>
+</tr>
+<tr>
+<td>x-pps-subscription-key<span class="required">required</span></td>
+<td>string</td>
+<td>Product subscription key.</td>
+</tr>
+<tr>
+<td>x-pps-api-version<span class="required">required</span></td>
+<td>string</td>
+<td>API version of the endpoint.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Request Parameter - Query Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">AU400000</span>
+<span class="na">CashflowInstructionId</span><span class="pi">:</span> <span class="s">AU1</span>
+<span class="na">CashflowInstructionType</span><span class="pi">:</span> <span class="m">3</span>
+</code></pre></div><h5 id='request-parameter-query-12'>Request Parameter - Query</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountId<span class="required">required</span></td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>CashflowInstructionId<span class="required">required</span></td>
+<td>string</td>
+<td>Cashflow instruction ID returned by GET cashflow instructions endpoint</td>
+</tr>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td></td>
+<td>OneOffDirectDebit = 3.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response Examples</strong></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
+</span></code></pre></div>
+<p><br/></p>
 <h3 id='post-one-off-cashflow-instructions'><span class="post">POST</span> One-off Cashflow Instructions</h3>
 <blockquote>
 <p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/oneoff</p>
@@ -9146,7 +9221,7 @@
 <div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
 <span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
 <span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-33'>Header Parameters</h5>
+</code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9238,81 +9313,6 @@
 <td>Allocations.Percentage</td>
 <td>double</td>
 <td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Response Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json-doc tab-json-doc testt"><code><span class="err">#</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">NoContent</span><span class="w">
-</span></code></pre></div>
-<p><br/></p>
-<h3 id='delete-one-off-cashflow-instructions'><span class="delete">DELETE</span> One-off Cashflow Instructions</h3>
-<blockquote>
-<p><strong>Definition:</strong> https://api.onpraemium.com/api/cashflowinstructions/oneoff</p>
-</blockquote>
-
-<p>This endpoint allows you to delete one-off cashflow instruction for the account. (Only allowed for one-off direct debit)</p>
-
-<blockquote>
-<p><strong>Header Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">Authorization</span><span class="pi">:</span> <span class="s">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImt...</span>
-<span class="na">x-pps-subscription-key</span><span class="pi">:</span> <span class="s">d3e30ecd1ab345...</span>
-<span class="na">x-pps-api-version</span><span class="pi">:</span> <span class="s">v1</span>
-</code></pre></div><h5 id='header-parameters-34'>Header Parameters</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Authorization<span class="required">required</span></td>
-<td>string</td>
-<td>Access token.</td>
-</tr>
-<tr>
-<td>x-pps-subscription-key<span class="required">required</span></td>
-<td>string</td>
-<td>Product subscription key.</td>
-</tr>
-<tr>
-<td>x-pps-api-version<span class="required">required</span></td>
-<td>string</td>
-<td>API version of the endpoint.</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p><strong>Request Parameter - Query Examples</strong></p>
-</blockquote>
-<div class="highlight"><pre class="highlight yaml tab-yaml testt"><code><span class="na">AccountId</span><span class="pi">:</span> <span class="s">AU400000</span>
-<span class="na">CashflowInstructionId</span><span class="pi">:</span> <span class="s">AU1</span>
-<span class="na">CashflowInstructionType</span><span class="pi">:</span> <span class="m">3</span>
-</code></pre></div><h5 id='request-parameter-query-12'>Request Parameter - Query</h5>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccountId<span class="required">required</span></td>
-<td>string</td>
-<td>Account ID.</td>
-</tr>
-<tr>
-<td>CashflowInstructionId<span class="required">required</span></td>
-<td>string</td>
-<td>Cashflow instruction ID returned by GET cashflow instructions endpoint</td>
-</tr>
-<tr>
-<td>CashflowInstructionType<span class="required">required</span></td>
-<td></td>
-<td>OneOffDirectDebit = 3.</td>
 </tr>
 </tbody></table>
 
