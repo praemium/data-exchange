@@ -982,7 +982,7 @@
 <td>To be used for regular SMA accounts.</td>
 </tr>
 <tr>
-<td>AccountSetup.InitialInvestment</td>
+<td>AccountSetup.InitialInvestment<span class="required">required</span></td>
 <td>double</td>
 <td>Initial investment of account.</td>
 </tr>
@@ -1032,7 +1032,7 @@
 <td>Is the account a corporate.</td>
 </tr>
 <tr>
-<td>FeeConsentType</td>
+<td>FeeConsentType<span class="required">required</span></td>
 <td>enum</td>
 <td></td>
 </tr>
@@ -1067,6 +1067,11 @@
 <td>Account fees.</td>
 </tr>
 <tr>
+<td>Fees.Id<span class="required">required</span></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
 <td>Fees.FeeType<span class="required">required</span></td>
 <td>enum</td>
 <td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
@@ -1092,7 +1097,7 @@
 <td>Account models.</td>
 </tr>
 <tr>
-<td>Models.ModelCode</td>
+<td>Models.ModelCode<span class="required">required</span></td>
 <td>string</td>
 <td>Model code.</td>
 </tr>
@@ -1107,22 +1112,22 @@
 <td>Bank accounts.</td>
 </tr>
 <tr>
-<td>BankAccounts.Bsb</td>
+<td>BankAccounts.Bsb<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account BSB.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountNumber</td>
+<td>BankAccounts.AccountNumber<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account number.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountName</td>
+<td>BankAccounts.AccountName<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account name.</td>
 </tr>
 <tr>
-<td>BankAccounts.Usages</td>
+<td>BankAccounts.Usages<span class="required">required</span></td>
 <td>array</td>
 <td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
 </tr>
@@ -1320,7 +1325,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>ContributionSources</td>
+<td>ContributionSources<span class="required">required</span></td>
 <td>array</td>
 <td>Source of fund information.</td>
 </tr>
@@ -1390,7 +1395,7 @@
 <td>The amount of cash that will be invested in the account.</td>
 </tr>
 <tr>
-<td>InitialInvestmentType</td>
+<td>InitialInvestmentType<span class="required">required</span></td>
 <td>enum</td>
 <td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
 </tr>
@@ -1413,6 +1418,11 @@
 <td>RegularContribution.Frequency</td>
 <td>enum</td>
 <td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
+</tr>
+<tr>
+<td>AdviserServicesProvided<span class="required">required</span></td>
+<td>array</td>
+<td></td>
 </tr>
 <tr>
 <td>Name<span class="required">required</span></td>
@@ -1450,7 +1460,7 @@
 <td>Is the account a corporate.</td>
 </tr>
 <tr>
-<td>FeeConsentType</td>
+<td>FeeConsentType<span class="required">required</span></td>
 <td>enum</td>
 <td></td>
 </tr>
@@ -1485,6 +1495,11 @@
 <td>Account fees.</td>
 </tr>
 <tr>
+<td>Fees.Id<span class="required">required</span></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
 <td>Fees.FeeType<span class="required">required</span></td>
 <td>enum</td>
 <td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
@@ -1510,7 +1525,7 @@
 <td>Account models.</td>
 </tr>
 <tr>
-<td>Models.ModelCode</td>
+<td>Models.ModelCode<span class="required">required</span></td>
 <td>string</td>
 <td>Model code.</td>
 </tr>
@@ -1525,22 +1540,22 @@
 <td>Bank accounts.</td>
 </tr>
 <tr>
-<td>BankAccounts.Bsb</td>
+<td>BankAccounts.Bsb<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account BSB.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountNumber</td>
+<td>BankAccounts.AccountNumber<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account number.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountName</td>
+<td>BankAccounts.AccountName<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account name.</td>
 </tr>
 <tr>
-<td>BankAccounts.Usages</td>
+<td>BankAccounts.Usages<span class="required">required</span></td>
 <td>array</td>
 <td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
 </tr>
@@ -1879,6 +1894,11 @@
 <td>Percentage of the model.</td>
 </tr>
 <tr>
+<td>AdviserServicesProvided<span class="required">required</span></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
 <td>Name<span class="required">required</span></td>
 <td>string</td>
 <td>Account name.</td>
@@ -1914,7 +1934,7 @@
 <td>Is the account a corporate.</td>
 </tr>
 <tr>
-<td>FeeConsentType</td>
+<td>FeeConsentType<span class="required">required</span></td>
 <td>enum</td>
 <td></td>
 </tr>
@@ -1949,6 +1969,11 @@
 <td>Account fees.</td>
 </tr>
 <tr>
+<td>Fees.Id<span class="required">required</span></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
 <td>Fees.FeeType<span class="required">required</span></td>
 <td>enum</td>
 <td>FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)</td>
@@ -1974,7 +1999,7 @@
 <td>Account models.</td>
 </tr>
 <tr>
-<td>Models.ModelCode</td>
+<td>Models.ModelCode<span class="required">required</span></td>
 <td>string</td>
 <td>Model code.</td>
 </tr>
@@ -1989,22 +2014,22 @@
 <td>Bank accounts.</td>
 </tr>
 <tr>
-<td>BankAccounts.Bsb</td>
+<td>BankAccounts.Bsb<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account BSB.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountNumber</td>
+<td>BankAccounts.AccountNumber<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account number.</td>
 </tr>
 <tr>
-<td>BankAccounts.AccountName</td>
+<td>BankAccounts.AccountName<span class="required">required</span></td>
 <td>string</td>
 <td>Bank account name.</td>
 </tr>
 <tr>
-<td>BankAccounts.Usages</td>
+<td>BankAccounts.Usages<span class="required">required</span></td>
 <td>array</td>
 <td>This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.</td>
 </tr>

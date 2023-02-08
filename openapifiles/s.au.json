@@ -1,6 +1,51 @@
 {
   "paths": {
     "/api/cashflowinstructions/oneoff": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "operationId": "AddAUOneOffCashflowInstructions",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PostOneOffCashflowInstructionRequest"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      },
       "delete": {
         "responses": {
           "204": {
@@ -28,51 +73,6 @@
             "in": "query",
             "required": true,
             "description": "OneOffDirectDebit = 3."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "description": "Access token.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-subscription-key",
-            "in": "header",
-            "required": true,
-            "description": "Product subscription key.",
-            "type": "string"
-          },
-          {
-            "name": "x-pps-api-version",
-            "in": "header",
-            "required": true,
-            "description": "API version of the endpoint.",
-            "type": "string"
-          }
-        ]
-      },
-      "post": {
-        "responses": {
-          "204": {
-            "description": "Success"
-          }
-        },
-        "operationId": "AddAUOneOffCashflowInstructions",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/PostOneOffCashflowInstructionRequest"
-            }
           },
           {
             "name": "Authorization",
@@ -6553,7 +6553,8 @@
         }
       },
       "required": [
-        "CashInvestmentMethod"
+        "CashInvestmentMethod",
+        "InitialInvestment"
       ],
       "type": "object"
     },
@@ -6618,6 +6619,10 @@
     },
     "AccountFee": {
       "properties": {
+        "Id": {
+          "description": "",
+          "type": "string"
+        },
         "FeeType": {
           "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)",
           "$ref": "#/definitions/FeeType"
@@ -6637,7 +6642,8 @@
         }
       },
       "required": [
-        "FeeType"
+        "FeeType",
+        "Id"
       ],
       "type": "object"
     },
@@ -6653,7 +6659,9 @@
           "type": "number"
         }
       },
-      "required": [],
+      "required": [
+        "ModelCode"
+      ],
       "type": "object"
     },
     "BankAccount": {
@@ -6672,13 +6680,19 @@
         },
         "Usages": {
           "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
+          "minLength": 1,
           "items": {
             "type": "string"
           },
           "type": "array"
         }
       },
-      "required": [],
+      "required": [
+        "AccountName",
+        "AccountNumber",
+        "Bsb",
+        "Usages"
+      ],
       "type": "object"
     },
     "Instruction": {
@@ -6804,6 +6818,7 @@
         "BankAccounts",
         "CurrencyCode",
         "EntityType",
+        "FeeConsentType",
         "Models",
         "Name",
         "PdsId"
@@ -6911,6 +6926,7 @@
       "properties": {
         "ContributionSources": {
           "description": "Source of fund information.",
+          "minLength": 1,
           "items": {
             "$ref": "#/definitions/InflowsContributionSource"
           },
@@ -6954,6 +6970,15 @@
         "RegularContribution": {
           "description": "Contains details of the regular contribution plan for this account.",
           "$ref": "#/definitions/RegularContribution"
+        },
+        "AdviserServicesProvided": {
+          "description": "",
+          "minLength": 1,
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
         },
         "Name": {
           "description": "Account name.",
@@ -7036,10 +7061,14 @@
       },
       "required": [
         "AdviserId",
+        "AdviserServicesProvided",
         "BankAccounts",
+        "ContributionSources",
         "CurrencyCode",
         "EntityType",
+        "FeeConsentType",
         "InitialInvestmentAmount",
+        "InitialInvestmentType",
         "Models",
         "Name",
         "PdsId"
@@ -7136,6 +7165,15 @@
           },
           "type": "array"
         },
+        "AdviserServicesProvided": {
+          "description": "",
+          "minLength": 1,
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "Name": {
           "description": "Account name.",
           "type": "string"
@@ -7217,9 +7255,11 @@
       },
       "required": [
         "AdviserId",
+        "AdviserServicesProvided",
         "BankAccounts",
         "CurrencyCode",
         "EntityType",
+        "FeeConsentType",
         "Models",
         "Name",
         "PaymentType",
@@ -10347,7 +10387,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2023.01.11",
+    "version": "2023.02.08",
     "title": "Public API"
   }
 }

@@ -2200,12 +2200,19 @@
         },
         "Usages": {
           "description": "",
+          "minLength": 1,
           "items": {
             "type": "string"
           },
           "type": "array"
         }
       },
+      "required": [
+        "AccountName",
+        "AccountNumber",
+        "Bsb",
+        "Usages"
+      ],
       "type": "object"
     },
     "ConsolidationType": {
@@ -4722,7 +4729,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2023.01.11",
+    "version": "2023.02.08",
     "title": "Public API"
   }
 }
