@@ -6643,7 +6643,8 @@
       },
       "required": [
         "FeeType",
-        "Id"
+        "Id",
+        "Value"
       ],
       "type": "object"
     },
@@ -10387,7 +10388,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2023.02.08",
+    "version": "2023.05.24",
     "title": "Public API"
   }
 }
