@@ -656,31 +656,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Models</td>
-<td>array</td>
-<td>List of available models.</td>
-</tr>
-<tr>
-<td>Models.Id</td>
-<td>string</td>
-<td>ModelId as returned by the Models endpoint.</td>
-</tr>
-<tr>
-<td>Models.Name</td>
-<td>string</td>
-<td>Model name.</td>
-</tr>
-<tr>
-<td>Models.Style</td>
-<td>string</td>
-<td>Model style.</td>
-</tr>
-<tr>
-<td>Models.Code</td>
-<td>string</td>
-<td>Model code.</td>
-</tr>
-<tr>
 <td>Id</td>
 <td>string</td>
 <td>ID of the PDS.</td>
@@ -879,6 +854,31 @@
 <td>TaxOptions.Description</td>
 <td>string</td>
 <td>Tax option description.</td>
+</tr>
+<tr>
+<td>Models</td>
+<td>array</td>
+<td>List of available models.</td>
+</tr>
+<tr>
+<td>Models.Id</td>
+<td>string</td>
+<td>ModelId as returned by the Models endpoint.</td>
+</tr>
+<tr>
+<td>Models.Name</td>
+<td>string</td>
+<td>Model name.</td>
+</tr>
+<tr>
+<td>Models.Style</td>
+<td>string</td>
+<td>Model style.</td>
+</tr>
+<tr>
+<td>Models.Code</td>
+<td>string</td>
+<td>Model code.</td>
 </tr>
 </tbody></table>
 
@@ -7534,11 +7534,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>RebalanceType<span class="required">required</span></td>
-<td>enum</td>
-<td>Floating = 0, Fixed = 1.</td>
-</tr>
-<tr>
 <td>AccountId<span class="required">required</span></td>
 <td>string</td>
 <td>Account ID.</td>
@@ -7557,6 +7552,11 @@
 <td>AccountModelWeightings.Percentage</td>
 <td>double</td>
 <td>Percentage of model.</td>
+</tr>
+<tr>
+<td>RebalanceType<span class="required">required</span></td>
+<td>enum</td>
+<td>Floating = 0, Fixed = 1.</td>
 </tr>
 </tbody></table>
 
@@ -9200,21 +9200,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>CashflowInstructionType<span class="required">required</span></td>
-<td>enum</td>
-<td>OneOffDirectDebit = 3, OneOffWithdrawal = 4.</td>
-</tr>
-<tr>
-<td>Amount</td>
-<td>double</td>
-<td>Amount of the one-off cashflow instruction to apply.</td>
-</tr>
-<tr>
-<td>TaxType</td>
-<td>enum</td>
-<td>PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)</td>
-</tr>
-<tr>
 <td>AccountId<span class="required">required</span></td>
 <td>string</td>
 <td>Account ID.</td>
@@ -9238,6 +9223,21 @@
 <td>Allocations.Percentage</td>
 <td>double</td>
 <td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
+</tr>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td>enum</td>
+<td>OneOffDirectDebit = 3, OneOffWithdrawal = 4.</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>double</td>
+<td>Amount of the one-off cashflow instruction to apply.</td>
+</tr>
+<tr>
+<td>TaxType</td>
+<td>enum</td>
+<td>PersonalNon = 3 (Non-concessional personal), ExemptCgtRetire = 4, ExemptCgt15 = 5, ExemptPerInjury = 6, Spouse = 7, Downsizer = 11. (Only applicable for SuperSMA accumulation accounts and one-off direct debit)</td>
 </tr>
 </tbody></table>
 
@@ -9393,31 +9393,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>CashflowInstructionType<span class="required">required</span></td>
-<td>enum</td>
-<td>Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, All contributions and rollovers (Only allowed for SuperSMA accumulation accounts) = 8, Other withdrawals = 9, Superfund withdrawals and rollovers (Only allowed for SuperSMA accumulation and pension accounts) = 16, Insurance premiums (Only allowed for SuperSMA accumulation and pension accounts) = 17.</td>
-</tr>
-<tr>
-<td>FrequencyType<span class="required">required</span></td>
-<td>enum</td>
-<td>Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4.</td>
-</tr>
-<tr>
-<td>StartDate</td>
-<td>date-time</td>
-<td>Start date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
-</tr>
-<tr>
-<td>EndDate</td>
-<td>date-time</td>
-<td>End date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
-</tr>
-<tr>
-<td>Amount</td>
-<td>double</td>
-<td>Amount of the cashflow instruction to apply. (Only applicable for regular contribution and regular withdrawal)</td>
-</tr>
-<tr>
 <td>AccountId<span class="required">required</span></td>
 <td>string</td>
 <td>Account ID.</td>
@@ -9441,6 +9416,31 @@
 <td>Allocations.Percentage</td>
 <td>double</td>
 <td>Model percentage. (Only applicable for regular contribution, income reinvestment, one-off direct debit)</td>
+</tr>
+<tr>
+<td>CashflowInstructionType<span class="required">required</span></td>
+<td>enum</td>
+<td>Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, All contributions and rollovers (Only allowed for SuperSMA accumulation accounts) = 8, Other withdrawals = 9, Superfund withdrawals and rollovers (Only allowed for SuperSMA accumulation and pension accounts) = 16, Insurance premiums (Only allowed for SuperSMA accumulation and pension accounts) = 17.</td>
+</tr>
+<tr>
+<td>FrequencyType<span class="required">required</span></td>
+<td>enum</td>
+<td>Monthly = 1, Quarterly = 2, SixMonthly = 3, Annually = 4.</td>
+</tr>
+<tr>
+<td>StartDate</td>
+<td>date-time</td>
+<td>Start date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
+</tr>
+<tr>
+<td>EndDate</td>
+<td>date-time</td>
+<td>End date of the cashflow instruction. (Only applicable for regular withdrawal)</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>double</td>
+<td>Amount of the cashflow instruction to apply. (Only applicable for regular contribution and regular withdrawal)</td>
 </tr>
 </tbody></table>
 

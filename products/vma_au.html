@@ -892,111 +892,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>SecurityTransfers</td>
-<td>array</td>
-<td>Security transfers.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.SecurityId</td>
-<td>string</td>
-<td>Security ID.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.Quantity</td>
-<td>double</td>
-<td>Quantity of security.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.OutsideOfRebalanceQuantity</td>
-<td>double</td>
-<td></td>
-</tr>
-<tr>
-<td>SecurityTransfers.HoldingType</td>
-<td>enum</td>
-<td>IssuerSponsored = 0, Chess = 1.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.SponsorOrIssuer</td>
-<td>string</td>
-<td>Is the security held with a sponsor or issuer.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.ParticipantId</td>
-<td>integer</td>
-<td>The participant ID.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.HinOrSrn</td>
-<td>string</td>
-<td>Is the security transfer held under a HIN or SRN.</td>
-</tr>
-<tr>
-<td>SecurityTransfers.Direction</td>
-<td>enum</td>
-<td>In = 0, Out = 1.</td>
-</tr>
-<tr>
-<td>RegularWithdrawal</td>
-<td>object</td>
-<td>Bank account to be used for regular withdrawals.</td>
-</tr>
-<tr>
-<td>RegularWithdrawal.Amount</td>
-<td>double</td>
-<td>Amount of regular transaction from the account.</td>
-</tr>
-<tr>
-<td>RegularWithdrawal.Frequency</td>
-<td>enum</td>
-<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
-</tr>
-<tr>
-<td>RegularWithdrawal.CommencementDate</td>
-<td>date-time</td>
-<td>The commencement date of the regular transaction.</td>
-</tr>
-<tr>
-<td>RegularWithdrawal.TerminationDate</td>
-<td>date-time</td>
-<td>The termination date of the regular transaction.</td>
-</tr>
-<tr>
-<td>RegularContribution</td>
-<td>object</td>
-<td>Bank account to be used for direct debiting regular contribution plan.</td>
-</tr>
-<tr>
-<td>RegularContribution.Amount</td>
-<td>double</td>
-<td>Amount of regular cash contributions to the account.</td>
-</tr>
-<tr>
-<td>RegularContribution.Frequency</td>
-<td>enum</td>
-<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
-</tr>
-<tr>
-<td>AccountSetup<span class="required">required</span></td>
-<td>object</td>
-<td>To be used for regular SMA accounts.</td>
-</tr>
-<tr>
-<td>AccountSetup.InitialInvestment<span class="required">required</span></td>
-<td>double</td>
-<td>Initial investment of account.</td>
-</tr>
-<tr>
-<td>AccountSetup.InitialTransferValue</td>
-<td>double</td>
-<td>Estimated total in-specie value for transfers into the account.</td>
-</tr>
-<tr>
-<td>AccountSetup.CashInvestmentMethod<span class="required">required</span></td>
-<td>enum</td>
-<td>Initial investment source. BPay = 1, DirectDebit = 2.</td>
-</tr>
-<tr>
 <td>Name<span class="required">required</span></td>
 <td>string</td>
 <td>Account name.</td>
@@ -1160,6 +1055,111 @@
 <td>IncomeInstructions.Percentage</td>
 <td>double</td>
 <td>Percentage of the model.</td>
+</tr>
+<tr>
+<td>SecurityTransfers</td>
+<td>array</td>
+<td>Security transfers.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.SecurityId</td>
+<td>string</td>
+<td>Security ID.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.Quantity</td>
+<td>double</td>
+<td>Quantity of security.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.OutsideOfRebalanceQuantity</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>SecurityTransfers.HoldingType</td>
+<td>enum</td>
+<td>IssuerSponsored = 0, Chess = 1.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.SponsorOrIssuer</td>
+<td>string</td>
+<td>Is the security held with a sponsor or issuer.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.ParticipantId</td>
+<td>integer</td>
+<td>The participant ID.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.HinOrSrn</td>
+<td>string</td>
+<td>Is the security transfer held under a HIN or SRN.</td>
+</tr>
+<tr>
+<td>SecurityTransfers.Direction</td>
+<td>enum</td>
+<td>In = 0, Out = 1.</td>
+</tr>
+<tr>
+<td>RegularWithdrawal</td>
+<td>object</td>
+<td>Bank account to be used for regular withdrawals.</td>
+</tr>
+<tr>
+<td>RegularWithdrawal.Amount</td>
+<td>double</td>
+<td>Amount of regular transaction from the account.</td>
+</tr>
+<tr>
+<td>RegularWithdrawal.Frequency</td>
+<td>enum</td>
+<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
+</tr>
+<tr>
+<td>RegularWithdrawal.CommencementDate</td>
+<td>date-time</td>
+<td>The commencement date of the regular transaction.</td>
+</tr>
+<tr>
+<td>RegularWithdrawal.TerminationDate</td>
+<td>date-time</td>
+<td>The termination date of the regular transaction.</td>
+</tr>
+<tr>
+<td>RegularContribution</td>
+<td>object</td>
+<td>Bank account to be used for direct debiting regular contribution plan.</td>
+</tr>
+<tr>
+<td>RegularContribution.Amount</td>
+<td>double</td>
+<td>Amount of regular cash contributions to the account.</td>
+</tr>
+<tr>
+<td>RegularContribution.Frequency</td>
+<td>enum</td>
+<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
+</tr>
+<tr>
+<td>AccountSetup<span class="required">required</span></td>
+<td>object</td>
+<td>To be used for regular SMA accounts.</td>
+</tr>
+<tr>
+<td>AccountSetup.InitialInvestment<span class="required">required</span></td>
+<td>double</td>
+<td>Initial investment of account.</td>
+</tr>
+<tr>
+<td>AccountSetup.InitialTransferValue</td>
+<td>double</td>
+<td>Estimated total in-specie value for transfers into the account.</td>
+</tr>
+<tr>
+<td>AccountSetup.CashInvestmentMethod<span class="required">required</span></td>
+<td>enum</td>
+<td>Initial investment source. BPay = 1, DirectDebit = 2.</td>
 </tr>
 </tbody></table>
 
@@ -1325,106 +1325,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>ContributionSources<span class="required">required</span></td>
-<td>array</td>
-<td>Source of fund information.</td>
-</tr>
-<tr>
-<td>ContributionSources.SourceOfContribution</td>
-<td>string</td>
-<td>Contribution source.</td>
-</tr>
-<tr>
-<td>ContributionSources.EntireBalance</td>
-<td>boolean</td>
-<td>Whether the entire balance of the external fund account will be transferred.</td>
-</tr>
-<tr>
-<td>ContributionSources.ExpectedAmount</td>
-<td>double</td>
-<td>Expected contribution amount to be transferred. Set if ContributionSources.EntireBalance is false.</td>
-</tr>
-<tr>
-<td>Transfers</td>
-<td>array</td>
-<td>Contains details on other SuperSMA account(s) to be transferred to this account.</td>
-</tr>
-<tr>
-<td>Transfers.TransferFromAccountId</td>
-<td>string</td>
-<td>Account ID of the other SuperSMA account to transfer to this account.</td>
-</tr>
-<tr>
-<td>Transfers.TransferMethod</td>
-<td>enum</td>
-<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
-</tr>
-<tr>
-<td>Transfers.Amount</td>
-<td>double</td>
-<td>If Account.Transfers.TransferMethod is WholeAmountKeepOpenSpecifiedAmount, the amount to be transferred.</td>
-</tr>
-<tr>
-<td>OtherContributions</td>
-<td>array</td>
-<td>Contains details of other assets that will be used to fund this account.</td>
-</tr>
-<tr>
-<td>OtherContributions.ContributionType</td>
-<td>enum</td>
-<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
-</tr>
-<tr>
-<td>OtherContributions.ExpectedAmount</td>
-<td>double</td>
-<td>Expected other contribution amount to be transferred.</td>
-</tr>
-<tr>
-<td>EmployerContributions</td>
-<td>boolean</td>
-<td>Contains details of other assets that will be used to fund this account.</td>
-</tr>
-<tr>
-<td>IsConsolidationAccount</td>
-<td>boolean</td>
-<td>Is the account consolidated.</td>
-</tr>
-<tr>
-<td>InitialInvestmentAmount<span class="required">required</span></td>
-<td>double</td>
-<td>The amount of cash that will be invested in the account.</td>
-</tr>
-<tr>
-<td>InitialInvestmentType<span class="required">required</span></td>
-<td>enum</td>
-<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
-</tr>
-<tr>
-<td>ContributionType</td>
-<td>enum</td>
-<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
-</tr>
-<tr>
-<td>RegularContribution</td>
-<td>object</td>
-<td>Contains details of the regular contribution plan for this account.</td>
-</tr>
-<tr>
-<td>RegularContribution.Amount</td>
-<td>double</td>
-<td>Amount of regular cash contributions to the account.</td>
-</tr>
-<tr>
-<td>RegularContribution.Frequency</td>
-<td>enum</td>
-<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
-</tr>
-<tr>
-<td>AdviserServicesProvided<span class="required">required</span></td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
 <td>Name<span class="required">required</span></td>
 <td>string</td>
 <td>Account name.</td>
@@ -1588,6 +1488,106 @@
 <td>IncomeInstructions.Percentage</td>
 <td>double</td>
 <td>Percentage of the model.</td>
+</tr>
+<tr>
+<td>ContributionSources<span class="required">required</span></td>
+<td>array</td>
+<td>Source of fund information.</td>
+</tr>
+<tr>
+<td>ContributionSources.SourceOfContribution</td>
+<td>string</td>
+<td>Contribution source.</td>
+</tr>
+<tr>
+<td>ContributionSources.ExpectedAmount</td>
+<td>double</td>
+<td>Expected contribution amount to be transferred. Set if ContributionSources.EntireBalance is false.</td>
+</tr>
+<tr>
+<td>ContributionSources.EntireBalance</td>
+<td>boolean</td>
+<td>Whether the entire balance of the external fund account will be transferred.</td>
+</tr>
+<tr>
+<td>Transfers</td>
+<td>array</td>
+<td>Contains details on other SuperSMA account(s) to be transferred to this account.</td>
+</tr>
+<tr>
+<td>Transfers.TransferFromAccountId</td>
+<td>string</td>
+<td>Account ID of the other SuperSMA account to transfer to this account.</td>
+</tr>
+<tr>
+<td>Transfers.TransferMethod</td>
+<td>enum</td>
+<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
+</tr>
+<tr>
+<td>Transfers.Amount</td>
+<td>double</td>
+<td>If Account.Transfers.TransferMethod is WholeAmountKeepOpenSpecifiedAmount, the amount to be transferred.</td>
+</tr>
+<tr>
+<td>OtherContributions</td>
+<td>array</td>
+<td>Contains details of other assets that will be used to fund this account.</td>
+</tr>
+<tr>
+<td>OtherContributions.ContributionType</td>
+<td>enum</td>
+<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
+</tr>
+<tr>
+<td>OtherContributions.ExpectedAmount</td>
+<td>double</td>
+<td>Expected other contribution amount to be transferred.</td>
+</tr>
+<tr>
+<td>EmployerContributions</td>
+<td>boolean</td>
+<td>Contains details of other assets that will be used to fund this account.</td>
+</tr>
+<tr>
+<td>IsConsolidationAccount</td>
+<td>boolean</td>
+<td>Is the account consolidated.</td>
+</tr>
+<tr>
+<td>InitialInvestmentAmount<span class="required">required</span></td>
+<td>double</td>
+<td>The amount of cash that will be invested in the account.</td>
+</tr>
+<tr>
+<td>InitialInvestmentType<span class="required">required</span></td>
+<td>enum</td>
+<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
+</tr>
+<tr>
+<td>ContributionType</td>
+<td>enum</td>
+<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
+</tr>
+<tr>
+<td>RegularContribution</td>
+<td>object</td>
+<td>Contains details of the regular contribution plan for this account.</td>
+</tr>
+<tr>
+<td>RegularContribution.Amount</td>
+<td>double</td>
+<td>Amount of regular cash contributions to the account.</td>
+</tr>
+<tr>
+<td>RegularContribution.Frequency</td>
+<td>enum</td>
+<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
+</tr>
+<tr>
+<td>AdviserServicesProvided<span class="required">required</span></td>
+<td>array</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -1759,146 +1759,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>PensionType<span class="required">required</span></td>
-<td>enum</td>
-<td>AccountBasedPension = 1, TransitionToRetirement = 2.</td>
-</tr>
-<tr>
-<td>ContributionSources</td>
-<td>array</td>
-<td>SuperSMA source of fund information.</td>
-</tr>
-<tr>
-<td>ContributionSources.SourceOfContribution</td>
-<td>string</td>
-<td>Contribution source.</td>
-</tr>
-<tr>
-<td>ContributionSources.EntireBalance</td>
-<td>boolean</td>
-<td>Whether the entire balance of the external fund account will be transferred.</td>
-</tr>
-<tr>
-<td>ContributionSources.ExpectedAmount</td>
-<td>double</td>
-<td>Expected contribution amount to be transferred. Set if ContributionSources.EntireBalance is false.</td>
-</tr>
-<tr>
-<td>Transfers</td>
-<td>array</td>
-<td>Contains details on other SuperSMA account(s) to be transferred to this account.</td>
-</tr>
-<tr>
-<td>Transfers.TransferFromAccountId</td>
-<td>string</td>
-<td>Account ID of the other SuperSMA account to transfer to this account.</td>
-</tr>
-<tr>
-<td>Transfers.TransferMethod</td>
-<td>enum</td>
-<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
-</tr>
-<tr>
-<td>Transfers.Amount</td>
-<td>double</td>
-<td>If Account.Transfers.TransferMethod is WholeAmountKeepOpenSpecifiedAmount, the amount to be transferred.</td>
-</tr>
-<tr>
-<td>OtherContributions</td>
-<td>array</td>
-<td>Contains details of other assets that will be used to fund this account.</td>
-</tr>
-<tr>
-<td>OtherContributions.ContributionType</td>
-<td>enum</td>
-<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
-</tr>
-<tr>
-<td>OtherContributions.ExpectedAmount</td>
-<td>double</td>
-<td>Expected other contribution amount to be transferred.</td>
-</tr>
-<tr>
-<td>Consolidation</td>
-<td>object</td>
-<td>Establish an accumulation account. You can open an accumulation account in the same application alongside a pension account. Only available for SuperSMA Pension.</td>
-</tr>
-<tr>
-<td>Consolidation.UseExisting</td>
-<td>boolean</td>
-<td>Link an existing SuperSMA accumulation account to the pension account.</td>
-</tr>
-<tr>
-<td>Consolidation.AccountId</td>
-<td>string</td>
-<td>Account ID.</td>
-</tr>
-<tr>
-<td>Consolidation.TransferMethod</td>
-<td>enum</td>
-<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
-</tr>
-<tr>
-<td>Consolidation.Amount</td>
-<td>double</td>
-<td>Specifies the amount of the transfer from the existing account.</td>
-</tr>
-<tr>
-<td>PensionPayments</td>
-<td>object</td>
-<td>The payment amount paid from the pension account. Only available for SuperSMA Pension.</td>
-</tr>
-<tr>
-<td>PensionPayments.Amount</td>
-<td>double</td>
-<td>Amount of regular transaction from the account.</td>
-</tr>
-<tr>
-<td>PensionPayments.Frequency</td>
-<td>enum</td>
-<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
-</tr>
-<tr>
-<td>PensionPayments.CommencementDate</td>
-<td>date-time</td>
-<td>The commencement date of the regular transaction.</td>
-</tr>
-<tr>
-<td>PensionPayments.TerminationDate</td>
-<td>date-time</td>
-<td>The termination date of the regular transaction.</td>
-</tr>
-<tr>
-<td>PaymentType<span class="required">required</span></td>
-<td>enum</td>
-<td>Specified = 0, Minimum = 1, Maximum = 2.</td>
-</tr>
-<tr>
-<td>CentrelinkSchedule</td>
-<td>boolean</td>
-<td>If a Centrelink schedule is required.</td>
-</tr>
-<tr>
-<td>PensionPaymentInstructions</td>
-<td>array</td>
-<td>Pension payment instructions.</td>
-</tr>
-<tr>
-<td>PensionPaymentInstructions.ModelCode<span class="required">required</span></td>
-<td>string</td>
-<td>Model code.</td>
-</tr>
-<tr>
-<td>PensionPaymentInstructions.Percentage</td>
-<td>double</td>
-<td>Percentage of the model.</td>
-</tr>
-<tr>
-<td>AdviserServicesProvided<span class="required">required</span></td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
 <td>Name<span class="required">required</span></td>
 <td>string</td>
 <td>Account name.</td>
@@ -2062,6 +1922,146 @@
 <td>IncomeInstructions.Percentage</td>
 <td>double</td>
 <td>Percentage of the model.</td>
+</tr>
+<tr>
+<td>PensionType<span class="required">required</span></td>
+<td>enum</td>
+<td>AccountBasedPension = 1, TransitionToRetirement = 2.</td>
+</tr>
+<tr>
+<td>ContributionSources</td>
+<td>array</td>
+<td>SuperSMA source of fund information.</td>
+</tr>
+<tr>
+<td>ContributionSources.SourceOfContribution</td>
+<td>string</td>
+<td>Contribution source.</td>
+</tr>
+<tr>
+<td>ContributionSources.ExpectedAmount</td>
+<td>double</td>
+<td>Expected contribution amount to be transferred. Set if ContributionSources.EntireBalance is false.</td>
+</tr>
+<tr>
+<td>ContributionSources.EntireBalance</td>
+<td>boolean</td>
+<td>Whether the entire balance of the external fund account will be transferred.</td>
+</tr>
+<tr>
+<td>Transfers</td>
+<td>array</td>
+<td>Contains details on other SuperSMA account(s) to be transferred to this account.</td>
+</tr>
+<tr>
+<td>Transfers.TransferFromAccountId</td>
+<td>string</td>
+<td>Account ID of the other SuperSMA account to transfer to this account.</td>
+</tr>
+<tr>
+<td>Transfers.TransferMethod</td>
+<td>enum</td>
+<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
+</tr>
+<tr>
+<td>Transfers.Amount</td>
+<td>double</td>
+<td>If Account.Transfers.TransferMethod is WholeAmountKeepOpenSpecifiedAmount, the amount to be transferred.</td>
+</tr>
+<tr>
+<td>OtherContributions</td>
+<td>array</td>
+<td>Contains details of other assets that will be used to fund this account.</td>
+</tr>
+<tr>
+<td>OtherContributions.ContributionType</td>
+<td>enum</td>
+<td>Concessional_Employee = 11, Concessional_Personal = 12, Concessional_OtherFriendsAndFamily = 13, NonConcessional_Personal = 21, NonConcessional_SpouseAndChild = 22, NonConcessional_FirstHomeSaverAccount = 23, Exempt_CGT_15Year = 31, Exempt_CGT_Retirement = 32, Exempt_PersonalInjuryElection = 33, Other_GovernmentCoContribution = 41, Other_LowIncomeSuperContribution = 42, Downsizer = 43.</td>
+</tr>
+<tr>
+<td>OtherContributions.ExpectedAmount</td>
+<td>double</td>
+<td>Expected other contribution amount to be transferred.</td>
+</tr>
+<tr>
+<td>Consolidation</td>
+<td>object</td>
+<td>Establish an accumulation account. You can open an accumulation account in the same application alongside a pension account. Only available for SuperSMA Pension.</td>
+</tr>
+<tr>
+<td>Consolidation.UseExisting</td>
+<td>boolean</td>
+<td>Link an existing SuperSMA accumulation account to the pension account.</td>
+</tr>
+<tr>
+<td>Consolidation.AccountId</td>
+<td>string</td>
+<td>Account ID.</td>
+</tr>
+<tr>
+<td>Consolidation.TransferMethod</td>
+<td>enum</td>
+<td>WholeAmountWithClose = 0, WholeAmountKeepOpen = 1, SpecifiedAmount = 2 - whether the source account will be kept open.</td>
+</tr>
+<tr>
+<td>Consolidation.Amount</td>
+<td>double</td>
+<td>Specifies the amount of the transfer from the existing account.</td>
+</tr>
+<tr>
+<td>PensionPayments</td>
+<td>object</td>
+<td>The payment amount paid from the pension account. Only available for SuperSMA Pension.</td>
+</tr>
+<tr>
+<td>PensionPayments.Amount</td>
+<td>double</td>
+<td>Amount of regular transaction from the account.</td>
+</tr>
+<tr>
+<td>PensionPayments.Frequency</td>
+<td>enum</td>
+<td>Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.</td>
+</tr>
+<tr>
+<td>PensionPayments.CommencementDate</td>
+<td>date-time</td>
+<td>The commencement date of the regular transaction.</td>
+</tr>
+<tr>
+<td>PensionPayments.TerminationDate</td>
+<td>date-time</td>
+<td>The termination date of the regular transaction.</td>
+</tr>
+<tr>
+<td>PaymentType<span class="required">required</span></td>
+<td>enum</td>
+<td>Specified = 0, Minimum = 1, Maximum = 2.</td>
+</tr>
+<tr>
+<td>CentrelinkSchedule</td>
+<td>boolean</td>
+<td>If a Centrelink schedule is required.</td>
+</tr>
+<tr>
+<td>PensionPaymentInstructions</td>
+<td>array</td>
+<td>Pension payment instructions.</td>
+</tr>
+<tr>
+<td>PensionPaymentInstructions.ModelCode<span class="required">required</span></td>
+<td>string</td>
+<td>Model code.</td>
+</tr>
+<tr>
+<td>PensionPaymentInstructions.Percentage</td>
+<td>double</td>
+<td>Percentage of the model.</td>
+</tr>
+<tr>
+<td>AdviserServicesProvided<span class="required">required</span></td>
+<td>array</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -2273,36 +2273,6 @@
 <td></td>
 </tr>
 <tr>
-<td>Data.BenchmarkId1</td>
-<td>string</td>
-<td>The unique ID of the account&#39;s benchmark 1.</td>
-</tr>
-<tr>
-<td>Data.Benchmark1</td>
-<td>string</td>
-<td>The name of the account’s benchmark 1.</td>
-</tr>
-<tr>
-<td>Data.BenchmarkMargin1</td>
-<td>double</td>
-<td>The margin (% p.a.) of the account&#39;s benchmark 1.</td>
-</tr>
-<tr>
-<td>Data.BenchmarkId2</td>
-<td>string</td>
-<td>The unique ID of the account&#39;s benchmark 2.</td>
-</tr>
-<tr>
-<td>Data.Benchmark2</td>
-<td>string</td>
-<td>The name of the account’s benchmark 2.</td>
-</tr>
-<tr>
-<td>Data.BenchmarkMargin2</td>
-<td>double</td>
-<td>The margin (% p.a.) of the account&#39;s benchmark 2.</td>
-</tr>
-<tr>
 <td>Data.Id</td>
 <td>string</td>
 <td>Account ID.</td>
@@ -2391,6 +2361,36 @@
 <td>Data.Product</td>
 <td>string</td>
 <td>The description of the account product.</td>
+</tr>
+<tr>
+<td>Data.BenchmarkId1</td>
+<td>string</td>
+<td>The unique ID of the account&#39;s benchmark 1.</td>
+</tr>
+<tr>
+<td>Data.Benchmark1</td>
+<td>string</td>
+<td>The name of the account’s benchmark 1.</td>
+</tr>
+<tr>
+<td>Data.BenchmarkMargin1</td>
+<td>double</td>
+<td>The margin (% p.a.) of the account&#39;s benchmark 1.</td>
+</tr>
+<tr>
+<td>Data.BenchmarkId2</td>
+<td>string</td>
+<td>The unique ID of the account&#39;s benchmark 2.</td>
+</tr>
+<tr>
+<td>Data.Benchmark2</td>
+<td>string</td>
+<td>The name of the account’s benchmark 2.</td>
+</tr>
+<tr>
+<td>Data.BenchmarkMargin2</td>
+<td>double</td>
+<td>The margin (% p.a.) of the account&#39;s benchmark 2.</td>
 </tr>
 <tr>
 <td>Metadata</td>
@@ -2815,6 +2815,16 @@
 <td></td>
 </tr>
 <tr>
+<td>Holdings.Security.Code</td>
+<td>string</td>
+<td>Security code of the security.</td>
+</tr>
+<tr>
+<td>Holdings.Security.Exchange</td>
+<td>string</td>
+<td>Exchange code of the security.</td>
+</tr>
+<tr>
 <td>Holdings.Security.AssetClassDescription</td>
 <td>string</td>
 <td>A description of the security’s asset class.</td>
@@ -2838,16 +2848,6 @@
 <td>Holdings.Security.GicsDescription</td>
 <td>string</td>
 <td>The global industry classification of the security.</td>
-</tr>
-<tr>
-<td>Holdings.Security.Code</td>
-<td>string</td>
-<td>Security code of the security.</td>
-</tr>
-<tr>
-<td>Holdings.Security.Exchange</td>
-<td>string</td>
-<td>Exchange code of the security.</td>
 </tr>
 <tr>
 <td>Holdings.Quantity</td>
