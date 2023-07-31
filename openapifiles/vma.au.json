@@ -5969,7 +5969,7 @@
           "type": "number"
         },
         "Unit": {
-          "description": "Fee unit, dollars or percentage.",
+          "description": "Fee unit, dollar or percent.",
           "type": "string"
         }
       },
@@ -10241,7 +10241,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2023.07.26",
+    "version": "2023.07.31",
     "title": "Public API"
   }
 }
