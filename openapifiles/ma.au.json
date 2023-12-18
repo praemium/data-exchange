@@ -1404,6 +1404,11 @@
             "type": "integer"
           },
           {
+            "name": "DateRangeType",
+            "in": "query",
+            "required": false
+          },
+          {
             "name": "AccountId",
             "in": "query",
             "required": true,
@@ -10241,7 +10246,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2023.07.31",
+    "version": "2023.12.18",
     "title": "Public API"
   }
 }
