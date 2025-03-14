@@ -4286,7 +4286,7 @@
           "type": "boolean"
         },
         "Status": {
-          "description": "Active = 0, Draft = 1, Closed = 2, Deleted = 3.",
+          "description": "Unknown = 0, Active = 1, Draft = 2, Closed = 3, Deleted = 4, PendingClosure = 5, AwaitingCashReceipt = 6, ReceiptedNotCleared = 7",
           "$ref": "#/definitions/AccountStatus"
         },
         "RecalcType": {
@@ -5143,7 +5143,8 @@
       "type": "integer",
       "enum": [
         1,
-        2
+        2,
+        3
       ]
     },
     "CashSummary": {
@@ -10269,7 +10270,7 @@
   },
   "swagger": "2.0",
   "info": {
-    "version": "2024.10.08",
+    "version": "2025.03.14",
     "title": "Public API"
   }
 }
