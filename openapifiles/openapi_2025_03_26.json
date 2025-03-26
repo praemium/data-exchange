@@ -365,7 +365,7 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
+            "description": "Page number to return. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -1331,10 +1331,17 @@
             "type": "boolean"
           },
           {
+            "name": "DateRangeType",
+            "in": "query",
+            "required": false,
+            "description": "Filter by: Transactiondate = 0, UpdateDate = 1, TransactionDate or UpdateDate = 2. Defaults to 0",
+            "type": "enum"
+          },
+          {
             "name": "Page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
+            "description": "Page number to return. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -1391,7 +1398,7 @@
             "name": "Page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
+            "description": "Page number to return. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -1406,7 +1413,8 @@
           {
             "name": "DateRangeType",
             "in": "query",
-            "required": false
+            "required": false,
+            "description": "Filter by: Transactiondate = 0, UpdateDate = 1, TransactionDate or UpdateDate = 2. Defaults to 0"
           },
           {
             "name": "AccountId",
@@ -1527,7 +1535,7 @@
             "name": "Page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
+            "description": "Page number to return. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -1628,7 +1636,7 @@
             "name": "username",
             "in": "query",
             "required": true,
-            "description": "User Name.",
+            "description": "User name.",
             "type": "string"
           },
           {
@@ -1860,11 +1868,11 @@
         ]
       }
     },
-    "/api/account/Sma": {
+    "/api/account/sma": {
       "post": {
         "responses": {
           "200": {
-            "description": "Account",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/AccountCreationResponse"
             }
@@ -1884,14 +1892,6 @@
         ],
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SMAAccountRequest"
-            }
-          },
-          {
             "name": "Authorization",
             "in": "header",
             "required": true,
@@ -1911,15 +1911,23 @@
             "required": true,
             "description": "API version of the endpoint.",
             "type": "string"
+          },
+          {
+            "name": "AccountCreate",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SMAAccountRequest"
+            }
           }
         ]
       }
     },
-    "/api/account/SuperSmaAccumulation": {
+    "/api/account/supersmaaccumulation": {
       "post": {
         "responses": {
           "200": {
-            "description": "Account",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/AccountCreationResponse"
             }
@@ -1939,14 +1947,6 @@
         ],
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SuperSmaAccumulationAccountRequest"
-            }
-          },
-          {
             "name": "Authorization",
             "in": "header",
             "required": true,
@@ -1966,15 +1966,23 @@
             "required": true,
             "description": "API version of the endpoint.",
             "type": "string"
+          },
+          {
+            "name": "AccountCreate",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SuperSmaAccumulationAccountRequest"
+            }
           }
         ]
       }
     },
-    "/api/account/SuperSmaPension": {
+    "/api/account/supersmapension": {
       "post": {
         "responses": {
           "200": {
-            "description": "Account",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/AccountCreationResponse"
             }
@@ -1994,14 +2002,6 @@
         ],
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/SuperSmaPensionAccountRequest"
-            }
-          },
-          {
             "name": "Authorization",
             "in": "header",
             "required": true,
@@ -2021,6 +2021,14 @@
             "required": true,
             "description": "API version of the endpoint.",
             "type": "string"
+          },
+          {
+            "name": "AccountCreate",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SuperSmaPensionAccountRequest"
+            }
           }
         ]
       }
@@ -2061,6 +2069,68 @@
             "required": true,
             "description": "Account ID.",
             "type": "string"
+          },
+          {
+            "name": "Recipient",
+            "in": "query",
+            "required": false,
+            "description": "Adviser = 0, Investor = 1 (INTL only)",
+            "type": "enum"
+          },
+          {
+            "name": "FormType",
+            "in": "query",
+            "required": false,
+            "description": "Digital = 0, Paper = 1 (INTL only)",
+            "type": "enum"
+          }
+        ]
+      }
+    },
+    "/api/account/status": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "AccountStatus",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "GetSmaAccountStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
           }
         ]
       }
@@ -2071,7 +2141,10 @@
           "200": {
             "description": "Accounts",
             "schema": {
-              "$ref": "#/definitions/AccountAUIEnumerablePagedResponse"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AccountIEnumerablePagedResponse"
+              }
             }
           }
         },
@@ -2103,7 +2176,7 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "description": "Page number to return. Default to 1. Default to 1.",
+            "description": "Page number to return. Default to 1.",
             "format": "int32",
             "type": "integer"
           },
@@ -2190,6 +2263,61 @@
         ]
       }
     },
+    "/api/account/signature": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "InsertSignature",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "Account ID.",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Signature"
+            },
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/api/accountmodelweightings": {
       "get": {
         "responses": {
@@ -2246,7 +2374,54 @@
             "description": "No Content"
           }
         },
-        "operationId": "ReplaceAUAccountModelWeightings",
+        "operationId": "ReplaceAccountModelWeightings",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "Access token.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-subscription-key",
+            "in": "header",
+            "required": true,
+            "description": "Product subscription key.",
+            "type": "string"
+          },
+          {
+            "name": "x-pps-api-version",
+            "in": "header",
+            "required": true,
+            "description": "API version of the endpoint.",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PutAccountModelWeightingRequest"
+            }
+          }
+        ]
+      }
+    },
+    "/api/beneficiarynominations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "BeneficiaryCreate",
         "consumes": [
           "application/json-patch+json",
           "application/json",
@@ -2259,8 +2434,9 @@
             "in": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/PutAccountModelWeightingRequestAU"
-            }
+              "$ref": "#/definitions/BeneficiaryCreate"
+            },
+            "description": ""
           },
           {
             "name": "Authorization",
@@ -2290,16 +2466,16 @@
       "get": {
         "responses": {
           "200": {
-            "description": "PDS AU",
+            "description": "PDS",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/PdsDetailAU"
+                "$ref": "#/definitions/PdsDetail"
               }
             }
           }
         },
-        "operationId": "GetAUPDS",
+        "operationId": "GetPDS",
         "produces": [
           "text/plain",
           "application/json",
@@ -2382,7 +2558,7 @@
             "name": "pdsId",
             "in": "query",
             "required": false,
-            "description": "PDS ID.",
+            "description": "PDS ID. (AU only)",
             "type": "string"
           },
           {
@@ -2459,7 +2635,7 @@
             }
           }
         },
-        "operationId": "CreateAUDraftApplication",
+        "operationId": "CreateDraftApplication",
         "consumes": [
           "application/json-patch+json",
           "application/json",
@@ -2472,14 +2648,6 @@
           "text/json"
         ],
         "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/DraftApplicationAU"
-            }
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -2500,6 +2668,14 @@
             "required": true,
             "description": "API version of the endpoint.",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/DraftApplication"
+            }
           }
         ]
       }
@@ -2688,7 +2864,7 @@
             "name": "eventId",
             "in": "query",
             "required": true,
-            "description": "EventId as returned by the publisher event endpoint.",
+            "description": "EventId as returned by the report event endpoint.",
             "type": "string"
           },
           {
@@ -2783,7 +2959,7 @@
             "name": "IncludeLoans",
             "in": "query",
             "required": false,
-            "description": "Whether loans should be included in the net account value.",
+            "description": "Whether loans should be included. Default to false.",
             "type": "boolean"
           },
           {
@@ -2948,7 +3124,7 @@
             "name": "ClassificationType",
             "in": "query",
             "required": true,
-            "description": "The classification type of the security valuation. AssetClassLookThrough = 1, AssetClassPrimaryClass = 2, MarketType = 3.",
+            "description": "AssetClassLookThrough = 1, AssetClassPrimaryClass = 2, MarketType = 3.",
             "type": "enum"
           }
         ]
@@ -4255,132 +4431,6 @@
     }
   },
   "definitions": {
-    "AccountAU": {
-      "properties": {
-        "Id": {
-          "description": "Account ID.",
-          "type": "string"
-        },
-        "Code": {
-          "description": "Account code.",
-          "type": "string"
-        },
-        "Name": {
-          "description": "Account name.",
-          "type": "string"
-        },
-        "ConsolidationType": {
-          "description": "None = 78, Portfolio = 80, Transaction = 84, FeeGroup = 85, ShareTrader = 86, SuperFund = 87.",
-          "$ref": "#/definitions/ConsolidationType"
-        },
-        "AccountType": {
-          "description": "Standard = 0, Sma = 1, Smsf = 3, SuperSmaAccumulation = 4, SuperSmaPension = 5.",
-          "$ref": "#/definitions/AccountType"
-        },
-        "EntityType": {
-          "description": "Individual = 0, Trust = 1, Corporate = 2, Partnership = 3, Superfund = 4, Joint = 5.",
-          "$ref": "#/definitions/EntityType"
-        },
-        "IsSma": {
-          "description": "Whether the account is SMA.",
-          "type": "boolean"
-        },
-        "Status": {
-          "description": "Unknown = 0, Active = 1, Draft = 2, Closed = 3, Deleted = 4, PendingClosure = 5, AwaitingCashReceipt = 6, ReceiptedNotCleared = 7",
-          "$ref": "#/definitions/AccountStatus"
-        },
-        "RecalcType": {
-          "description": "None = 0, Manual = 1, Auto = 2.",
-          "$ref": "#/definitions/RecalcType"
-        },
-        "RecalcStatus": {
-          "description": "OK = 0, Error = 1.",
-          "$ref": "#/definitions/RecalcStatus"
-        },
-        "ValuationDate": {
-          "description": "Account valuation date or asat date.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "FirstTransactionDate": {
-          "description": "The first transaction date of the account.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "CreatedDate": {
-          "description": "The created date of the account.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "LastRecalcDate": {
-          "description": "The run-date of the latest account recalculation.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "RecalcRequired": {
-          "description": "Whether this account requires recalculation to accurately calculate all values.",
-          "type": "boolean"
-        },
-        "MarketValue": {
-          "description": "The Valuation of the account on the valuation date.",
-          "format": "double",
-          "type": "number"
-        },
-        "OwnerUserName": {
-          "description": "The account owner's username.",
-          "type": "string"
-        },
-        "Product": {
-          "description": "The description of the account product.",
-          "type": "string"
-        },
-        "BenchmarkId1": {
-          "description": "The unique ID of the account's benchmark 1.",
-          "type": "string"
-        },
-        "Benchmark1": {
-          "description": "The name of the account’s benchmark 1.",
-          "type": "string"
-        },
-        "BenchmarkMargin1": {
-          "description": "The margin (% p.a.) of the account's benchmark 1.",
-          "format": "double",
-          "type": "number"
-        },
-        "BenchmarkId2": {
-          "description": "The unique ID of the account's benchmark 2.",
-          "type": "string"
-        },
-        "Benchmark2": {
-          "description": "The name of the account’s benchmark 2.",
-          "type": "string"
-        },
-        "BenchmarkMargin2": {
-          "description": "The margin (% p.a.) of the account's benchmark 2.",
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "AccountAUIEnumerablePagedResponse": {
-      "properties": {
-        "Data": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/AccountAU"
-          },
-          "type": "array"
-        },
-        "Metadata": {
-          "description": "Metadata including pagination.",
-          "$ref": "#/definitions/Metadata"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "AccountAccessType": {
       "format": "int32",
       "type": "integer",
@@ -4441,16 +4491,16 @@
     "AccountFee": {
       "properties": {
         "Id": {
-          "description": "",
+          "description": "Fee table id, allowed values can fetched from GetPDS endpoint.",
           "minLength": 1,
           "type": "string"
         },
         "FeeType": {
-          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)",
+          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5.",
           "$ref": "#/definitions/FeeType"
         },
         "Value": {
-          "description": "The value of the fee.",
+          "description": "Value of the fee.",
           "format": "double",
           "type": "number"
         },
@@ -4459,7 +4509,7 @@
           "type": "boolean"
         },
         "IncludesTax": {
-          "description": "Does the fee include tax.",
+          "description": "Fee including tax.",
           "type": "boolean"
         }
       },
@@ -4510,7 +4560,7 @@
           "type": "string"
         },
         "Percentage": {
-          "description": "Percentage of model.",
+          "description": "Model percentage.",
           "format": "double",
           "type": "number"
         }
@@ -4531,7 +4581,7 @@
           "type": "number"
         },
         "CashInvestmentMethod": {
-          "description": "Initial investment source. BPay = 1, DirectDebit = 2.",
+          "description": "Initial investment source. BPay = 1, Direct Debit = 2.",
           "$ref": "#/definitions/CashInvestmentMethod"
         }
       },
@@ -4540,20 +4590,6 @@
         "InitialInvestment"
       ],
       "type": "object"
-    },
-    "AccountStatus": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
     },
     "AccountType": {
       "format": "int32",
@@ -4663,14 +4699,41 @@
         3
       ]
     },
-    "ApplicantType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2
-      ]
+    "ApplicantNominatedBeneficiary": {
+      "properties": {
+        "Type": {
+          "description": "Standard = 0, Reversionary Pensioner = 1",
+          "$ref": "#/definitions/BeneficiaryType"
+        },
+        "FullName": {
+          "description": "Full legal name of the beneficiary.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "RelationshipToMember": {
+          "description": "Spouse = 1, Child = 2, Other = 3",
+          "$ref": "#/definitions/ManagedApplicanteneficiaryRelationship"
+        },
+        "Proportion": {
+          "description": "The portion of the benefit that should be paid to the beneficiary. These must add up to 100%.",
+          "format": "double",
+          "type": "number"
+        },
+        "Sex": {
+          "description": "",
+          "$ref": "#/definitions/UserGender"
+        },
+        "DateOfBirth": {
+          "description": "Beneficiary’s date of birth.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FullName",
+        "RelationshipToMember"
+      ],
+      "type": "object"
     },
     "ApplicationAccountStatus": {
       "properties": {
@@ -4890,7 +4953,7 @@
           "type": "string"
         },
         "Usages": {
-          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
+          "description": "This allows you to define a regular cash addition or withdrawal from the account.",
           "items": {
             "type": "string"
           },
@@ -4908,7 +4971,7 @@
     "BankAccountUsage": {
       "properties": {
         "Usage": {
-          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
+          "description": "This allows you to define a regular cash addition or withdrawal from the account.",
           "type": "string"
         },
         "Description": {
@@ -4960,6 +5023,36 @@
       "required": [],
       "type": "object"
     },
+    "BeneficiaryCreate": {
+      "properties": {
+        "Beneficiaries": {
+          "description": "An array of beneficiaries.",
+          "items": {
+            "$ref": "#/definitions/ApplicantNominatedBeneficiary"
+          },
+          "type": "array"
+        },
+        "AccountId": {
+          "description": "AccountID to link the beneficiary to.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "IsBinding": {
+          "description": "Whether the nomination is binding.",
+          "type": "boolean"
+        },
+        "ModifiedUserId": {
+          "description": "The user id for the update. This is normally the adviser Id of the target account for auditing purposes.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "AccountId",
+        "Beneficiaries"
+      ],
+      "type": "object"
+    },
     "BeneficiaryRelationship": {
       "format": "int32",
       "type": "integer",
@@ -4968,6 +5061,16 @@
         2,
         3,
         8
+      ]
+    },
+    "BeneficiaryType": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
       ]
     },
     "BpayInfo": {
@@ -5333,18 +5436,6 @@
       "required": [],
       "type": "object"
     },
-    "ConsolidationType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        78,
-        80,
-        84,
-        85,
-        86,
-        87
-      ]
-    },
     "ContributionType": {
       "format": "int32",
       "type": "integer",
@@ -5384,22 +5475,6 @@
         42,
         43,
         50
-      ]
-    },
-    "CorporateCapacity": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
       ]
     },
     "DailyReturn": {
@@ -5542,178 +5617,6 @@
       "required": [],
       "type": "object"
     },
-    "DraftAccountAU": {
-      "properties": {
-        "Name": {
-          "description": "Account name.",
-          "type": "string"
-        },
-        "RegisteredName": {
-          "description": "Account registered name.",
-          "type": "string"
-        },
-        "ShortName": {
-          "description": "Account short name.",
-          "type": "string"
-        },
-        "AccountType": {
-          "description": "Company = 13, Individual = 14, Trust = 15, SuperSmaAccumulation = 16, SuperSmaPensionAbp = 17, SuperSmaPensionTtr = 18, Joint = 19.",
-          "$ref": "#/definitions/DraftAccountType"
-        },
-        "PdsId": {
-          "description": "PDS ID of account.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "Models": {
-          "description": "Account models.",
-          "items": {
-            "$ref": "#/definitions/DraftModel"
-          },
-          "type": "array"
-        },
-        "Exclusions": {
-          "description": "Account exclusions.",
-          "items": {
-            "$ref": "#/definitions/DraftExclusion"
-          },
-          "type": "array"
-        },
-        "InitialInvestment": {
-          "description": "Initial investment of account.",
-          "$ref": "#/definitions/DraftInitialInvestment"
-        },
-        "OwnerAdviserId": {
-          "description": "Owner adviser ID to create the application under.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "Fees": {
-          "description": "Account fees.",
-          "items": {
-            "$ref": "#/definitions/DraftFeeAU"
-          },
-          "type": "array"
-        },
-        "FeeConsent": {
-          "description": "Account fee consent.",
-          "$ref": "#/definitions/FeeConsent"
-        },
-        "BankAccounts": {
-          "description": "Bank accounts.",
-          "items": {
-            "$ref": "#/definitions/DraftAccountBankAccountAU"
-          },
-          "type": "array"
-        },
-        "TrustOrFundDetails": {
-          "description": "Trust or Fund details.",
-          "$ref": "#/definitions/TrustOrFundDetails"
-        },
-        "PensionPayment": {
-          "description": "Pension Payment.",
-          "$ref": "#/definitions/DraftPensionPayment"
-        },
-        "TargetAllocation": {
-          "description": "Target allocation.",
-          "$ref": "#/definitions/DraftTargetAllocation"
-        },
-        "InitialInvestmentSuper": {
-          "description": "Initial investment for super.",
-          "$ref": "#/definitions/DraftInitialInvestmentSuper"
-        },
-        "ReversionaryBeneficiary": {
-          "description": "Reversionary beneficiary.",
-          "$ref": "#/definitions/NominatedReversionaryBeneficiary"
-        },
-        "Beneficiaries": {
-          "description": "Beneficiaries.",
-          "items": {
-            "$ref": "#/definitions/DraftNominatedBeneficiary"
-          },
-          "type": "array"
-        },
-        "IsBindingNomination": {
-          "description": "If nomination is binding.",
-          "type": "boolean"
-        },
-        "IsEmployerContributing": {
-          "description": "If employer is contributing.",
-          "type": "boolean"
-        },
-        "RegularContribution": {
-          "description": "",
-          "$ref": "#/definitions/DraftRegularTransaction"
-        },
-        "RegularWithdrawal": {
-          "description": "",
-          "$ref": "#/definitions/DraftRegularTransaction"
-        },
-        "AdviserServicesProvided": {
-          "description": "The services provided by the adviser: Review of your account = 1, Strategic superannuation advice = 2, Investment advice on your account = 3, Contribution strategy = 4, Insurance in superannuation strategy = 5, Withdrawal advice (lump sum and/or pension) = 6.",
-          "items": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "type": "array"
-        },
-        "InSpecieTransfers": {
-          "description": "",
-          "items": {
-            "$ref": "#/definitions/DraftInspecieTransfer"
-          },
-          "type": "array"
-        },
-        "AccountInvestorsType": {
-          "description": "",
-          "$ref": "#/definitions/DraftAccountInvestorType"
-        }
-      },
-      "required": [
-        "AccountType",
-        "PdsId"
-      ],
-      "type": "object"
-    },
-    "DraftAccountBankAccountAU": {
-      "properties": {
-        "AccountNumber": {
-          "description": "Bank account number.",
-          "type": "string"
-        },
-        "AccountName": {
-          "description": "Bank account name.",
-          "type": "string"
-        },
-        "Bsb": {
-          "description": "Bank account BSB.",
-          "type": "string"
-        },
-        "Usages": {
-          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "DraftAccountInvestorType": {
-      "properties": {
-        "InvestorsType": {
-          "description": "",
-          "$ref": "#/definitions/InvestorsType"
-        },
-        "WholesaleCertificateDate": {
-          "description": "",
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "DraftAccountType": {
       "format": "int32",
       "type": "integer",
@@ -5743,212 +5646,37 @@
     "DraftAddressAU": {
       "properties": {
         "Street": {
-          "description": "Address line 1.",
+          "description": "",
           "minLength": 1,
           "type": "string"
         },
         "Line2": {
-          "description": "Address line 2.",
+          "description": "",
           "type": "string"
         },
         "Line3": {
-          "description": "Address line 3.",
+          "description": "",
           "type": "string"
         },
         "Postcode": {
-          "description": "Postcode of address.",
+          "description": "",
           "type": "string"
         },
         "Suburb": {
-          "description": "Suburb of address.",
+          "description": "",
           "type": "string"
         },
         "CountryCode": {
-          "description": "Country code of address.",
+          "description": "",
           "type": "string"
         },
         "IsRegistered": {
-          "description": "Whether address is registered.",
+          "description": "",
           "type": "boolean"
         }
       },
       "required": [
         "Street"
-      ],
-      "type": "object"
-    },
-    "DraftApplicantAU": {
-      "properties": {
-        "OwnerAdviserId": {
-          "description": "Owner adviser ID to create the application under.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "ApplicantType": {
-          "description": "Individual = 0, Corporate = 1.",
-          "$ref": "#/definitions/ApplicantType"
-        },
-        "CorporateDetails": {
-          "description": "Used for corporate applicants.",
-          "$ref": "#/definitions/DraftCorporateApplicantAU"
-        },
-        "IndividualDetails": {
-          "description": "Used for individual applicants.",
-          "$ref": "#/definitions/DraftIndividualApplicantAU"
-        }
-      },
-      "required": [
-        "ApplicantType"
-      ],
-      "type": "object"
-    },
-    "DraftApplicantIdentification": {
-      "properties": {
-        "Type": {
-          "description": "Identification type of applicant.",
-          "$ref": "#/definitions/IdentificationType"
-        },
-        "Value": {
-          "description": "Identification value of applicant.",
-          "type": "string"
-        },
-        "MissingReason": {
-          "description": "CountryDoesntIssue = 1, DontNeedOne = 2, Other = 99.",
-          "$ref": "#/definitions/MissingReason"
-        },
-        "MissingReasonText": {
-          "description": "Reason identification of applicant is missing.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "DraftApplicationAU": {
-      "properties": {
-        "AdviserId": {
-          "description": "Adviser ID to create the application under.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "OwnerAdviserId": {
-          "description": "Owner adviser ID to create the application under.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "Applicants": {
-          "description": "Objects containing the applicant data. There must be at least one applicant for the request to succeed. The array of objects may contain a mix of Individual and Corporate applicants.",
-          "items": {
-            "$ref": "#/definitions/DraftApplicantAU"
-          },
-          "type": "array"
-        },
-        "Accounts": {
-          "description": "Array of accounts to be opened with the application. Must be linked to an included applicant.",
-          "items": {
-            "$ref": "#/definitions/DraftAccountAU"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "AdviserId",
-        "Applicants"
-      ],
-      "type": "object"
-    },
-    "DraftContactAU": {
-      "properties": {
-        "Title": {
-          "description": "Title of contact.",
-          "type": "string"
-        },
-        "FirstName": {
-          "description": "First name of contact.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "LastName": {
-          "description": "Last name of contact.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "DateOfBirth": {
-          "description": "Date of birth of contact.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "Email": {
-          "description": "Email of contact.",
-          "type": "string"
-        },
-        "Phone": {
-          "description": "Phone Number of contact.",
-          "type": "string"
-        },
-        "PhoneOther": {
-          "description": "Secondary contact number of contact.",
-          "type": "string"
-        },
-        "IsPoliticallyExposedPerson": {
-          "description": "Whether applicant is politically exposed.",
-          "type": "boolean"
-        },
-        "PepDetails": {
-          "description": "If applicant is politically exposed, details must be supplied.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "FirstName",
-        "LastName"
-      ],
-      "type": "object"
-    },
-    "DraftCorporateApplicantAU": {
-      "properties": {
-        "Name": {
-          "description": "Name of the corporate applicant.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "TradingName": {
-          "description": "Trading name of the corporate applicant.",
-          "type": "string"
-        },
-        "BusinessAddress": {
-          "description": "Business address.",
-          "$ref": "#/definitions/DraftAddressAU"
-        },
-        "MailingAddress": {
-          "description": "Mailing address.",
-          "$ref": "#/definitions/DraftAddressAU"
-        },
-        "Contact": {
-          "description": "Primary contact.",
-          "$ref": "#/definitions/DraftContactAU"
-        },
-        "Signatories": {
-          "description": "Corporate signatories.",
-          "items": {
-            "$ref": "#/definitions/DraftSignatoryAU"
-          },
-          "type": "array"
-        },
-        "Identifications": {
-          "description": "Array of TFN / TIN / ABN / NIN.",
-          "items": {
-            "$ref": "#/definitions/DraftApplicantIdentification"
-          },
-          "type": "array"
-        },
-        "ContactIsSignatory": {
-          "description": "Whether the contact is a signatory on the account.",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "Name"
       ],
       "type": "object"
     },
@@ -5960,129 +5688,6 @@
         }
       },
       "required": [],
-      "type": "object"
-    },
-    "DraftFeeAU": {
-      "properties": {
-        "Id": {
-          "description": "Fee ID.",
-          "type": "string"
-        },
-        "Type": {
-          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)",
-          "$ref": "#/definitions/DraftFeeType"
-        },
-        "Rate": {
-          "description": "Fee rate.",
-          "format": "double",
-          "type": "number"
-        },
-        "Unit": {
-          "description": "Fee unit, dollar or percent.",
-          "type": "string"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "DraftFeeType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    "DraftIndividualApplicantAU": {
-      "properties": {
-        "Title": {
-          "description": "Title: Mr, Mrs, Ms, Miss, Doctor, Lady, Prof and Sir.",
-          "type": "string"
-        },
-        "FirstName": {
-          "description": "First name of individual.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "LastName": {
-          "description": "Last name of individual.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "DateOfBirth": {
-          "description": "Date of birth of the individual.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "Email": {
-          "description": "Email address of the individual.",
-          "type": "string"
-        },
-        "Phone": {
-          "description": "Primary contact number of the individual.",
-          "type": "string"
-        },
-        "PhoneOther": {
-          "description": "Other phone of the individual.",
-          "type": "string"
-        },
-        "IsPoliticallyExposedPerson": {
-          "description": "Whether applicant is politically exposed.",
-          "type": "boolean"
-        },
-        "PepDetails": {
-          "description": "If applicant is politically exposed, details must be supplied.",
-          "type": "string"
-        },
-        "Identifications": {
-          "description": "Tfn = 0, Abn = 1, Tin = 2, Nin = 3.",
-          "items": {
-            "$ref": "#/definitions/DraftApplicantIdentification"
-          },
-          "type": "array"
-        },
-        "TaxResidenceCountryCode": {
-          "description": "Tax residence country code.",
-          "type": "string"
-        },
-        "CitizenshipCountryCode": {
-          "description": "Citizenship country code.",
-          "type": "string"
-        },
-        "BirthCountryCode": {
-          "description": "Birth country code.",
-          "type": "string"
-        },
-        "HomeAddress": {
-          "description": "Home address of individual applicant.",
-          "$ref": "#/definitions/DraftAddressAU"
-        },
-        "MailingAddress": {
-          "description": "Mailing address of individual applicant.",
-          "$ref": "#/definitions/DraftAddressAU"
-        },
-        "Gender": {
-          "description": "Male = 1, Female = 2.",
-          "$ref": "#/definitions/Gender"
-        },
-        "UserName": {
-          "description": "User Name of individual applicant.",
-          "type": "string"
-        },
-        "UserId": {
-          "description": "User ID of individual applicant.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "FirstName",
-        "Gender",
-        "LastName"
-      ],
       "type": "object"
     },
     "DraftInflowsContributionSource": {
@@ -6119,7 +5724,7 @@
           "$ref": "#/definitions/SmaTransferMethodType"
         },
         "Amount": {
-          "description": "Amount.",
+          "description": "AMount.",
           "format": "double",
           "type": "number"
         }
@@ -6161,7 +5766,7 @@
           "type": "number"
         },
         "Method": {
-          "description": "BPay = 0, DirectDebit = 1.",
+          "description": "BPay = 0, DirectDebit = 1, ElectronicTransfer = 2, Cheque = 3.",
           "$ref": "#/definitions/PaymentMethods"
         }
       },
@@ -6195,42 +5800,6 @@
         }
       },
       "required": [],
-      "type": "object"
-    },
-    "DraftInspecieTransfer": {
-      "properties": {
-        "SecurityId": {
-          "description": "",
-          "minLength": 1,
-          "type": "string"
-        },
-        "Quantity": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "OutsideOfRebalanceQuantity": {
-          "description": "",
-          "format": "double",
-          "type": "number"
-        },
-        "HoldingType": {
-          "description": "",
-          "$ref": "#/definitions/HoldingType"
-        },
-        "HinOrSrn": {
-          "description": "",
-          "type": "string"
-        },
-        "Direction": {
-          "description": "",
-          "$ref": "#/definitions/TransferDirection"
-        }
-      },
-      "required": [
-        "HoldingType",
-        "SecurityId"
-      ],
       "type": "object"
     },
     "DraftModel": {
@@ -6306,16 +5875,16 @@
     "DraftRegularTransaction": {
       "properties": {
         "Amount": {
-          "description": "",
+          "description": "Amount of the regular contribution.",
           "format": "double",
           "type": "number"
         },
         "Method": {
-          "description": "",
+          "description": "ElectronicTransfer (not applicable for regular contribution) = 2, Cheque = 3, StandingOrder (for regular contribution only) = 4.",
           "$ref": "#/definitions/PaymentMethods"
         },
         "Frequency": {
-          "description": "",
+          "description": "Monthly = 1, ThreeMonthly = 3, SixMonthly = 6, Annually = 12, Quarterly = 13, HalfYearly = 14.",
           "$ref": "#/definitions/Frequency"
         }
       },
@@ -6340,71 +5909,6 @@
       "required": [
         "Code",
         "Exchange"
-      ],
-      "type": "object"
-    },
-    "DraftSignatoryAU": {
-      "properties": {
-        "Title": {
-          "description": "Title of signatory.",
-          "type": "string"
-        },
-        "FirstName": {
-          "description": "First name of signatory.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "LastName": {
-          "description": "Last name of signatory.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "DateOfBirth": {
-          "description": "Date of birth of signatory.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "Email": {
-          "description": "Email address of signatory.",
-          "type": "string"
-        },
-        "Phone": {
-          "description": "Phone number of signatory.",
-          "type": "string"
-        },
-        "PhoneOther": {
-          "description": "Secondary contact number of signatory.",
-          "type": "string"
-        },
-        "IsPoliticallyExposedPerson": {
-          "description": "Whether applicant is politically exposed.",
-          "type": "boolean"
-        },
-        "PepDetails": {
-          "description": "If applicant is politically exposed, details must be supplied.",
-          "type": "string"
-        },
-        "Capacity": {
-          "description": "Director = 0, SoleDirector = 1, CompanySecretary = 2, Partner = 3, Trustee = 4, SignedUnderSeal = 5, SignificantShareholder = 6, Beneficiary = 7.",
-          "$ref": "#/definitions/CorporateCapacity"
-        },
-        "TaxNumber": {
-          "description": "Tax number of signatory.",
-          "type": "string"
-        },
-        "CountryOfBirth": {
-          "description": "Country of birth of signatory.",
-          "type": "string"
-        },
-        "Address": {
-          "description": "Address of signatory.",
-          "$ref": "#/definitions/DraftAddressAU"
-        }
-      },
-      "required": [
-        "Capacity",
-        "FirstName",
-        "LastName"
       ],
       "type": "object"
     },
@@ -6586,7 +6090,6 @@
           "type": "string"
         }
       },
-      "required": [],
       "type": "object"
     },
     "FeeConsentType": {
@@ -6640,16 +6143,17 @@
     "FixedTermFees": {
       "properties": {
         "TermStartDate": {
-          "description": "",
+          "description": "The start date of this fee consent.",
           "format": "date-time",
           "type": "string"
         },
         "TermEndDate": {
-          "description": "",
+          "description": "The end date of this fee consent.",
           "format": "date-time",
           "type": "string"
         }
       },
+      "required": [],
       "type": "object"
     },
     "Frequency": {
@@ -6868,14 +6372,6 @@
       "required": [],
       "type": "object"
     },
-    "HoldingType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
     "HoldingValuePerModel": {
       "properties": {
         "Security": {
@@ -6947,16 +6443,6 @@
       },
       "required": [],
       "type": "object"
-    },
-    "IdentificationType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3
-      ]
     },
     "IncomeDetail": {
       "properties": {
@@ -7379,25 +6865,6 @@
       "required": [],
       "type": "object"
     },
-    "InvestorsType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
     "LinkAccess": {
       "format": "int32",
       "type": "integer",
@@ -7417,6 +6884,21 @@
         3,
         4,
         5
+      ]
+    },
+    "ManagedApplicanteneficiaryRelationship": {
+      "format": "int32",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
       ]
     },
     "ManagedPensionType": {
@@ -7442,15 +6924,6 @@
       },
       "required": [],
       "type": "object"
-    },
-    "MissingReason": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        1,
-        2,
-        99
-      ]
     },
     "Model": {
       "properties": {
@@ -7680,11 +7153,12 @@
     "OngoingFees": {
       "properties": {
         "AnniversaryDate": {
-          "description": "",
+          "description": "The anniversary date.",
           "format": "date-time",
           "type": "string"
         }
       },
+      "required": [],
       "type": "object"
     },
     "PatchMinimumTradeSizeRequest": {
@@ -7758,7 +7232,6 @@
       ]
     },
     "PaymentMethods": {
-      "required": [],
       "format": "int32",
       "type": "integer",
       "enum": [
@@ -7769,69 +7242,14 @@
         4
       ]
     },
-    "PdsDetailAU": {
-      "properties": {
-        "Id": {
-          "description": "ID of the PDS.",
-          "type": "string"
-        },
-        "Name": {
-          "description": "Name of the PDS.",
-          "type": "string"
-        },
-        "MaxNoOfBankAccounts": {
-          "description": "Maximum number of bank accounts allowed by the PDS.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "IsSuperSma": {
-          "description": "If the PDS is specific to SuperSMA.",
-          "type": "boolean"
-        },
-        "Status": {
-          "description": "Status of the PDS, active = 1, closed = 2.",
-          "type": "string"
-        },
-        "Fees": {
-          "description": "The fees associated to the PDS.",
-          "items": {
-            "$ref": "#/definitions/PdsFee"
-          },
-          "type": "array"
-        },
-        "BankAccountUsages": {
-          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
-          "items": {
-            "$ref": "#/definitions/BankAccountUsage"
-          },
-          "type": "array"
-        },
-        "TaxOptions": {
-          "description": "List of available tax options.",
-          "items": {
-            "$ref": "#/definitions/PdsTaxOption"
-          },
-          "type": "array"
-        },
-        "Models": {
-          "description": "List of available models.",
-          "items": {
-            "$ref": "#/definitions/PdsModelAU"
-          },
-          "type": "array"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
     "PdsFee": {
       "properties": {
         "Id": {
-          "description": "ID of fee",
+          "description": "ID of fee.",
           "type": "string"
         },
         "Type": {
-          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5. (Use this field if ID is not available)",
+          "description": "FeeTable = 0, Contribution = 1, Establishment = 2, Termination = 3, Withdrawal = 4, Ongoing = 5.",
           "$ref": "#/definitions/FeeType"
         },
         "Class": {
@@ -7945,28 +7363,6 @@
           "description": "Fee percent with tax.",
           "format": "double",
           "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "PdsModelAU": {
-      "properties": {
-        "Id": {
-          "description": "ModelId as returned by the Models endpoint.",
-          "type": "string"
-        },
-        "Name": {
-          "description": "Model name.",
-          "type": "string"
-        },
-        "Style": {
-          "description": "Model style.",
-          "type": "string"
-        },
-        "Code": {
-          "description": "Model code.",
-          "type": "string"
         }
       },
       "required": [],
@@ -8304,32 +7700,6 @@
       "required": [],
       "type": "object"
     },
-    "PutAccountModelWeightingRequestAU": {
-      "properties": {
-        "AccountId": {
-          "description": "Account ID.",
-          "minLength": 1,
-          "type": "string"
-        },
-        "AccountModelWeightings": {
-          "description": "Account model weighting.",
-          "items": {
-            "$ref": "#/definitions/AccountModelWeighting"
-          },
-          "type": "array"
-        },
-        "RebalanceType": {
-          "description": "Floating = 0, Fixed = 1.",
-          "$ref": "#/definitions/RebalanceType"
-        }
-      },
-      "required": [
-        "AccountId",
-        "AccountModelWeightings",
-        "RebalanceType"
-      ],
-      "type": "object"
-    },
     "PutEsgCategoryRequest": {
       "properties": {
         "AccountId": {
@@ -8386,7 +7756,7 @@
           "type": "array"
         },
         "CashflowInstructionType": {
-          "description": "Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, All contributions and rollovers (Only allowed for SuperSMA accumulation accounts) = 8, Other withdrawals = 9, Superfund withdrawals and rollovers (Only allowed for SuperSMA accumulation and pension accounts) = 16, Insurance premiums (Only allowed for SuperSMA accumulation and pension accounts) = 17.",
+          "description": "Regular contribution = 1, Regular withdrawal = 2, Income reinvestment = 5, Expenses = 6, All contributions and rollovers = 8 (only allowed for SuperSMA accumulation accounts), Other withdrawals = 9, Superfund withdrawals and rollovers = 16 (Only allowed for SuperSMA accumulation and pension accounts), Insurance premiums = 17 (Only allowed for SuperSMA accumulation and pension accounts).",
           "$ref": "#/definitions/RegularCashflowInstructionType"
         },
         "FrequencyType": {
@@ -8636,23 +8006,6 @@
         1
       ]
     },
-    "RecalcStatus": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "RecalcType": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2
-      ]
-    },
     "ReceivableAndPayable": {
       "properties": {
         "Code": {
@@ -8721,12 +8074,12 @@
           "$ref": "#/definitions/PaymentFrequencyType"
         },
         "CommencementDate": {
-          "description": "The commencement date of the regular transaction.",
+          "description": "Commencement date of the regular transaction.",
           "format": "date-time",
           "type": "string"
         },
         "TerminationDate": {
-          "description": "The termination date of the regular transaction.",
+          "description": "Termination date of the regular transaction.",
           "format": "date-time",
           "type": "string"
         }
@@ -8779,15 +8132,15 @@
           "type": "boolean"
         },
         "FeeConsentType": {
-          "description": "",
+          "description": "Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.",
           "$ref": "#/definitions/FeesType"
         },
         "FixedTermFeesStartEndDate": {
-          "description": "",
+          "description": "The date range of the fixed term fee consent for the account",
           "$ref": "#/definitions/FixedTermFees"
         },
         "OngoingFeesAnniversaryDate": {
-          "description": "",
+          "description": "The Anniversary date of the ongoing fee consent for the account",
           "$ref": "#/definitions/OngoingFees"
         },
         "Fees": {
@@ -8946,7 +8299,7 @@
           "type": "string"
         },
         "IsAllowedByApl": {
-          "description": "Is the security allowed by the approved product list. (Only returned when PdsId is supplied)",
+          "description": "Is the security allowed by the Approved Product List. (Only returned when PdsId is supplied) (AU only)",
           "type": "boolean"
         }
       },
@@ -9007,7 +8360,7 @@
           "type": "number"
         },
         "OutsideOfRebalanceQuantity": {
-          "description": "",
+          "description": "Quantity of the security outside of rebalance.",
           "format": "double",
           "type": "number"
         },
@@ -9020,7 +8373,7 @@
           "type": "string"
         },
         "ParticipantId": {
-          "description": "The participant ID.",
+          "description": "Participant ID.",
           "format": "int32",
           "type": "integer"
         },
@@ -9061,6 +8414,65 @@
         }
       },
       "required": [],
+      "type": "object"
+    },
+    "Signature": {
+      "properties": {
+        "ApplicantId": {
+          "description": "The **ApplicantID** as returned by the Applicants endpoint.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "IpAddress": {
+          "description": "IP address of the computer that applicant submitted signature.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "UserAgent": {
+          "description": "User agent of the browser.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "SignatureDate": {
+          "description": "Datetime in AEST that the signature was captured by your systems.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "AmlReferenceNumber": {
+          "description": "Anti Money Laundering (AML) reference number",
+          "type": "string"
+        },
+        "Location": {
+          "description": "Location of the applicant (GPS coordinates).",
+          "type": "string"
+        },
+        "SignatureBlob": {
+          "description": "Signature blob.",
+          "type": "string"
+        },
+        "PdsRevision": {
+          "description": "Date or revision of PDS.",
+          "type": "string"
+        },
+        "PdsNumber": {
+          "description": "PDS number or name.",
+          "type": "string"
+        },
+        "IsPdsSent": {
+          "description": "A flag indicates whether PDS has been sent.",
+          "type": "boolean"
+        },
+        "AdditionalData": {
+          "description": "Additional information about the signature.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "ApplicantId",
+        "IpAddress",
+        "SignatureDate",
+        "UserAgent"
+      ],
       "type": "object"
     },
     "SmaTransferMethodType": {
@@ -9202,15 +8614,15 @@
           "type": "boolean"
         },
         "FeeConsentType": {
-          "description": "",
+          "description": "Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.",
           "$ref": "#/definitions/FeesType"
         },
         "FixedTermFeesStartEndDate": {
-          "description": "",
+          "description": "The date range of the fixed term fee consent for the account",
           "$ref": "#/definitions/FixedTermFees"
         },
         "OngoingFeesAnniversaryDate": {
-          "description": "",
+          "description": "The Anniversary date of the ongoing fee consent for the account",
           "$ref": "#/definitions/OngoingFees"
         },
         "Fees": {
@@ -9249,7 +8661,7 @@
           "type": "array"
         },
         "ContributionSources": {
-          "description": "Source of fund information.",
+          "description": "SuperSMA source of fund information.",
           "items": {
             "$ref": "#/definitions/InflowsContributionSource"
           },
@@ -9270,7 +8682,7 @@
           "type": "array"
         },
         "EmployerContributions": {
-          "description": "Contains details of other assets that will be used to fund this account.",
+          "description": "Employer contributions.",
           "type": "boolean"
         },
         "IsConsolidationAccount": {
@@ -9278,7 +8690,7 @@
           "type": "boolean"
         },
         "InitialInvestmentAmount": {
-          "description": "The amount of cash that will be invested in the account.",
+          "description": "For SuperSMA Accumulation accounts: the amount of cash that will be invested in the account.",
           "format": "double",
           "type": "number"
         },
@@ -9295,7 +8707,7 @@
           "$ref": "#/definitions/RegularContribution"
         },
         "AdviserServicesProvided": {
-          "description": "",
+          "description": "The services provided by the adviser: Review of your account = 1, Strategic superannuation advice = 2, Investment advice on your account = 3 ,Contribution strategy = 4, Insurance in superannuation strategy = 5, Withdrawal advice (lump sum and/or pension) = 6.",
           "items": {
             "format": "int32",
             "type": "integer"
@@ -9354,15 +8766,15 @@
           "type": "boolean"
         },
         "FeeConsentType": {
-          "description": "",
+          "description": "Ongoing = 1, FixedTerm = 2, NotCharged = 3. For NotCharged only Establishment fee can be provided.",
           "$ref": "#/definitions/FeesType"
         },
         "FixedTermFeesStartEndDate": {
-          "description": "",
+          "description": "The date range of the fixed term fee consent for the account",
           "$ref": "#/definitions/FixedTermFees"
         },
         "OngoingFeesAnniversaryDate": {
-          "description": "",
+          "description": "The Anniversary date of the ongoing fee consent for the account",
           "$ref": "#/definitions/OngoingFees"
         },
         "Fees": {
@@ -9430,11 +8842,11 @@
           "$ref": "#/definitions/InflowsConsolidation"
         },
         "PensionPayments": {
-          "description": "The payment amount paid from the pension account. Only available for SuperSMA Pension.",
+          "description": "Payment amount paid from the pension account. Only available for SuperSMA Pension.",
           "$ref": "#/definitions/RegularTransaction"
         },
         "PaymentType": {
-          "description": "Specified = 0, Minimum = 1, Maximum = 2.",
+          "description": "Whether the pension payment will be (0) a specified amount; (1) the minimum amount; or (2) the maximum amount. Only available for SuperSMA Pension",
           "$ref": "#/definitions/PensionPaymentType"
         },
         "CentrelinkSchedule": {
@@ -9449,7 +8861,7 @@
           "type": "array"
         },
         "AdviserServicesProvided": {
-          "description": "",
+          "description": "The services provided by the adviser: Review of your account = 1, Strategic superannuation advice = 2, Investment advice on your account = 3 ,Contribution strategy = 4, Insurance in superannuation strategy = 5, Withdrawal advice (lump sum and/or pension) = 6.",
           "items": {
             "format": "int32",
             "type": "integer"
@@ -9784,14 +9196,6 @@
       "required": [],
       "type": "object"
     },
-    "TransferDirection": {
-      "format": "int32",
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
     "TransferMethodType": {
       "format": "int32",
       "type": "integer",
@@ -9841,24 +9245,6 @@
           "description": "Gain if Pre-CGT calculation method is selected. (Account currency)",
           "format": "double",
           "type": "number"
-        }
-      },
-      "required": [],
-      "type": "object"
-    },
-    "TrustOrFundDetails": {
-      "properties": {
-        "Name": {
-          "description": "Name of the Trust or Fund.",
-          "type": "string"
-        },
-        "Abn": {
-          "description": "ABN of the Super Fund (rather than the corporate trustee) for corporate applicants.",
-          "type": "string"
-        },
-        "Tfn": {
-          "description": "TFN for an individual trustee.",
-          "type": "string"
         }
       },
       "required": [],
@@ -10244,6 +9630,397 @@
       "required": [],
       "type": "object"
     },
+    "Account": {
+      "properties": {
+        "Id": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "Code": {
+          "description": "Account code.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Account name.",
+          "type": "string"
+        },
+        "ConsolidationType": {
+          "description": "None = 78, Portfolio = 80, Transaction = 84, FeeGroup = 85, ShareTrader = 86, SuperFund = 87.",
+          "type": "enum"
+        },
+        "AccountType": {
+          "description": "Standard = 0, Sma = 1, Smsf = 3, SuperSmaAccumulation = 4, SuperSmaPension = 5.",
+          "type": "enum"
+        },
+        "EntityType": {
+          "description": "Individual = 0, Trust = 1, Corporate = 2, Partnership = 3, Superfund = 4, Joint = 5.",
+          "type": "enum"
+        },
+        "IsSma": {
+          "description": "Whether the account is SMA.",
+          "type": "boolean"
+        },
+        "Status": {
+          "description": "Unknown = 0, Active = 1, Draft = 2, Closed = 3, Deleted = 4, PendingClosure = 5, AwaitingCashReceipt = 6, ReceiptedNotCleared = 7",
+          "type": "enum"
+        },
+        "RecalcType": {
+          "description": "None = 0, Manual = 1, Auto = 2.",
+          "type": "enum"
+        },
+        "RecalcStatus": {
+          "description": "OK = 0, Error = 1.",
+          "type": "enum"
+        },
+        "ValuationDate": {
+          "description": "Account valuation date or asat date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "FirstTransactionDate": {
+          "description": "The first transaction date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreatedDate": {
+          "description": "The created date of the account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "LastRecalcDate": {
+          "description": "The run-date of the latest account recalculation.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "RecalcRequired": {
+          "description": "Whether this account requires recalculation to accurately calculate all values.",
+          "type": "boolean"
+        },
+        "MarketValue": {
+          "description": "The Valuation of the account on the valuation date.",
+          "format": "double",
+          "type": "number"
+        },
+        "OwnerUserName": {
+          "description": "The account owner's username.",
+          "type": "string"
+        },
+        "Product": {
+          "description": "The description of the account product.",
+          "type": "string"
+        },
+        "BenchmarkId1": {
+          "description": "The unique ID of the account's benchmark 1.",
+          "type": "string"
+        },
+        "Benchmark1": {
+          "description": "The name of the account’s benchmark 1.",
+          "type": "string"
+        },
+        "BenchmarkMargin1": {
+          "description": "The margin (% p.a.) of the account’s benchmark 1.",
+          "format": "double",
+          "type": "number"
+        },
+        "BenchmarkId2": {
+          "description": "The unique ID of the account's benchmark 2.",
+          "type": "string"
+        },
+        "Benchmark2": {
+          "description": "The name of the account’s benchmark 2.",
+          "type": "string"
+        },
+        "BenchmarkMargin2": {
+          "description": "The margin (% p.a.) of the account’s benchmark 2.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "AccountIEnumerablePagedResponse": {
+      "properties": {
+        "Data": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/Account"
+          },
+          "type": "array"
+        },
+        "Metadata": {
+          "description": "",
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object"
+    },
+    "PutAccountModelWeightingRequest": {
+      "properties": {
+        "AccountId": {
+          "description": "Account ID.",
+          "type": "string"
+        },
+        "RebalanceType": {
+          "description": "Floating = 0, Fixed = 1.",
+          "$ref": "#/definitions/RebalanceType"
+        },
+        "AccountModelWeightings": {
+          "description": "Account Model Weightings.",
+          "minLength": 1,
+          "items": {
+            "$ref": "#/definitions/AccountModelWeighting"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AccountId",
+        "AccountModelWeightings",
+        "RebalanceType"
+      ],
+      "type": "object"
+    },
+    "DraftAddress": {
+      "properties": {
+        "Addressee": {
+          "description": "Addressee.",
+          "type": "string"
+        },
+        "Street": {
+          "description": "Address line 1.",
+          "type": "string"
+        },
+        "Line2": {
+          "description": "Address line 2.",
+          "type": "string"
+        },
+        "Line3": {
+          "description": "Address line 3.",
+          "type": "string"
+        },
+        "Postcode": {
+          "description": "Postcode of address.",
+          "type": "string"
+        },
+        "Suburb": {
+          "description": "Suburb of address.",
+          "type": "string"
+        },
+        "CountryCode": {
+          "description": "Country code of address.",
+          "type": "string"
+        },
+        "IsRegistered": {
+          "description": "Whether address is registered.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "DraftAccountBankAccount": {
+      "properties": {
+        "Bsb": {
+          "description": "Bank account BSB. (AU only)",
+          "type": "string"
+        },
+        "SortCode": {
+          "description": "Bank account sort code. (INTL only)",
+          "type": "string"
+        },
+        "AccountNumber": {
+          "description": "Bank account number.",
+          "type": "string"
+        },
+        "AccountName": {
+          "description": "Bank account name.",
+          "type": "string"
+        },
+        "Usages": {
+          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA. (AU only)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "Bic": {
+          "description": "Bank identifier code (BIC) of your banking institution. (INTL only)",
+          "type": "string"
+        },
+        "Iban": {
+          "description": "International bank account number (IBAN) of your banking institution. (INTL only)",
+          "type": "string"
+        },
+        "RoutingNumber": {
+          "description": "Routing number of banking institution. (INTL only)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DraftAccount": {
+      "properties": {
+        "Name": {
+          "description": "Account name.",
+          "type": "string"
+        },
+        "RegisteredName": {
+          "description": "Account registered name.",
+          "type": "string"
+        },
+        "ShortName": {
+          "description": "Account short name.",
+          "type": "string"
+        },
+        "AccountType": {
+          "description": "AU account types: Company = 13, Individual = 14, Trust = 15, SuperSmaAccumulation = 16, SuperSmaPensionAbp = 17, SuperSmaPensionTtr = 18, Joint = 19 <br /> INTL account types: Isa = 0, Gia = 1, OffshoreBond = 2, Qrops = 3, Rats = 4, Sipp = 5, PraemiumRetirementAccount = 6, Pera = 7, PersonalPension = 8, GroupSipp = 9, Ssas = 10, Jisa = 11, OnshoreBond = 12.",
+          "$ref": "#/definitions/DraftAccountType"
+        },
+        "PdsId": {
+          "description": "PDS ID of account.",
+          "type": "string"
+        },
+        "FeeConsent": {
+          "description": "Account fee consent.",
+          "$ref": "#/definitions/FeeConsent"
+        },
+        "Models": {
+          "description": "Account models.",
+          "items": {
+            "$ref": "#/definitions/DraftModel"
+          },
+          "type": "array"
+        },
+        "BankAccounts": {
+          "description": "Bank accounts.",
+          "items": {
+            "$ref": "#/definitions/DraftAccountBankAccount"
+          },
+          "type": "array"
+        },
+        "Exclusions": {
+          "description": "Account exclusions.",
+          "items": {
+            "$ref": "#/definitions/DraftExclusion"
+          },
+          "type": "array"
+        },
+        "InitialInvestment": {
+          "description": "Initial investment of account.",
+          "$ref": "#/definitions/DraftInitialInvestment"
+        },
+        "PensionPayment": {
+          "description": "Pension Payment.",
+          "$ref": "#/definitions/DraftPensionPayment"
+        },
+        "TargetAllocation": {
+          "description": "Target allocation.",
+          "$ref": "#/definitions/DraftTargetAllocation"
+        },
+        "InitialInvestmentSuper": {
+          "description": "Initial investment for super.",
+          "$ref": "#/definitions/DraftInitialInvestmentSuper"
+        },
+        "ReversionaryBeneficiary": {
+          "description": "Reversionary beneficiary.",
+          "$ref": "#/definitions/NominatedReversionaryBeneficiary"
+        },
+        "Beneficiaries": {
+          "description": "Beneficiaries.",
+          "items": {
+            "$ref": "#/definitions/DraftNominatedBeneficiary"
+          },
+          "type": "array"
+        },
+        "IsBindingNomination": {
+          "description": "If nomination is binding.",
+          "type": "boolean"
+        },
+        "IsEmployerContributing": {
+          "description": "If employer is contributing.",
+          "type": "boolean"
+        },
+        "SourceOfFunds": {
+          "description": "Contribution source.",
+          "type": "string"
+        },
+        "OngoingFeeAmount": {
+          "description": "Ongoing fee amount.",
+          "format": "double",
+          "type": "number"
+        },
+        "ReinvestIncome": {
+          "description": "Reinvest income.",
+          "type": "boolean"
+        },
+        "ProductId": {
+          "description": "Product ID.",
+          "type": "string"
+        },
+        "ProductProviderReference": {
+          "description": "Product provider reference.",
+          "type": "string"
+        },
+        "RegularContribution": {
+          "description": "Regular cash contributions to the account.",
+          "$ref": "#/definitions/DraftRegularTransaction"
+        },
+        "RegularWithdrawal": {
+          "description": "Regular cash withdrawals from the account.",
+          "$ref": "#/definitions/DraftRegularTransaction"
+        },
+        "OwnerAdviserId": {
+          "description": "Owner adviser ID to create the application under.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "CurrencyCode": {
+          "description": "The currency code of the account.",
+          "type": "string"
+        },
+        "AdviserReference": {
+          "description": "Adviser reference..",
+          "type": "string"
+        },
+        "IsTradeFreezeOn": {
+          "description": "If a trade freeze is on.",
+          "type": "boolean"
+        },
+        "TradeFreezeNote": {
+          "description": "Trade freeze note.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "AccountType"
+      ],
+      "type": "object"
+    },
+    "DraftApplication": {
+      "properties": {
+        "AdviserId": {
+          "description": "Adviser ID to create the application under.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "OwnerAdviserId": {
+          "description": "Owner adviser ID to create the application under.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "Accounts": {
+          "description": "Array of accounts to be opened with the application. Must be linked to an included applicant.",
+          "items": {
+            "$ref": "#/definitions/DraftAccount"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "AdviserId",
+        "Applicants"
+      ],
+      "type": "object"
+    },
     "TokenResponse": {
       "properties": {
         "token_type": {
@@ -10263,6 +10040,112 @@
         "access_token": {
           "description": "Access token that can be used to access public API endpoints.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PdsModel": {
+      "properties": {
+        "Id": {
+          "description": "ModelId as returned by the Models endpoint.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Model name.",
+          "type": "string"
+        },
+        "Style": {
+          "description": "Model style.",
+          "type": "string"
+        },
+        "Code": {
+          "description": "Model code.",
+          "type": "string"
+        },
+        "ManagerName": {
+          "description": "Model Manager name.",
+          "type": "string"
+        },
+        "SingleAssetModelIsin": {
+          "description": "ISIN of security. (Single asset model only) (INTL only)",
+          "type": "string"
+        },
+        "SingleAssetModelCurrencyCode": {
+          "description": "Currency code of security. (Single asset model only) (INTL only)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PdsDetail": {
+      "properties": {
+        "Id": {
+          "description": "ID of the PDS.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Name of the PDS.",
+          "type": "string"
+        },
+        "MaxNoOfBankAccounts": {
+          "description": "Maximum number of bank accounts allowed by the PDS.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsSuperSma": {
+          "description": "If the PDS is specific to SuperSMA.",
+          "type": "boolean"
+        },
+        "Status": {
+          "description": "Status of the PDS, active = 1, closed = 2.",
+          "type": "string"
+        },
+        "ServiceId": {
+          "description": "Service ID.",
+          "type": "string"
+        },
+        "ServiceName": {
+          "description": "Service Name.",
+          "type": "string"
+        },
+        "CurrencyCode": {
+          "description": "Currency code for the PDS.",
+          "type": "string"
+        },
+        "Fees": {
+          "description": "Fees associated to the PDS.",
+          "items": {
+            "$ref": "#/definitions/PdsFee"
+          },
+          "type": "array"
+        },
+        "BankAccountUsages": {
+          "description": "This allows you to define a regular cash addition or withdrawal from the SMA or SuperSMA.",
+          "items": {
+            "$ref": "#/definitions/BankAccountUsage"
+          },
+          "type": "array"
+        },
+        "TaxOptions": {
+          "description": "Tax options for the PDS.",
+          "items": {
+            "$ref": "#/definitions/PdsTaxOption"
+          },
+          "type": "array"
+        },
+        "Models": {
+          "description": "List of available models.",
+          "items": {
+            "$ref": "#/definitions/PdsModel"
+          },
+          "type": "array"
+        },
+        "AvailableAccountTypes": {
+          "description": "Standard = 0, OffshoreBond = 10, Sipp = 11, Qrops = 12, RtsRats = 13, Pra = 14, Isa = 15, Gia = 16, Pera = 17, PersonalPension = 18, GroupSipp = 19, Jisa = 26, OnshoreBond = 27, OffshoreBondPersonalised = 28.",
+          "items": {
+            "$ref": "#/definitions/AccountType"
+          },
+          "type": "array"
         }
       },
       "type": "object"
